@@ -142,26 +142,10 @@
             color: var(--text-sub);
             font-size: 0.95rem;
             text-align: left;
-            margin-bottom: 25px;
             background: var(--card-inner-bg);
             padding: 15px;
             border-radius: 8px;
         }
-
-        .btn-primary {
-            display: inline-block;
-            width: 100%;
-            background-color: var(--accent-mint);
-            color: #0d1a14;
-            text-align: center;
-            padding: 12px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: bold;
-            margin-bottom: 10px;
-            transition: all 0.2s;
-        }
-        .btn-primary:hover { background-color: #74c69d; }
 
         /* 간단한 이력창 스타일 */
         .resume-section {
@@ -257,7 +241,7 @@
             border: 1px solid #1f3d2f;
         }
 
-        /* 💡 풀스크린 오버레이 기본 레이아웃 설정 */
+        /* 풀스크린 오버레이 기본 레이아웃 설정 */
         .full-page-overlay {
             position: fixed;
             top: 0;
@@ -270,7 +254,7 @@
             align-items: center;
             justify-content: center;
             opacity: 0;
-            pointer-events: none; /* 평소에는 클릭 및 커서 흐름 방해 금지 */
+            pointer-events: none;
             transition: opacity 0.2s ease-in-out;
             padding: 20px;
         }
@@ -280,14 +264,14 @@
             opacity: 1;
         }
 
-        /* 💡 [요청사항 반영] 한 페이지에 거의 꽉 차도록 확장된 크기 설정 */
+        /* 꽉 차는 모달 대화면 레이아웃 설정 */
         .modal-content {
             background-color: var(--card-bg);
             border: 2px solid var(--accent-mint);
             border-radius: 16px;
-            width: 95%;           /* 화면 가로폭 95% 차지 */
-            max-width: 1400px;     /* 최대 가공폭 한계 확장 */
-            height: 88vh;          /* 세로 높이 화면의 88% 차지 (꽉 찬 느낌) */
+            width: 95%;
+            max-width: 1400px;
+            height: 88vh;
             padding: 50px;
             overflow-y: auto;
             position: relative;
@@ -313,7 +297,7 @@
         }
 
         .modal-body h2 {
-            font-size: 2.5rem; /* 타이틀 크기도 대화면에 맞춰 확대 */
+            font-size: 2.5rem;
             color: var(--text-main);
             margin-bottom: 20px;
             border-bottom: 2px solid var(--card-inner-bg);
@@ -328,7 +312,7 @@
         }
 
         .modal-body .modal-text {
-            font-size: 1.2rem; /* 가독성을 위해 본문 텍스트 크기 확대 */
+            font-size: 1.2rem;
             color: #cbd5e1;
             line-height: 1.9;
         }
@@ -348,14 +332,20 @@
 
 <div class="container">
 
-    <header>
+    <header {
+        margin-bottom: 40px;
+        border-bottom: 1px solid #1b3528;
+        padding-bottom: 20px;
+    }>
         <h1>Hwanggg <span>| Portfolio & Projects</span></h1>
     </header>
 
     <div class="main-layout">
         
+        <!-- 왼쪽 사이드바 영역 -->
         <div class="sidebar">
             
+            <!-- 1. 프로필 카드 (HTML 태그 구조 완벽 복구 및 깃허브 링크 제거 완료) -->
             <div class="card profile-card">
                 <div class="card-title">Profile 👤</div>
                 <div class="profile-img-container">
@@ -365,6 +355,10 @@
                 <div class="profile-sub">Information Security & Infrastructure</div>
                 <div class="profile-desc">
                     단순한 IT 관리가 아닌, 조직의 환경에 맞는 IT 거버넌스를 설계합니다.
+                </div>
+            </div> <!-- 👈 닫히지 않고 탈출했던 프로필 div 카드를 올바른 위치에서 정상 폐쇄했습니다. -->
+
+            <!-- 2. 간단한 이력 카드 (이제 프로필 밖으로 완전히 독립되었습니다) -->
             <div class="card expandable" data-target="resume-modal">
                 <div class="card-title">Resume 📄</div>
                 
@@ -389,6 +383,7 @@
 
         </div>
 
+        <!-- 오른쪽 메인 프로젝트 영역 -->
         <div class="card">
             <div class="card-title">Projects 🌲</div>
             
@@ -444,6 +439,8 @@
     </footer>
 </div>
 
+
+<!-- ----------------- 대화면 팝업/모달 레이어 데이터 파트 ----------------- -->
 
 <div class="full-page-overlay" id="resume-modal">
     <div class="modal-content">
@@ -521,18 +518,19 @@
 </div>
 
 
+<!-- 마우스 정밀 트래킹 스크립트 -->
 <script>
     document.querySelectorAll('.expandable').forEach(card => {
         const targetId = card.getAttribute('data-target');
         const overlay = document.getElementById(targetId);
 
         if (overlay) {
-            // 1. 마우스가 카드를 정확하게 터치했을 때만 활성화
+            // 마우스가 카드를 정확하게 터치했을 때 활성화
             card.addEventListener('mouseenter', () => {
                 overlay.classList.add('active');
             });
 
-            // 2. 마우스 커서가 해당 카드 영역 바깥으로 1픽셀이라도 나가면 즉시 비활성화 (오류 해결 핵심)
+            // 마우스 커서가 해당 카드 사각형 경계를 넘어가는 즉시 비활성화
             card.addEventListener('mouseleave', () => {
                 overlay.classList.remove('active');
             });
