@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hwanggg | Portfolio & Projects</title>
-    <!-- 프리텐다드 폰트 적용 -->
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
     <style>
         :root {
@@ -54,7 +53,7 @@
             color: var(--accent-mint);
         }
 
-        /* 구조 변경: 왼쪽 사이드바(프로필+이력), 오른쪽 메인(프로젝트) 2단 구성 */
+        /* 2단 구조 구성 */
         .main-layout {
             display: grid;
             grid-template-columns: 380px 1fr;
@@ -203,11 +202,6 @@
             }
         }
 
-        /* 마우스 부모 래퍼 설정 (깜빡임 원천 차단용 감지 구역) */
-        .hover-wrapper {
-            position: relative;
-        }
-
         .expandable {
             background-color: var(--card-inner-bg);
             border-radius: 8px;
@@ -263,7 +257,7 @@
             border: 1px solid #1f3d2f;
         }
 
-        /* 💡 수정된 풀스크린 오버레이 디자인 (깜빡임 완벽 방지) */
+        /* 💡 풀스크린 오버레이 기본 레이아웃 설정 */
         .full-page-overlay {
             position: fixed;
             top: 0;
@@ -276,66 +270,67 @@
             align-items: center;
             justify-content: center;
             opacity: 0;
-            pointer-events: none; /* 핵심: 오버레이가 마우스 이벤트를 뺏지 못하게 차단 */
-            transition: opacity 0.25s ease;
+            pointer-events: none; /* 평소에는 클릭 및 커서 흐름 방해 금지 */
+            transition: opacity 0.2s ease-in-out;
             padding: 20px;
         }
 
-        /* 💡 부모 래퍼에 마우스가 올라가면 하위 모달을 노출 */
-        .hover-wrapper:hover .full-page-overlay {
+        /* JS 제어용 액티브 활성화 클래스 */
+        .full-page-overlay.active {
             opacity: 1;
-            pointer-events: auto; /* 열렸을 때만 내부 텍스트나 드래그가 작동하도록 복구 */
         }
 
+        /* 💡 [요청사항 반영] 한 페이지에 거의 꽉 차도록 확장된 크기 설정 */
         .modal-content {
             background-color: var(--card-bg);
             border: 2px solid var(--accent-mint);
             border-radius: 16px;
-            width: 100%;
-            max-width: 800px;
-            max-height: 85vh;
-            padding: 40px;
+            width: 95%;           /* 화면 가로폭 95% 차지 */
+            max-width: 1400px;     /* 최대 가공폭 한계 확장 */
+            height: 88vh;          /* 세로 높이 화면의 88% 차지 (꽉 찬 느낌) */
+            padding: 50px;
             overflow-y: auto;
             position: relative;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            transform: scale(0.95);
-            transition: transform 0.25s ease;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+            transform: scale(0.97);
+            transition: transform 0.2s ease-in-out;
         }
 
-        .hover-wrapper:hover .modal-content {
+        .full-page-overlay.active .modal-content {
             transform: scale(1);
         }
 
         .close-hint {
             position: absolute;
-            top: 20px;
-            right: 20px;
+            top: 25px;
+            right: 30px;
             background: var(--card-inner-bg);
             border: 1px solid #254a37;
             color: var(--text-sub);
-            padding: 6px 12px;
+            padding: 6px 14px;
             border-radius: 20px;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
         }
 
         .modal-body h2 {
-            font-size: 2rem;
+            font-size: 2.5rem; /* 타이틀 크기도 대화면에 맞춰 확대 */
             color: var(--text-main);
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             border-bottom: 2px solid var(--card-inner-bg);
-            padding-bottom: 10px;
+            padding-bottom: 15px;
         }
 
         .modal-body .modal-meta {
             color: var(--accent-mint);
+            font-size: 1.2rem;
             font-weight: bold;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
         }
 
         .modal-body .modal-text {
-            font-size: 1.1rem;
+            font-size: 1.2rem; /* 가독성을 위해 본문 텍스트 크기 확대 */
             color: #cbd5e1;
-            line-height: 1.8;
+            line-height: 1.9;
         }
 
         /* 하단 푸터 */
@@ -353,18 +348,14 @@
 
 <div class="container">
 
-    <!-- 상단 헤더 타이틀 -->
     <header>
         <h1>Hwanggg <span>| Portfolio & Projects</span></h1>
     </header>
 
-    <!-- 메인 레이아웃 구성 -->
     <div class="main-layout">
         
-        <!-- 왼쪽 사이드바 영역 (프로필 + 간단이력) -->
         <div class="sidebar">
             
-            <!-- 1. 프로필 카드 -->
             <div class="card profile-card">
                 <div class="card-title">Profile 👤</div>
                 <div class="profile-img-container">
@@ -378,160 +369,72 @@
                 <a href="https://github.com/Hwang-junmyeong" target="_blank" class="btn-primary">GitHub 방문하기</a>
             </div>
 
-            <!-- 2. 간단한 이력칸 (감싸는 래퍼 추가) -->
-            <div class="hover-wrapper">
-                <div class="card expandable">
-                    <div class="card-title">Resume 📄</div>
-                    
-                    <div class="resume-section">
-                        <h4>Core Skills</h4>
-                        <ul class="resume-list">
-                            <li>IT Infrastructure & Network Management</li>
-                            <li>Information Security Engineering</li>
-                            <li>Process Automation (Bash, Python)</li>
-                        </ul>
-                    </div>
-
-                    <div class="resume-section" style="margin-top: 15px;">
-                        <h4>Experience</h4>
-                        <ul class="resume-list">
-                            <li>IT Infrastructure Engineer (Startup)</li>
-                            <li>Sharp Aviation K (IT Infrastructure & Support)</li>
-                        </ul>
-                    </div>
-                    <p style="font-size: 0.8rem; color: var(--accent-mint); text-align: right; margin-top: 15px;">✨ 마우스 오버 시 전체 이력 보기</p>
+            <div class="card expandable" data-target="resume-modal">
+                <div class="card-title">Resume 📄</div>
+                
+                <div class="resume-section">
+                    <h4>Core Skills</h4>
+                    <ul class="resume-list">
+                        <li>IT Infrastructure & Network Management</li>
+                        <li>Information Security Engineering</li>
+                        <li>Process Automation (Bash, Python)</li>
+                    </ul>
                 </div>
 
-                <!-- 이력서 상세 팝업 (부모 내부에 위치하여 마우스 인식 연속성 유지) -->
-                <div class="full-page-overlay">
-                    <div class="modal-content">
-                        <div class="close-hint">마우스를 떼면 닫힙니다</div>
-                        <div class="modal-body">
-                            <h2>Hwang Jun-myeong | Resume</h2>
-                            <p class="modal-meta">IT Infrastructure & Security Specialist</p>
-                            <div class="modal-text">
-                                <p><strong>[보유 기술 요약]</strong></p>
-                                <p style="margin-bottom: 15px;">• 인프라 설계, 시스템 보안성 검토 및 최적의 인프라 모니터링 환경을 독자적으로 빌드하고 유지 관리할 수 있는 역량을 보유하고 있습니다.</p>
-                                <p><strong>[주요 근무 이력]</strong></p>
-                                <p>• <strong>IT Startup</strong> — IT 인프라 아키텍처 및 지원 환경 독자 설계 및 운영 총괄</p>
-                                <p style="margin-bottom: 15px;">• <strong>Sharp Aviation K</strong> — 인프라 정기 유지보수, 시스템 운영 전반 및 장애 기술 지원 수행</p>
-                                <p><strong>[핵심 기술 세트]</strong></p>
-                                <p>• Infrastructure Setup, Network Engineering, Linux System Hardening, Automation Scripting (Bash/Python), Security Log Analysis</p>
-                            </div>
-                        </div>
-                    </div>
+                <div class="resume-section" style="margin-top: 15px;">
+                    <h4>Experience</h4>
+                    <ul class="resume-list">
+                        <li>IT Infrastructure Engineer (Startup)</li>
+                        <li>Sharp Aviation K (IT Infrastructure & Support)</li>
+                    </ul>
                 </div>
+                <p style="font-size: 0.8rem; color: var(--accent-mint); text-align: right; margin-top: 15px;">✨ 마우스 오버 시 전체 이력 보기</p>
             </div>
 
         </div>
 
-        <!-- 오른쪽 메인 영역: 진행 프로젝트 망 -->
         <div class="card">
             <div class="card-title">진행 프로젝트 🌲</div>
             
             <div class="project-grid">
                 
-                <!-- 프로젝트 1 -->
-                <div class="hover-wrapper">
-                    <div class="project-item expandable">
-                        <div class="project-header-img">🔒</div>
-                        <div class="project-item-title">Forest Test System</div>
-                        <div class="project-item-desc">사내망 인프라 침입 방어 및 탐지 아키텍처 인프라 설계 프로젝트입니다.</div>
-                        <div class="project-tags">
-                            <span class="tag">Infra Security</span>
-                            <span class="tag">Architecture</span>
-                        </div>
-                    </div>
-                    <div class="full-page-overlay">
-                        <div class="modal-content">
-                            <div class="close-hint">마우스를 떼면 닫힙니다</div>
-                            <div class="modal-body">
-                                <h2>Forest Test System</h2>
-                                <p class="modal-meta">Infra Security & Enterprise Architecture</p>
-                                <div class="modal-text">
-                                    <p><strong>상세 프로젝트 명세:</strong></p>
-                                    <p>기업 내부 자산 보호를 위한 인프라 방어선 아키텍처 설계입니다. 방화벽 규칙 자동화 및 침입 탐지 시스템(IDS)을 연동하여, 외부 트래픽 노이즈 필터링 및 악성 행위의 가시성을 확보하는 안정적인 보안 환경을 제공합니다.</p>
-                                </div>
-                            </div>
-                        </div>
+                <div class="project-item expandable" data-target="project1-modal">
+                    <div class="project-header-img">🔒</div>
+                    <div class="project-item-title">Forest Test System</div>
+                    <div class="project-item-desc">사내망 인프라 침입 방어 및 탐지 아키텍처 인프라 설계 프로젝트입니다.</div>
+                    <div class="project-tags">
+                        <span class="tag">Infra Security</span>
+                        <span class="tag">Architecture</span>
                     </div>
                 </div>
 
-                <!-- 프로젝트 2 -->
-                <div class="hover-wrapper">
-                    <div class="project-item expandable">
-                        <div class="project-header-img">🌿</div>
-                        <div class="project-item-title">Nature Design Infra</div>
-                        <div class="project-item-desc">고가용성 클라우드 솔루션 기반 친환경 데이터 전력 최적화 자동화 프로젝트입니다.</div>
-                        <div class="project-tags">
-                            <span class="tag">Cloud Architecture</span>
-                            <span class="tag">Automation</span>
-                        </div>
-                    </div>
-                    <div class="full-page-overlay">
-                        <div class="modal-content">
-                            <div class="close-hint">마우스를 떼면 닫힙니다</div>
-                            <div class="modal-body">
-                                <h2>Nature Design Infra</h2>
-                                <p class="modal-meta">High-Availability Cloud & Power Optimization</p>
-                                <div class="modal-text">
-                                    <p><strong>상세 프로젝트 명세:</strong></p>
-                                    <p>시스템 부하량에 맞춘 유연한 전력 소모 가상화 엔진 설계 프로젝트입니다. 고가용성(High-Availability)을 보장하는 구조 내에서 불필요한 데이터 서버 소모 리소스를 예측·감축하여 중단 없는 탄력적 친환경 인프라 운용을 실현합니다.</p>
-                                </div>
-                            </div>
-                        </div>
+                <div class="project-item expandable" data-target="project2-modal">
+                    <div class="project-header-img">🌿</div>
+                    <div class="project-item-title">Nature Design Infra</div>
+                    <div class="project-item-desc">고가용성 클라우드 솔루션 기반 친환경 데이터 전력 최적화 자동화 프로젝트입니다.</div>
+                    <div class="project-tags">
+                        <span class="tag">Cloud Architecture</span>
+                        <span class="tag">Automation</span>
                     </div>
                 </div>
 
-                <!-- 프로젝트 3 -->
-                <div class="hover-wrapper">
-                    <div class="project-item expandable">
-                        <div class="project-header-img">⚙️</div>
-                        <div class="project-item-title">Stable Editor</div>
-                        <div class="project-item-desc">리눅스 서버 환경의 보안 취약점 진단 자동화 스크립트 및 마이그레이션 도구 개발입니다.</div>
-                        <div class="project-tags">
-                            <span class="tag">Linux</span>
-                            <span class="tag">Bash Automation</span>
-                        </div>
-                    </div>
-                    <div class="full-page-overlay">
-                        <div class="modal-content">
-                            <div class="close-hint">마우스를 떼면 닫힙니다</div>
-                            <div class="modal-body">
-                                <h2>Stable Editor</h2>
-                                <p class="modal-meta">Linux Vulnerability Scanner & Migration Scripts</p>
-                                <div class="modal-text">
-                                    <p><strong>상세 프로젝트 명세:</strong></p>
-                                    <p>운영체제 전반의 보안 가이드라인 준수 여부를 단 몇 초 만에 자동으로 분석하는 쉘 스크립트 도구입니다. 취약점을 감지한 뒤 리눅스 서버 커널 옵션을 마이그레이션하고 보완 조치까지 원스톱으로 처리하는 자동화 엔진입니다.</p>
-                                </div>
-                            </div>
-                        </div>
+                <div class="project-item expandable" data-target="project3-modal">
+                    <div class="project-header-img">⚙️</div>
+                    <div class="project-item-title">Stable Editor</div>
+                    <div class="project-item-desc">리눅스 서버 환경의 보안 취약점 진단 자동화 스크립트 및 마이그레이션 도구 개발입니다.</div>
+                    <div class="project-tags">
+                        <span class="tag">Linux</span>
+                        <span class="tag">Bash Automation</span>
                     </div>
                 </div>
 
-                <!-- 프로젝트 4 -->
-                <div class="hover-wrapper">
-                    <div class="project-item expandable">
-                        <div class="project-header-img">📈</div>
-                        <div class="project-item-title">Ceaino Design Dashboard</div>
-                        <div class="project-item-desc">통합 네트워크 및 시스템 보안 관제 대시보드 인터페이스 연동 프로젝트입니다.</div>
-                        <div class="project-tags">
-                            <span class="tag">Security Monitoring</span>
-                            <span class="tag">UI Metric</span>
-                        </div>
-                    </div>
-                    <div class="full-page-overlay">
-                        <div class="modal-content">
-                            <div class="close-hint">마우스를 떼면 닫힙니다</div>
-                            <div class="modal-body">
-                                <h2>Ceaino Design Dashboard</h2>
-                                <p class="modal-meta">Real-time Traffic Monitoring & Interface</p>
-                                <div class="modal-text">
-                                    <p><strong>상세 프로젝트 명세:</strong></p>
-                                    <p>전체 서브넷망의 실시간 유입 트래픽과 하드웨어 노드 리소스를 메트릭 수치로 통합 가시화한 UI 대시보드 연동 프로젝트입니다. 장애 발생 가능 지점을 즉각 모니터링하여 임계치 초과 시 조기 대응이 가능하도록 설계했습니다.</p>
-                                </div>
-                            </div>
-                        </div>
+                <div class="project-item expandable" data-target="project4-modal">
+                    <div class="project-header-img">📈</div>
+                    <div class="project-item-title">Ceaino Design Dashboard</div>
+                    <div class="project-item-desc">통합 네트워크 및 시스템 보안 관제 대시보드 인터페이스 연동 프로젝트입니다.</div>
+                    <div class="project-tags">
+                        <span class="tag">Security Monitoring</span>
+                        <span class="tag">UI Metric</span>
                     </div>
                 </div>
 
@@ -545,6 +448,101 @@
     </footer>
 </div>
 
-<!-- 불안정한 자바스크립트는 전부 제거하고 순수 CSS 호버 메커니즘으로 교체되었습니다. -->
+
+<div class="full-page-overlay" id="resume-modal">
+    <div class="modal-content">
+        <div class="close-hint">카드를 벗어나면 닫힙니다</div>
+        <div class="modal-body">
+            <h2>Hwang Jun-myeong | Resume</h2>
+            <p class="modal-meta">IT Infrastructure & Security Specialist</p>
+            <div class="modal-text">
+                <p><strong>[보유 기술 요약]</strong></p>
+                <p style="margin-bottom: 20px;">• 인프라 설계, 시스템 보안성 검토 및 최적의 인프라 모니터링 환경을 독자적으로 빌드하고 유지 관리할 수 있는 역량을 보유하고 있습니다.</p>
+                <p><strong>[주요 근무 이력]</strong></p>
+                <p>• <strong>IT Startup</strong> — IT 인프라 아키텍처 및 지원 환경 독자 설계 및 운영 총괄</p>
+                <p style="margin-bottom: 20px;">• <strong>Sharp Aviation K</strong> — 인프라 정기 유지보수, 시스템 운영 전반 및 장애 기술 지원 수행</p>
+                <p><strong>[핵심 기술 세트]</strong></p>
+                <p>• Infrastructure Setup, Network Engineering, Linux System Hardening, Automation Scripting (Bash/Python), Security Log Analysis</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="full-page-overlay" id="project1-modal">
+    <div class="modal-content">
+        <div class="close-hint">카드를 벗어나면 닫힙니다</div>
+        <div class="modal-body">
+            <h2>Forest Test System</h2>
+            <p class="modal-meta">Infra Security & Enterprise Architecture</p>
+            <div class="modal-text">
+                <p><strong>상세 프로젝트 명세:</strong></p>
+                <p>기업 내부 자산 보호를 위한 인프라 방어선 아키텍처 설계입니다. 방화벽 규칙 자동화 및 침입 탐지 시스템(IDS)을 연동하여, 외부 트래픽 노이즈 필터링 및 악성 행위의 가시성을 확보하는 안정적인 보안 환경을 제공합니다.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="full-page-overlay" id="project2-modal">
+    <div class="modal-content">
+        <div class="close-hint">카드를 벗어나면 닫힙니다</div>
+        <div class="modal-body">
+            <h2>Nature Design Infra</h2>
+            <p class="modal-meta">High-Availability Cloud & Power Optimization</p>
+            <div class="modal-text">
+                <p><strong>상세 프로젝트 명세:</strong></p>
+                <p>시스템 부하량에 맞춘 유연한 전력 소모 가상화 엔진 설계 프로젝트입니다. 고가용성(High-Availability)을 보장하는 구조 내에서 불필요한 데이터 서버 소모 리소스를 예측·감축하여 중단 없는 탄력적 친환경 인프라 운용을 실현합니다.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="full-page-overlay" id="project3-modal">
+    <div class="modal-content">
+        <div class="close-hint">카드를 벗어나면 닫힙니다</div>
+        <div class="modal-body">
+            <h2>Stable Editor</h2>
+            <p class="modal-meta">Linux Vulnerability Scanner & Migration Scripts</p>
+            <div class="modal-text">
+                <p><strong>상세 프로젝트 명세:</strong></p>
+                <p>운영체제 전반의 보안 가이드라인 준수 여부를 단 몇 초 만에 자동으로 분석하는 쉘 스크립트 도구입니다. 취약점을 감지한 뒤 리눅스 서버 커널 옵션을 마이그레이션하고 보완 조치까지 원스톱으로 처리하는 자동화 엔진입니다.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="full-page-overlay" id="project4-modal">
+    <div class="modal-content">
+        <div class="close-hint">카드를 벗어나면 닫힙니다</div>
+        <div class="modal-body">
+            <h2>Ceaino Design Dashboard</h2>
+            <p class="modal-meta">Real-time Traffic Monitoring & Interface</p>
+            <div class="modal-text">
+                <p><strong>상세 프로젝트 명세:</strong></p>
+                <p>전체 서브넷망의 실시간 유입 트래픽과 하드웨어 노드 리소스를 메트릭 수치로 통합 가시화한 UI 대시보드 연동 프로젝트입니다. 장애 발생 가능 지점을 즉각 모니터링하여 임계치 초과 시 조기 대응이 가능하도록 설계했습니다.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    document.querySelectorAll('.expandable').forEach(card => {
+        const targetId = card.getAttribute('data-target');
+        const overlay = document.getElementById(targetId);
+
+        if (overlay) {
+            // 1. 마우스가 카드를 정확하게 터치했을 때만 활성화
+            card.addEventListener('mouseenter', () => {
+                overlay.classList.add('active');
+            });
+
+            // 2. 마우스 커서가 해당 카드 영역 바깥으로 1픽셀이라도 나가면 즉시 비활성화 (오류 해결 핵심)
+            card.addEventListener('mouseleave', () => {
+                overlay.classList.remove('active');
+            });
+        }
+    });
+</script>
+
 </body>
 </html>
