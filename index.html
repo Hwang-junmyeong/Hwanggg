@@ -14,7 +14,6 @@
             --accent-mint: #52b788;    /* 밝고 선명한 민트색 (포인트 컬러) */
             --text-main: #ffffff;      /* 메인 흰색 텍스트 */
             --text-sub: #94a3b8;       /* 보조 회색 텍스트 */
-            --input-bg: #224233;       /* 문의 폼 입력란 배경 */
         }
 
         * {
@@ -32,7 +31,7 @@
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1300px;
             margin: 0 auto;
         }
 
@@ -55,23 +54,35 @@
             color: var(--accent-mint);
         }
 
-        /* 3단 메인 그리드 레이아웃 */
-        .main-grid {
+        /* 구조 변경: 왼쪽 사이드바(프로필+이력), 오른쪽 메인(프로젝트) 2단 구성 */
+        .main-layout {
             display: grid;
-            grid-template-columns: 1fr 2fr 1fr; /* 왼쪽 프로필, 가운데 프로젝트, 오른쪽 연락처 */
+            grid-template-columns: 380px 1fr;
             gap: 25px;
             align-items: start;
         }
 
-        /* 반응형 레이아웃 (태블릿/모바일) */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        /* 반응형 레이아웃 */
         @media (max-width: 1024px) {
-            .main-grid {
-                grid-template-columns: 1fr 1fr;
+            .main-layout {
+                grid-template-columns: 1fr;
+            }
+            .sidebar {
+                flex-direction: row;
+            }
+            .sidebar .card {
+                flex: 1;
             }
         }
         @media (max-width: 768px) {
-            .main-grid {
-                grid-template-columns: 1fr;
+            .sidebar {
+                flex-direction: column;
             }
         }
 
@@ -95,7 +106,7 @@
             padding-bottom: 10px;
         }
 
-        /* [왼쪽 가로열] 프로필 카드 섹션 */
+        /* 프로필 카드 섹션 */
         .profile-card {
             text-align: center;
         }
@@ -149,30 +160,37 @@
             text-decoration: none;
             font-weight: bold;
             margin-bottom: 10px;
-            transition: opacity 0.2s;
+            transition: all 0.2s;
+        }
+        .btn-primary:hover { background-color: #74c69d; }
+
+        /* 신설: 간단한 이력창 스타일 */
+        .resume-section {
+            margin-bottom: 15px;
+        }
+        .resume-section h4 {
+            color: var(--accent-mint);
+            font-size: 1rem;
+            margin-bottom: 8px;
+        }
+        .resume-list {
+            list-style: none;
+            font-size: 0.9rem;
+            color: var(--text-sub);
+        }
+        .resume-list li {
+            margin-bottom: 6px;
+            padding-left: 10px;
+            position: relative;
+        }
+        .resume-list li::before {
+            content: "•";
+            color: var(--accent-mint);
+            position: absolute;
+            left: 0;
         }
 
-        .btn-secondary {
-            display: inline-block;
-            width: 100%;
-            background-color: transparent;
-            color: var(--text-main);
-            text-align: center;
-            padding: 12px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: bold;
-            border: 1px solid #224233;
-            transition: background 0.2s;
-        }
-
-        .btn-primary:hover, .btn-secondary:hover {
-            opacity: 0.9;
-            background-color: rgba(255,255,255,0.05);
-        }
-        .btn-primary:hover { color: #0d1a14; background-color: #74c69d; }
-
-        /* [가운데 가로열] 프로젝트 카드 섹션 */
+        /* 프로젝트 그리드 */
         .project-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -185,11 +203,19 @@
             }
         }
 
-        .project-item {
+        /* 마우스 호버 시 확장될 요소들의 공통 트리거 설정 */
+        .expandable {
             background-color: var(--card-inner-bg);
             border-radius: 8px;
             padding: 20px;
             border: 1px solid #254a37;
+            cursor: pointer;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .expandable:hover {
+            border-color: var(--accent-mint);
+            transform: translateY(-2px);
         }
 
         .project-header-img {
@@ -215,8 +241,6 @@
             color: var(--text-sub);
             font-size: 0.9rem;
             margin-bottom: 15px;
-            height: 65px;
-            overflow: hidden;
         }
 
         .project-tags {
@@ -234,56 +258,79 @@
             border: 1px solid #1f3d2f;
         }
 
-        /* 보유 기술 그래프 섹션 */
-        .skills-section {
-            margin-top: 25px;
-        }
-
-        .skill-bar-wrapper {
-            margin-bottom: 12px;
-        }
-
-        .skill-name {
-            font-size: 0.85rem;
-            color: var(--text-sub);
-            margin-bottom: 4px;
+        /* 마우스 오버 시 띄울 한 페이지짜리 풀스크린 모달 오버레이 */
+        .full-page-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(13, 26, 20, 0.95);
+            z-index: 1000;
             display: flex;
-            justify-content: space-between;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            padding: 20px;
         }
 
-        .skill-bar-bg {
-            background-color: #12251c;
-            height: 10px;
-            border-radius: 5px;
-            overflow: hidden;
+        /* 오버레이 활성화 상태 */
+        .full-page-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
         }
 
-        .skill-bar-fill {
-            background-color: var(--accent-mint);
-            height: 100%;
-            border-radius: 5px;
-        }
-
-        /* [오른쪽 가로열] 연락처 폼 섹션 */
-        .contact-input {
+        .modal-content {
+            background-color: var(--card-bg);
+            border: 2px solid var(--accent-mint);
+            border-radius: 16px;
             width: 100%;
-            background-color: var(--input-bg);
-            border: 1px solid #2d5a45;
-            border-radius: 8px;
-            padding: 12px;
+            max-width: 800px;
+            max-height: 85vh;
+            padding: 40px;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+
+        .full-page-overlay.active .modal-content {
+            transform: scale(1);
+        }
+
+        .close-hint {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--card-inner-bg);
+            border: 1px solid #254a37;
+            color: var(--text-sub);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        .modal-body h2 {
+            font-size: 2rem;
             color: var(--text-main);
             margin-bottom: 15px;
-            font-family: inherit;
+            border-bottom: 2px solid var(--card-inner-bg);
+            padding-bottom: 10px;
         }
 
-        .contact-input:focus {
-            outline: none;
-            border-color: var(--accent-mint);
+        .modal-body .modal-meta {
+            color: var(--accent-mint);
+            font-weight: bold;
+            margin-bottom: 20px;
         }
 
-        textarea.contact-input {
-            height: 120px;
-            resize: none;
+        .modal-body .modal-text {
+            font-size: 1.1rem;
+            color: #cbd5e1;
+            line-height: 1.8;
         }
 
         /* 하단 푸터 */
@@ -306,121 +353,217 @@
         <h1>Hwanggg <span>| Portfolio & Projects</span></h1>
     </header>
 
-    <!-- 메인 그리드 레이아웃 시작 -->
-    <div class="main-grid">
-
-        <!-- 1. 맨 왼쪽: 프로필 카드 -->
-        <div class="card profile-card">
-            <div class="card-title">Profile 👤</div>
+    <!-- 메인 레이아웃 구성 -->
+    <div class="main-layout">
+        
+        <!-- 왼쪽 사이드바 영역 (프로필 + 간단이력) -->
+        <div class="sidebar">
             
-            <!-- 프로필 사진 경로 (원하는 사진 업로드 후 이미지 주소 대입 가능) -->
-            <div class="profile-img-container">
-                <img src="https://via.placeholder.com/150" alt="Hwang">
+            <!-- 1. 프로필 카드 -->
+            <div class="card profile-card">
+                <div class="card-title">Profile 👤</div>
+                <div class="profile-img-container">
+                    <img src="https://via.placeholder.com/150" alt="Hwang">
+                </div>
+                <div class="profile-name">Hwang Jun-myeong</div>
+                <div class="profile-sub">Information Security & Infrastructure</div>
+                <div class="profile-desc">
+                    인프라 설계, 장애 대응 및 정보 자산 보호에 특화된 기술을 제공하는 5년 차 인프라 엔지니어 황준명입니다.
+                </div>
+                <a href="https://github.com/Hwang-junmyeong" target="_blank" class="btn-primary">GitHub 방문하기</a>
             </div>
 
-            <div class="profile-name">Hwang Jun-myeong</div>
-            <div class="profile-sub">Information Security & Infrastructure</div>
-            
-            <div class="profile-desc">
-                Digital portfolio of Hwang Jun-myeong. Design-focused & stable, with a deep green aesthetic. 인프라 설계 및 정보 자산 보호에 특화된 기술을 제공합니다.
+            <!-- 2. 신설: 간단한 이력칸 (프로필과 동일 크기, 마우스 오버 시 확장 기능 탑재) -->
+            <div class="card expandable" data-target="resume-modal">
+                <div class="card-title">Resume 📄</div>
+                
+                <div class="resume-section">
+                    <h4>Core Skills</h4>
+                    <ul class="resume-list">
+                        <li>IT Infrastructure & Network Management</li>
+                        <li>Information Security Engineering</li>
+                        <li>Process Automation (Bash, Python)</li>
+                    </ul>
+                </div>
+
+                <div class="resume-section" style="margin-top: 15px;">
+                    <h4>Experience</h4>
+                    <ul class="resume-list">
+                        <li>IT Infrastructure Engineer (Startup)</li>
+                        <li>Sharp Aviation K (IT Infrastructure & Support)</li>
+                    </ul>
+                </div>
+                <p style="font-size: 0.8rem; color: var(--accent-mint); text-align: right; margin-top: 15px;">✨ 마우스 오버 시 전체 이력 보기</p>
             </div>
 
-            <a href="#projects" class="btn-primary">View Project</a>
-            <a href="https://github.com/Hwang-junmyeong" target="_blank" class="btn-secondary">GitHub</a>
         </div>
 
-
-        <!-- 2. 가운데: 프로젝트 및 경험 리스트 -->
+        <!-- 오른쪽 메인 영역: 진행 프로젝트 칸 -->
         <div class="card">
-            <div class="card-title">Nature & Stable Systems 🌲</div>
+            <div class="card-title">진행 프로젝트 🌲</div>
             
-            <div class="project-grid" id="projects">
+            <div class="project-grid">
                 <!-- 프로젝트 1 -->
-                <div class="project-item">
+                <div class="project-item expandable" data-target="project1-modal">
                     <div class="project-header-img">🔒</div>
-                    <div class="project-item-title">Frorest Tesit System</div>
-                    <div class="project-item-desc">Digital portfolio of Hwang design, requires analysis and dealing resilience. 사내망 인프라 침입 방어 및 탐지 아키텍처 설계.</div>
+                    <div class="project-item-title">Forest Test System</div>
+                    <div class="project-item-desc">사내망 인프라 침입 방어 및 탐지 아키텍처 인프라 설계 프로젝트입니다.</div>
                     <div class="project-tags">
-                        <span class="tag">HTML/CSS</span>
-                        <span class="tag">Green Design</span>
+                        <span class="tag">Infra Security</span>
+                        <span class="tag">Architecture</span>
                     </div>
                 </div>
 
                 <!-- 프로젝트 2 -->
-                <div class="project-item">
+                <div class="project-item expandable" data-target="project2-modal">
                     <div class="project-header-img">🌿</div>
                     <div class="project-item-title">Nature Design Infra</div>
-                    <div class="project-item-desc">Design and development architecture focused on high-availability cloud solutions. 친환경 데이터 인프라 전력 최적화 자동화 프로젝트.</div>
+                    <div class="project-item-desc">고가용성 클라우드 솔루션 기반 친환경 데이터 전력 최적화 자동화 프로젝트입니다.</div>
                     <div class="project-tags">
-                        <span class="tag">HTML/CSS</span>
-                        <span class="tag">Stable Systems</span>
+                        <span class="tag">Cloud Architecture</span>
+                        <span class="tag">Automation</span>
                     </div>
                 </div>
 
                 <!-- 프로젝트 3 -->
-                <div class="project-item">
+                <div class="project-item expandable" data-target="project3-modal">
                     <div class="project-header-img">⚙️</div>
-                    <div class="project-item-title">Stable Dditor</div>
-                    <div class="project-item-desc">Digital portfolio framework focused on security automation scripts. 리눅스 서버 취약점 자동 점검 및 마이그레이션 도구.</div>
+                    <div class="project-item-title">Stable Editor</div>
+                    <div class="project-item-desc">리눅스 서버 환경의 보안 취약점 진단 자동화 스크립트 및 마이그레이션 도구 개발입니다.</div>
                     <div class="project-tags">
-                        <span class="tag">Stable Systems</span>
-                        <span class="tag">Bash</span>
+                        <span class="tag">Linux</span>
+                        <span class="tag">Bash Automation</span>
                     </div>
                 </div>
 
                 <!-- 프로젝트 4 -->
-                <div class="project-item">
+                <div class="project-item expandable" data-target="project4-modal">
                     <div class="project-header-img">📈</div>
                     <div class="project-item-title">Ceaino Design Dashboard</div>
-                    <div class="project-item-desc">Design portfolio defined evaluation, develop, decorators, & nature options. 통합 실시간 보안 관제 트래픽 대시보드 인터페이스 연동.</div>
+                    <div class="project-item-desc">통합 네트워크 및 시스템 보안 관제 대시보드 인터페이스 연동 프로젝트입니다.</div>
                     <div class="project-tags">
-                        <span class="tag">CSS</span>
-                        <span class="tag">Green Concept</span>
+                        <span class="tag">Security Monitoring</span>
+                        <span class="tag">UI Metric</span>
                     </div>
                 </div>
             </div>
-
-            <!-- 보유 기술 그래프 섹션 (가운데 하단 배치) -->
-            <div class="skills-section">
-                <div class="card-title" style="font-size: 1.2rem; margin-top: 20px; border: none;">Skills Metric</div>
-                
-                <div class="skill-bar-wrapper">
-                    <div class="skill-name"><span>Security Engine</span> <span>90%</span></div>
-                    <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 90%;"></div></div>
-                </div>
-                <div class="skill-bar-wrapper">
-                    <div class="skill-name"><span>Process Automation</span> <span>80%</span></div>
-                    <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 80%;"></div></div>
-                </div>
-                <div class="skill-bar-wrapper">
-                    <div class="skill-name"><span>Core Development</span> <span>75%</span></div>
-                    <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 75%;"></div></div>
-                </div>
-            </div>
-        </div>
-
-
-        <!-- 3. 오른쪽: 연락처 카드 -->
-        <div class="card">
-            <div class="card-title">Contact Me ✉️</div>
-            <p style="color: var(--text-sub); font-size: 0.9rem; margin-bottom: 20px;">언제든 제안이나 협업 문의 메세지를 남겨주세요.</p>
-            
-            <form onsubmit="return false;">
-                <input type="text" class="contact-input" placeholder="Name" required />
-                <input type="email" class="contact-input" placeholder="Email" required />
-                <textarea class="contact-input" placeholder="Message" required></textarea>
-                <button type="submit" class="btn-primary" style="border: none; cursor: pointer;">Contact</button>
-            </form>
         </div>
 
     </div>
-    <!-- 메인 그리드 레이아웃 끝 -->
 
     <footer>
-        <p>Follow Us: GitHub | Hwanggg Portfolios. All Rights Reserved.</p>
+        <p>Hwanggg Portfolios. All Rights Reserved.</p>
     </footer>
-
 </div>
+
+
+<!-- ----------------- 팝업/모달 레이어 데이터 파트 ----------------- -->
+
+<!-- 이력서 상세 팝업 -->
+<div class="full-page-overlay" id="resume-modal">
+    <div class="modal-content">
+        <div class="close-hint">마우스를 떼면 닫힙니다</div>
+        <div class="modal-body">
+            <h2>Hwang Jun-myeong | Resume</h2>
+            <p class="modal-meta">IT Infrastructure & Security Specialist</p>
+            <div class="modal-text">
+                <p><strong>[보유 기술 요약]</strong></p>
+                <p style="margin-bottom: 15px;">• 인프라 설계, 시스템 보안성 검토 및 최적의 인프라 모니터링 환경을 독자적으로 빌드하고 유지 관리할 수 있는 역량을 보유하고 있습니다.</p>
+                <p><strong>[주요 근무 이력]</strong></p>
+                <p>• <strong>IT Startup</strong> — IT 인프라 아키텍처 및 지원 환경 독자 설계 및 운영 총괄</p>
+                <p style="margin-bottom: 15px;">• <strong>Sharp Aviation K</strong> — 인프라 정기 유지보수, 시스템 운영 전반 및 장애 기술 지원 수행</p>
+                <p><strong>[핵심 기술 세트]</strong></p>
+                <p>• Infrastructure Setup, Network Engineering, Linux System Hardening, Automation Scripting (Bash/Python), Security Log Analysis</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 프로젝트 1 상세 팝업 -->
+<div class="full-page-overlay" id="project1-modal">
+    <div class="modal-content">
+        <div class="close-hint">마우스를 떼면 닫힙니다</div>
+        <div class="modal-body">
+            <h2>Forest Test System</h2>
+            <p class="modal-meta">Infra Security & Enterprise Architecture</p>
+            <div class="modal-text">
+                <p><strong>상세 프로젝트 명세:</strong></p>
+                <p>기업 내부 자산 보호를 위한 인프라 방어선 아키텍처 설계입니다. 방화벽 규칙 자동화 및 침입 탐지 시스템(IDS)을 연동하여, 외부 트래픽 노이즈 필터링 및 악성 행위의 가시성을 확보하는 안정적인 보안 환경을 제공합니다.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 프로젝트 2 상세 팝업 -->
+<div class="full-page-overlay" id="project2-modal">
+    <div class="modal-content">
+        <div class="close-hint">마우스를 떼면 닫힙니다</div>
+        <div class="modal-body">
+            <h2>Nature Design Infra</h2>
+            <p class="modal-meta">High-Availability Cloud & Power Optimization</p>
+            <div class="modal-text">
+                <p><strong>상세 프로젝트 명세:</strong></p>
+                <p>시스템 부하량에 맞춘 유연한 전력 소모 가상화 엔진 설계 프로젝트입니다. 고가용성(High-Availability)을 보장하는 구조 내에서 불필요한 데이터 서버 소모 리소스를 예측·감축하여 중단 없는 탄력적 친환경 인프라 운용을 실현합니다.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 프로젝트 3 상세 팝업 -->
+<div class="full-page-overlay" id="project3-modal">
+    <div class="modal-content">
+        <div class="close-hint">마우스를 떼면 닫힙니다</div>
+        <div class="modal-body">
+            <h2>Stable Editor</h2>
+            <p class="modal-meta">Linux Vulnerability Scanner & Migration Scripts</p>
+            <div class="modal-text">
+                <p><strong>상세 프로젝트 명세:</strong></p>
+                <p>운영체제 전반의 보안 가이드라인 준수 여부를 단 몇 초 만에 자동으로 분석하는 쉘 스크립트 도구입니다. 취약점을 감지한 뒤 리눅스 서버 커널 옵션을 마이그레이션하고 보완 조치까지 원스톱으로 처리하는 자동화 엔진입니다.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 프로젝트 4 상세 팝업 -->
+<div class="full-page-overlay" id="project4-modal">
+    <div class="modal-content">
+        <div class="close-hint">마우스를 떼면 닫힙니다</div>
+        <div class="modal-body">
+            <h2>Ceaino Design Dashboard</h2>
+            <p class="modal-meta">Real-time Traffic Monitoring & Interface</p>
+            <div class="modal-text">
+                <p><strong>상세 프로젝트 명세:</strong></p>
+                <p>전체 서브넷망의 실시간 유입 트래픽과 하드웨어 노드 리소스를 메트릭 수치로 통합 가시화한 UI 대시보드 연동 프로젝트입니다. 장애 발생 가능 지점을 즉각 모니터링하여 임계치 초과 시 조기 대응이 가능하도록 설계했습니다.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- ----------------- 자바스크립트 마우스 호버 제어 ----------------- -->
+<script>
+    document.querySelectorAll('.expandable').forEach(item => {
+        const targetId = item.getAttribute('data-target');
+        const overlay = document.getElementById(targetId);
+
+        if (overlay) {
+            // 마우스가 카드가 닿으면(들어오면) 오버레이 모달 창 띄우기
+            item.addEventListener('mouseenter', () => {
+                overlay.classList.add('active');
+            });
+
+            // 마우스가 카드에서 떨어지면(벗어나면) 오버레이 모달 창 닫기
+            item.addEventListener('mouseleave', () => {
+                overlay.classList.remove('active');
+            });
+            
+            // 혹시 모를 모달 내부에서의 마우스 이탈 대응 보정
+            overlay.addEventListener('mouseleave', () => {
+                overlay.classList.remove('active');
+            });
+        }
+    });
+</script>
 
 </body>
 </html>
