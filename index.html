@@ -7,10 +7,10 @@
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
     <style>
         :root {
-            --bg-color: #0d1a14;       /* 이미지 특유의 깊고 안정적인 초록빛 블랙 */
+            --bg-color: #0d1a14;       /* 깊고 안정적인 초록빛 블랙 */
             --card-bg: #162a20;        /* 짙은 포레스트 그린 카드 배경 */
             --card-inner-bg: #1b3528;  /* 내부 강조 카드 배경 */
-            --accent-mint: #52b788;    /* 밝고 선명한 민트색 (포인트 컬러) */
+            --accent-mint: #52b788;    /* 밝고 선명한 민트색 */
             --text-main: #ffffff;      /* 메인 흰색 텍스트 */
             --text-sub: #94a3b8;       /* 보조 회색 텍스트 */
         }
@@ -27,6 +27,11 @@
             color: var(--text-main);
             line-height: 1.6;
             padding: 40px 20px;
+        }
+
+        /* 모달 오픈 시 바깥 배경 스크롤 방지용 */
+        body.modal-open {
+            overflow: hidden;
         }
 
         .container {
@@ -53,7 +58,7 @@
             color: var(--accent-mint);
         }
 
-        /* 2단 구조 구성 */
+        /* 2단 데스크톱 레이아웃 구조 보완 */
         .main-layout {
             display: grid;
             grid-template-columns: 380px 1fr;
@@ -173,11 +178,11 @@
             left: 0;
         }
 
-        /* 프로젝트 그리드 */
+        /* 프로젝트 그리드 세로 배치 현상 수정 */
         .project-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 20px;
         }
 
         @media (max-width: 600px) {
@@ -193,7 +198,8 @@
             border: 1px solid #254a37;
             cursor: pointer;
             transition: transform 0.2s, border-color 0.2s;
-            height: 100%;
+            display: flex;
+            flex-direction: column;
         }
 
         .expandable:hover {
@@ -224,12 +230,14 @@
             color: var(--text-sub);
             font-size: 0.9rem;
             margin-bottom: 15px;
+            flex-grow: 1; /* 설명문 길이에 상관없이 높이 균등화 */
         }
 
         .project-tags {
             display: flex;
             gap: 5px;
             flex-wrap: wrap;
+            margin-top: auto;
         }
 
         .tag {
@@ -241,47 +249,38 @@
             border: 1px solid #1f3d2f;
         }
 
-        /* 풀스크린 오버레이 기본 레이아웃 설정 */
+        /* 풀스크린 오버레이 레이아웃 버그 수정 */
         .full-page-overlay {
             position: fixed;
             top: 0;
             left: 0;
-            width: 100vw;
-            height: 100vh;
+            width: 100%;
+            height: 100%;
             background-color: rgba(13, 26, 20, 0.96);
             z-index: 1000;
-            display: flex;
+            display: none; /* 무조건 평소에는 공간 차지 않게 완전히 숨김 */
             align-items: center;
             justify-content: center;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.2s ease-in-out;
             padding: 20px;
         }
 
-        /* JS 제어용 액티브 활성화 클래스 */
+        /* 활성화 되었을 때만 display 활성화 및 스크롤 작동 */
         .full-page-overlay.active {
-            opacity: 1;
+            display: flex;
         }
 
-        /* 꽉 차는 모달 대화면 레이아웃 설정 */
+        /* 꽉 차는 모달 내부에 스크롤바가 직접 생기도록 타겟팅 보완 */
         .modal-content {
             background-color: var(--card-bg);
             border: 2px solid var(--accent-mint);
             border-radius: 16px;
             width: 95%;
-            max-width: 1400px;
-            height: 88vh;
-            padding: 50px;
-            overflow-y: auto;
+            max-width: 1200px;
+            max-height: 90vh; /* 화면 밖으로 튀어나가지 않도록 제한 */
+            padding: 40px;
+            overflow-y: auto; /* 내용이 많아지거나 화면 확대 시 카드 내부 스크롤 허용 */
             position: relative;
             box-shadow: 0 10px 40px rgba(0,0,0,0.6);
-            transform: scale(0.97);
-            transition: transform 0.2s ease-in-out;
-        }
-
-        .full-page-overlay.active .modal-content {
-            transform: scale(1);
         }
 
         .close-hint {
@@ -290,18 +289,25 @@
             right: 30px;
             background: var(--card-inner-bg);
             border: 1px solid #254a37;
-            color: var(--text-sub);
+            color: var(--accent-mint);
             padding: 6px 14px;
             border-radius: 20px;
             font-size: 0.85rem;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .close-hint:hover {
+            background-color: var(--accent-mint);
+            color: var(--card-bg);
         }
 
         .modal-body h2 {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             color: var(--text-main);
             margin-bottom: 20px;
             border-bottom: 2px solid var(--card-inner-bg);
             padding-bottom: 15px;
+            margin-top: 20px;
         }
 
         .modal-body .modal-meta {
@@ -312,7 +318,7 @@
         }
 
         .modal-body .modal-text {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: #cbd5e1;
             line-height: 1.9;
         }
@@ -332,11 +338,7 @@
 
 <div class="container">
 
-    <header {
-        margin-bottom: 40px;
-        border-bottom: 1px solid #1b3528;
-        padding-bottom: 20px;
-    }>
+    <header>
         <h1>Hwanggg <span>| Portfolio & Projects</span></h1>
     </header>
 
@@ -345,7 +347,7 @@
         <!-- 왼쪽 사이드바 영역 -->
         <div class="sidebar">
             
-            <!-- 1. 프로필 카드 (HTML 태그 구조 완벽 복구 및 깃허브 링크 제거 완료) -->
+            <!-- 1. 프로필 카드 -->
             <div class="card profile-card">
                 <div class="card-title">Profile 👤</div>
                 <div class="profile-img-container">
@@ -354,38 +356,36 @@
                 <div class="profile-name">Hwang Jun-myeong</div>
                 <div class="profile-sub">Information Security & Infrastructure</div>
                 <div class="profile-desc">
-                    단순한 IT 관리가 아닌, 조직의 환경에 맞는 IT 인프라를 설계 합니다.
+                    단순한 IT 관리가 아닌, 조직의 환경에 맞는 IT 거버넌스를 설계합니다.
                 </div>
-            </div> <!-- 👈 닫히지 않고 탈출했던 프로필 div 카드를 올바른 위치에서 정상 폐쇄했습니다. -->
+            </div>
 
-            <!-- 2. 간단한 이력 카드 (이제 프로필 밖으로 완전히 독립되었습니다) -->
+            <!-- 2. 간단한 이력 카드 -->
             <div class="card expandable" data-target="resume-modal">
                 <div class="card-title">Resume 📄</div>
                 
                 <div class="resume-section">
                     <h4>Core Skills</h4>
                     <ul class="resume-list">
-                        <li>IT Infrastructure & Architecture: 엔터프라이즈 및 스타트업 IT인프라 구축·운영</li>
-                        <li>Network & Information Security: 네트워크 방화벽 및 정보보안 체계 관리, NAC 운영</li>
-                        <li>IT Asset Lifecycle Management: IT 자산 전생애주기 관리 (도입부터 폐기까지)</li>
-                        <li>Cross-Functional Optimization: 다양한 직군 및 비즈니스 환경별 IT 작업 환경 최적화)</li>
+                        <li>IT Infrastructure & Network Management</li>
+                        <li>Information Security Engineering</li>
+                        <li>Process Automation (Bash, Python)</li>
                     </ul>
                 </div>
 
                 <div class="resume-section" style="margin-top: 15px;">
                     <h4>Experience</h4>
                     <ul class="resume-list">
-                        <li>젠큐릭스 (IT 인프라 & 정보보안 총괄, 2026.04 ~ )</li>
-                        <li>샤프에비에이션케이 (IT 인프라 & IT 자산관리 담당 2022.04 ~ 2026.04)</li>
-                        <li>유씨에스시스템 (시스템 관리 & 정부감사 지원, 2021.04 ~ 2022.04)</li>
+                        <li>IT Infrastructure Engineer (Startup)</li>
+                        <li>Sharp Aviation K (IT Infrastructure & Support)</li>
                     </ul>
                 </div>
-                <p style="font-size: 0.8rem; color: var(--accent-mint); text-align: right; margin-top: 15px;">✨ 마우스 오버 시 전체 이력 보기</p>
+                <p style="font-size: 0.8rem; color: var(--accent-mint); text-align: right; margin-top: 15px;">클릭하여 전체 이력 보기 ✨</p>
             </div>
 
         </div>
 
-        <!-- 오른쪽 메인 프로젝트 영역 -->,
+        <!-- 오른쪽 메인 프로젝트 영역 -->
         <div class="card">
             <div class="card-title">Projects 🌲</div>
             
@@ -446,19 +446,16 @@
 
 <div class="full-page-overlay" id="resume-modal">
     <div class="modal-content">
-        <div class="close-hint">카드를 벗어나면 닫힙니다</div>
+        <div class="close-hint">닫기 ✕</div>
         <div class="modal-body">
             <h2>Hwang Jun-myeong | Resume</h2>
             <p class="modal-meta">IT Infrastructure & Security Specialist</p>
             <div class="modal-text">
-                <p><strong>[젠큐릭스 (IT 인프라 & 정보보안 총괄, 2026.04 ~ ]</strong></p>
-                <p style="margin-bottom: 20px;">• 전사 그룹웨어(다우오피스) 도입 TF 주도</p>
-                <p style="margin-bottom: 20px;">• 전사 그룹웨어(다우오피스) 도입 TF 주도</p>
-                <p><strong>[샤프에비에이션케이 (IT 인프라 & IT 자산관리 담당 2022.04 ~ 2026.04)]</strong></p>
-                 <p style="margin-bottom: 20px;">• 전사 그룹웨어(다우오피스) 도입 TF 주도 </p>
-                 <p style="margin-bottom: 20px;">• 네트워크 아키텍처 재설계 및 사무실 인프라 이전 </p>
-                 <p style="margin-bottom: 20px;">• PC·전산 장비의 도입부터 파기/매각까지의 IT 자산 전 주기 관리 프로세스 담당 </p>
-                 <p style="margin-bottom: 20px;">• 사내/사외 IT 업무지원 (PC/전화기/복합기/모바일/화상회의장비) </p>
+                <p><strong>[보유 기술 요약]</strong></p>
+                <p style="margin-bottom: 20px;">• 인프라 설계, 시스템 보안성 검토 및 최적의 인프라 모니터링 환경을 독자적으로 빌드하고 유지 관리할 수 있는 역량을 보유하고 있습니다.</p>
+                <p><strong>[주요 근무 이력]</strong></p>
+                <p>• <strong>IT Startup</strong> — IT 인프라 아키텍처 및 지원 환경 독자 설계 및 운영 총괄</p>
+                <p style="margin-bottom: 20px;">• <strong>Sharp Aviation K</strong> — 인프라 정기 유지보수, 시스템 운영 전반 및 장애 기술 지원 수행</p>
                 <p><strong>[핵심 기술 세트]</strong></p>
                 <p>• Infrastructure Setup, Network Engineering, Linux System Hardening, Automation Scripting (Bash/Python), Security Log Analysis</p>
             </div>
@@ -468,7 +465,7 @@
 
 <div class="full-page-overlay" id="project1-modal">
     <div class="modal-content">
-        <div class="close-hint">카드를 벗어나면 닫힙니다</div>
+        <div class="close-hint">닫기 ✕</div>
         <div class="modal-body">
             <h2>Forest Test System</h2>
             <p class="modal-meta">Infra Security & Enterprise Architecture</p>
@@ -482,7 +479,7 @@
 
 <div class="full-page-overlay" id="project2-modal">
     <div class="modal-content">
-        <div class="close-hint">카드를 벗어나면 닫힙니다</div>
+        <div class="close-hint">닫기 ✕</div>
         <div class="modal-body">
             <h2>Nature Design Infra</h2>
             <p class="modal-meta">High-Availability Cloud & Power Optimization</p>
@@ -496,7 +493,7 @@
 
 <div class="full-page-overlay" id="project3-modal">
     <div class="modal-content">
-        <div class="close-hint">카드를 벗어나면 닫힙니다</div>
+        <div class="close-hint">닫기 ✕</div>
         <div class="modal-body">
             <h2>Stable Editor</h2>
             <p class="modal-meta">Linux Vulnerability Scanner & Migration Scripts</p>
@@ -510,7 +507,7 @@
 
 <div class="full-page-overlay" id="project4-modal">
     <div class="modal-content">
-        <div class="close-hint">카드를 벗어나면 닫힙니다</div>
+        <div class="close-hint">닫기 ✕</div>
         <div class="modal-body">
             <h2>Ceaino Design Dashboard</h2>
             <p class="modal-meta">Real-time Traffic Monitoring & Interface</p>
@@ -523,23 +520,29 @@
 </div>
 
 
-<!-- 마우스 정밀 트래킹 스크립트 -->
+<!-- 클릭 기반 정밀 제어 스크립트 변경 -->
 <script>
+    // 모든 확장 가능 카드 요소를 클릭 시 오픈하도록 제어
     document.querySelectorAll('.expandable').forEach(card => {
-        const targetId = card.getAttribute('data-target');
-        const overlay = document.getElementById(targetId);
-
-        if (overlay) {
-            // 마우스가 카드를 정확하게 터치했을 때 활성화
-            card.addEventListener('mouseenter', () => {
+        card.addEventListener('click', () => {
+            const targetId = card.getAttribute('data-target');
+            const overlay = document.getElementById(targetId);
+            if (overlay) {
                 overlay.classList.add('active');
-            });
+                document.body.classList.add('modal-open'); // 메인 스크롤 잠금
+            }
+        });
+    });
 
-            // 마우스 커서가 해당 카드 사각형 경계를 넘어가는 즉시 비활성화
-            card.addEventListener('mouseleave', () => {
+    // 모든 오버레이 레이어를 돌며 바깥 영역이나 우측 상단 닫기 버튼을 누르면 닫히도록 바인딩
+    document.querySelectorAll('.full-page-overlay').forEach(overlay => {
+        overlay.addEventListener('click', (e) => {
+            // 클릭된 곳이 오버레이 자체(바깥 어두운 배경)이거나, 닫기 힌트 상자일 때 창 해제
+            if (e.target === overlay || e.target.closest('.close-hint')) {
                 overlay.classList.remove('active');
-            });
-        }
+                document.body.classList.remove('modal-open'); // 메인 스크롤 해제
+            }
+        });
     });
 </script>
 
