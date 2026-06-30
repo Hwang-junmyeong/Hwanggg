@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -72,7 +73,6 @@
             gap: 25px;
         }
 
-        /* 🚨 [수정] 오른쪽 메인 콘텐츠 영역 - 바깥 큰 카드를 없애고 내부 아이템들이 직접 배치되도록 바꿈 */
         .main-content {
             display: flex;
             flex-direction: column;
@@ -188,7 +188,7 @@
             left: 0;
         }
 
-        /* 🚨 [수정] 프로젝트 그리드 스타일 - 부모로부터 상속받은 높이를 꽉 채우고 아래 라인을 일치시킴 */
+        /* 프로젝트 그리드 스타일 */
         .project-grid {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -202,7 +202,6 @@
             }
         }
 
-        /* 🚨 [수정] 프로젝트 섹션 자체를 감싸는 컨테이너가 끝선까지 늘어나도록 설정 */
         .project-section-wrap {
             display: flex;
             flex-direction: column;
@@ -210,7 +209,7 @@
         }
 
         .expandable {
-            background-color: var(--card-bg); /* 배경색을 한 단계 올려 가시성 확보 */
+            background-color: var(--card-bg);
             border-radius: 12px;
             padding: 24px;
             border: 1px solid #1f3d2f;
@@ -369,6 +368,443 @@
             border-top: 1px solid #1b3528;
             padding-top: 20px;
         }
+
+        /* ===================================================== */
+        /* 신규 프로젝트 모달 전용 시각화 스타일 (숫자/퍼센트 카운트업 포함) */
+        /* ===================================================== */
+
+        .status-badge-inline {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #2a2410;
+            border: 1px solid #5a4a10;
+            color: #fbbf24;
+            font-size: 0.85rem;
+            font-weight: 700;
+            padding: 6px 14px;
+            border-radius: 20px;
+            margin-bottom: 35px;
+        }
+        .status-dot-pulse {
+            width: 7px;
+            height: 7px;
+            background: #fbbf24;
+            border-radius: 50%;
+            animation: pulse-anim 1.6s infinite;
+        }
+        @keyframes pulse-anim {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        .viz-sec-label {
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--accent-mint);
+            margin: 30px 0 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .viz-sec-label::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: #224233;
+        }
+        .viz-sec-label:first-child { margin-top: 0; }
+
+        /* KPI 카드 */
+        .kpi-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 14px;
+            margin-bottom: 10px;
+        }
+        @media (max-width: 700px) {
+            .kpi-row { grid-template-columns: repeat(2, 1fr); }
+        }
+        .kpi-card {
+            background: var(--card-bg);
+            border: 1px solid #1f3d2f;
+            border-radius: 10px;
+            padding: 18px 14px;
+            text-align: center;
+        }
+        .kpi-num {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent-mint);
+            line-height: 1.1;
+            margin-bottom: 6px;
+        }
+        .kpi-label {
+            font-size: 0.8rem;
+            color: var(--text-sub);
+            line-height: 1.4;
+        }
+
+        /* 항목별 진행률 바 */
+        .viz-bar-row { margin-bottom: 16px; }
+        .viz-bar-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            margin-bottom: 6px;
+            color: var(--text-sub);
+        }
+        .viz-bar-meta .viz-pct {
+            color: var(--accent-mint);
+            font-weight: 700;
+        }
+        .viz-bar-track {
+            height: 10px;
+            background: var(--card-inner-bg);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .viz-bar-fill {
+            height: 100%;
+            background: var(--accent-mint);
+            border-radius: 5px;
+            width: 0;
+            transition: width 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        /* 비용 비교 히어로 */
+        .cost-hero {
+            background: var(--card-bg);
+            border: 1px solid #1f3d2f;
+            border-radius: 12px;
+            padding: 28px;
+            margin-bottom: 16px;
+        }
+        .cost-compare-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 28px;
+            margin-bottom: 22px;
+            flex-wrap: wrap;
+        }
+        .cost-block { text-align: center; }
+        .cost-block-tag {
+            font-size: 0.8rem;
+            color: var(--text-sub);
+            margin-bottom: 6px;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+        }
+        .cost-block-num {
+            font-size: 2.2rem;
+            font-weight: 700;
+            line-height: 1.1;
+        }
+        .cost-block-num.before { color: #f87171; }
+        .cost-block-num.after { color: var(--accent-mint); }
+        .cost-block-unit {
+            font-size: 0.95rem;
+            color: var(--text-sub);
+            margin-left: 4px;
+            font-weight: 500;
+        }
+        .cost-arrow { font-size: 1.8rem; color: var(--accent-mint); }
+
+        .annual-savings-box {
+            background: #0f3320;
+            border: 1px solid #1a6640;
+            border-radius: 10px;
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #4ade80;
+            flex-wrap: wrap;
+            text-align: center;
+        }
+        .annual-savings-box .small {
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: #86efac;
+        }
+
+        /* 항목별 절감 카드 */
+        .breakdown-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+            margin-bottom: 10px;
+        }
+        @media (max-width: 700px) {
+            .breakdown-grid { grid-template-columns: 1fr; }
+        }
+        .bd-card {
+            background: var(--card-bg);
+            border: 1px solid #1f3d2f;
+            border-radius: 10px;
+            padding: 18px 16px;
+        }
+        .bd-icon { font-size: 1.3rem; margin-bottom: 10px; }
+        .bd-name { font-size: 0.95rem; font-weight: 700; color: var(--text-main); margin-bottom: 6px; }
+        .bd-action { font-size: 0.78rem; color: var(--accent-mint); font-weight: 600; margin-bottom: 8px; }
+        .bd-desc { font-size: 0.85rem; color: var(--text-sub); line-height: 1.6; }
+
+        /* 솔루션 현황 카드 */
+        .solution-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 14px;
+            margin-bottom: 10px;
+        }
+        @media (max-width: 700px) {
+            .solution-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        .sol-card {
+            background: var(--card-bg);
+            border: 1px solid #1f3d2f;
+            border-radius: 10px;
+            padding: 16px 14px;
+            text-align: center;
+        }
+        .sol-icon { font-size: 1.4rem; margin-bottom: 8px; }
+        .sol-name { font-size: 0.9rem; font-weight: 700; color: var(--text-main); margin-bottom: 8px; }
+        .sol-status {
+            font-size: 0.74rem;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-weight: 600;
+            display: inline-block;
+        }
+        .sol-status.keep { background: #0f3320; color: #4ade80; border: 1px solid #1a6640; }
+        .sol-status.review { background: #2a2410; color: #fbbf24; border: 1px solid #5a4a10; }
+        .sol-reason { font-size: 0.76rem; color: var(--text-sub); margin-top: 8px; line-height: 1.5; }
+
+        /* 타임라인 (점/선 구조) */
+        .viz-timeline { display: flex; flex-direction: column; gap: 0; }
+        .viz-tl-item {
+            display: grid;
+            grid-template-columns: 16px 1fr;
+            gap: 0 18px;
+        }
+        .viz-tl-dot-col { display: flex; flex-direction: column; align-items: center; }
+        .viz-tl-dot {
+            width: 11px; height: 11px; border-radius: 50%;
+            margin-top: 5px; flex-shrink: 0;
+        }
+        .viz-tl-dot.done { background: var(--accent-mint); }
+        .viz-tl-dot.active { background: #fbbf24; box-shadow: 0 0 0 4px rgba(251,191,36,0.2); }
+        .viz-tl-dot.todo { background: var(--card-inner-bg); border: 1px solid #254a37; }
+        .viz-tl-line {
+            width: 2px; flex: 1;
+            background: #1f3d2f;
+            margin-top: 4px;
+            min-height: 22px;
+        }
+        .viz-tl-item:last-child .viz-tl-line { display: none; }
+        .viz-tl-body { padding-bottom: 22px; }
+        .viz-tl-title { font-size: 1rem; font-weight: 700; color: var(--text-main); margin-bottom: 4px; }
+        .viz-tl-title.active { color: #fbbf24; }
+        .viz-tl-period { font-size: 0.82rem; color: var(--accent-mint); margin-bottom: 8px; font-weight: 500; }
+        .viz-tl-desc { font-size: 0.88rem; color: var(--text-sub); line-height: 1.6; }
+        .viz-tl-bullets { list-style: none; font-size: 0.88rem; color: var(--text-sub); margin-top: 6px; }
+        .viz-tl-bullets li { padding-left: 14px; position: relative; margin-bottom: 5px; line-height: 1.7; }
+        .viz-tl-bullets li::before { content: "–"; color: #3d6b55; position: absolute; left: 0; }
+
+        /* 두 칼럼 레이아웃 */
+        .viz-two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+            margin-bottom: 16px;
+        }
+        @media (max-width: 800px) {
+            .viz-two-col { grid-template-columns: 1fr; }
+        }
+        .viz-section-card {
+            background: var(--card-bg);
+            border: 1px solid #1f3d2f;
+            border-radius: 10px;
+            padding: 22px;
+        }
+
+        /* Before/After 비교 */
+        .before-after-grid {
+            display: grid;
+            grid-template-columns: 1fr 44px 1fr;
+            gap: 0;
+            margin-bottom: 16px;
+            align-items: stretch;
+        }
+        @media (max-width: 700px) {
+            .before-after-grid { grid-template-columns: 1fr; }
+            .ba-arrow { display: none; }
+        }
+        .ba-col {
+            background: var(--card-bg);
+            border: 1px solid #1f3d2f;
+            border-radius: 10px;
+            padding: 20px;
+        }
+        .ba-col.before { border-color: #3d2a1a; }
+        .ba-col.after { border-color: #1a4a30; }
+        .ba-arrow {
+            display: flex; align-items: center; justify-content: center;
+            color: var(--accent-mint); font-size: 1.3rem;
+        }
+        .ba-head {
+            font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em;
+            text-transform: uppercase; margin-bottom: 14px;
+            padding-bottom: 10px; border-bottom: 1px solid #224233;
+        }
+        .ba-head.bad { color: #f87171; }
+        .ba-head.good { color: var(--accent-mint); }
+        .ba-list { display: flex; flex-direction: column; gap: 9px; }
+        .ba-item { display: flex; align-items: flex-start; gap: 9px; font-size: 0.88rem; color: var(--text-sub); line-height: 1.6; }
+        .ba-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; margin-top: 7px; }
+        .ba-dot.red { background: #f87171; }
+        .ba-dot.green { background: var(--accent-mint); }
+
+        /* 역할 강조 배너 */
+        .role-banner {
+            background: var(--card-bg);
+            border: 1px solid #1f3d2f;
+            border-left: 3px solid var(--accent-mint);
+            border-radius: 0 10px 10px 0;
+            padding: 18px 22px;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+        }
+        .role-icon { font-size: 1.5rem; flex-shrink: 0; margin-top: 2px; }
+        .role-title { font-size: 0.78rem; font-weight: 700; color: var(--accent-mint); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 6px; }
+        .role-desc { font-size: 0.95rem; color: #cbd5e1; line-height: 1.8; }
+        .role-desc strong { color: var(--text-main); font-weight: 700; }
+
+        /* 선별 프로세스 카드 */
+        .select-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+            margin-bottom: 16px;
+        }
+        @media (max-width: 800px) {
+            .select-grid { grid-template-columns: 1fr; }
+        }
+        .select-card {
+            background: var(--card-bg);
+            border: 1px solid #1f3d2f;
+            border-radius: 10px;
+            padding: 18px;
+        }
+        .select-card .step-num { font-size: 0.74rem; font-weight: 700; color: var(--accent-mint); letter-spacing: 0.08em; margin-bottom: 10px; }
+        .select-card .step-title { font-size: 1rem; font-weight: 700; color: var(--text-main); margin-bottom: 10px; }
+        .select-card .step-body { font-size: 0.85rem; color: var(--text-sub); line-height: 1.7; }
+        .select-card .badge-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+        .badge-pill { font-size: 0.74rem; padding: 4px 10px; border-radius: 14px; font-weight: 600; }
+        .badge-pill.keep { background: #0f3320; color: #4ade80; border: 1px solid #1a6640; }
+        .badge-pill.new { background: #0d2040; color: #60a5fa; border: 1px solid #1a4070; }
+
+        /* 마이그레이션 단계 흐름 */
+        .flow-row {
+            display: flex;
+            align-items: stretch;
+            gap: 0;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+        .flow-step {
+            flex: 1;
+            min-width: 140px;
+            background: var(--card-bg);
+            border: 1px solid #1f3d2f;
+            padding: 16px 12px;
+            text-align: center;
+            position: relative;
+        }
+        .flow-step:first-child { border-radius: 10px 0 0 10px; }
+        .flow-step:last-child { border-radius: 0 10px 10px 0; }
+        .flow-step::after {
+            content: '→';
+            position: absolute; right: -11px; top: 50%; transform: translateY(-50%);
+            color: var(--accent-mint); font-size: 1rem; z-index: 1;
+            background: var(--bg-color); padding: 0 2px;
+        }
+        .flow-step:last-child::after { display: none; }
+        @media (max-width: 700px) {
+            .flow-step::after { content: '↓'; right: 50%; top: auto; bottom: -16px; transform: translateX(50%); }
+            .flow-step { border-radius: 10px !important; }
+        }
+        .flow-icon { font-size: 1.4rem; margin-bottom: 8px; }
+        .flow-title { font-size: 0.85rem; font-weight: 700; color: var(--text-main); margin-bottom: 4px; }
+        .flow-desc { font-size: 0.76rem; color: var(--text-sub); line-height: 1.5; }
+
+        /* 결과 배지 & 체크리스트 */
+        .result-badge {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            background: #0f3320;
+            border: 1px solid #1a6640;
+            color: #4ade80;
+            border-radius: 8px;
+            padding: 14px 16px;
+            font-size: 0.92rem;
+            font-weight: 500;
+            line-height: 1.7;
+            margin-bottom: 14px;
+        }
+        .result-badge .dot { width: 8px; height: 8px; background: #4ade80; border-radius: 50%; flex-shrink: 0; margin-top: 6px; }
+        .viz-checklist { display: flex; flex-direction: column; gap: 9px; }
+        .viz-check-item { display: flex; align-items: flex-start; gap: 10px; font-size: 0.88rem; color: var(--text-sub); line-height: 1.6; }
+        .viz-check-icon {
+            width: 17px; height: 17px; background: var(--card-inner-bg);
+            border: 1px solid #3a8a65; border-radius: 4px;
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0; margin-top: 1px; font-size: 0.72rem; color: var(--accent-mint);
+        }
+
+        /* 핵심 절감 비율 카드 (3개 항목) */
+        .savings-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+        }
+        @media (max-width: 700px) {
+            .savings-grid { grid-template-columns: 1fr; }
+        }
+        .saving-item {
+            background: var(--card-inner-bg);
+            border: 1px solid #254a37;
+            border-radius: 10px;
+            padding: 20px 16px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .saving-item::before {
+            content: '';
+            position: absolute; bottom: 0; left: 0; right: 0;
+            height: 3px; background: var(--accent-mint);
+            border-radius: 0 0 10px 10px;
+            transform: scaleX(0);
+            transition: transform 1.2s ease;
+        }
+        .saving-item.ready::before { transform: scaleX(1); }
+        .saving-pct {
+            font-size: 2.6rem; font-weight: 700; color: var(--accent-mint);
+            line-height: 1.1; margin-bottom: 8px;
+            display: flex; align-items: baseline; justify-content: center; gap: 2px;
+        }
+        .saving-pct .symbol { font-size: 1.5rem; }
+        .saving-cat { font-size: 0.9rem; color: var(--text-main); font-weight: 600; margin-bottom: 6px; }
+        .saving-desc { font-size: 0.8rem; color: var(--text-sub); line-height: 1.6; }
     </style>
 </head>
 <body>
@@ -423,7 +859,7 @@
 
         </div>
 
-        <!-- 오른쪽 메인 콘텐츠 영역 (중첩 카드를 없애고 깔끔하게 배치하여 하단 정렬을 완전 동기화) -->
+        <!-- 오른쪽 메인 콘텐츠 영역 -->
         <div class="main-content">
             
             <!-- 영역 1: 일 하는 방식 -->
@@ -437,49 +873,53 @@
                 </div>
             </div>
             
-            <!-- 영역 2: Projects (이제 하단 라인이 왼쪽 카드 끝선과 일치하게 늘어납니다) -->
+            <!-- 영역 2: Projects -->
             <div class="project-section-wrap">
                 <div class="section-title" style="padding-left: 5px;">Projects 🌲</div>
                 
                 <div class="project-grid">
-                    
-                    <div class="project-item expandable" data-target="project1-modal">
-                        <div class="project-header-img">🔒</div>
-                        <div class="project-item-title">Forest Test System</div>
-                        <div class="project-item-desc">사내망 인프라 침입 방어 및 탐지 아키텍처 인프라 설계 프로젝트입니다.</div>
+
+                    <!-- 신규 프로젝트 5: 국토교통부 보안감사 대응 -->
+                    <div class="project-item expandable" data-target="project5-modal">
+                        <div class="project-header-img">🛡️</div>
+                        <div class="project-item-title">국토교통부 보안감사 대응</div>
+                        <div class="project-item-desc">가급 보안시설 기준 폐쇄망 환경 정기 보안감사 대응 및 지적사항 무사 통과 프로젝트입니다.</div>
                         <div class="project-tags">
-                            <span class="tag">Infra Security</span>
-                            <span class="tag">Architecture</span>
+                            <span class="tag">Security Audit</span>
+                            <span class="tag">Air-Gapped</span>
                         </div>
                     </div>
 
-                    <div class="project-item expandable" data-target="project2-modal">
-                        <div class="project-header-img">🌿</div>
-                        <div class="project-item-title">Nature Design Infra</div>
-                        <div class="project-item-desc">고가용성 클라우드 솔루션 기반 친환경 데이터 전력 최적화 자동화 프로젝트입니다.</div>
+                    <!-- 신규 프로젝트 6: IT 자산 비용 최적화 -->
+                    <div class="project-item expandable" data-target="project6-modal">
+                        <div class="project-header-img">💰</div>
+                        <div class="project-item-title">IT 자산 비용 최적화 & 전 주기 관리</div>
+                        <div class="project-item-desc">환율 상승기 구매 전략 개선과 전사 자산 전수조사를 통한 전 주기 관리체계 수립 프로젝트입니다.</div>
                         <div class="project-tags">
-                            <span class="tag">Cloud Architecture</span>
-                            <span class="tag">Automation</span>
+                            <span class="tag">Cost Optimization</span>
+                            <span class="tag">Asset Management</span>
                         </div>
                     </div>
 
-                    <div class="project-item expandable" data-target="project3-modal">
-                        <div class="project-header-img">⚙️</div>
-                        <div class="project-item-title">Stable Editor</div>
-                        <div class="project-item-desc">리눅스 서버 환경의 보안 취약점 진단 자동화 스크립트 및 마이그레이션 도구 개발입니다.</div>
+                    <!-- 신규 프로젝트 7: 그룹웨어 SaaS 전환 -->
+                    <div class="project-item expandable" data-target="project7-modal">
+                        <div class="project-header-img">🔄</div>
+                        <div class="project-item-title">신규 그룹웨어 구축 및 고도화</div>
+                        <div class="project-item-desc">온프레미스 그룹웨어를 SaaS로 전환하고 전자결재 시스템을 신규 도입한 고도화 프로젝트입니다.</div>
                         <div class="project-tags">
-                            <span class="tag">Linux</span>
-                            <span class="tag">Bash Automation</span>
+                            <span class="tag">SaaS Migration</span>
+                            <span class="tag">전자결재</span>
                         </div>
                     </div>
 
-                    <div class="project-item expandable" data-target="project4-modal">
-                        <div class="project-header-img">📈</div>
-                        <div class="project-item-title">Ceaino Design Dashboard</div>
-                        <div class="project-item-desc">통합 네트워크 및 시스템 보안 관제 대시보드 인터페이스 연동 프로젝트입니다.</div>
+                    <!-- 신규 프로젝트 8: 정보보안 체계 구축 (진행 중) -->
+                    <div class="project-item expandable" data-target="project8-modal">
+                        <div class="project-header-img">🔐</div>
+                        <div class="project-item-title">정보보안 체계 구축 및 IT 비용 재정비</div>
+                        <div class="project-item-desc">코스닥 상장사 정보보안 체계 신규 수립, 로그서버 구축 및 UTM 도입을 진행 중인 프로젝트입니다.</div>
                         <div class="project-tags">
-                            <span class="tag">Security Monitoring</span>
-                            <span class="tag">UI Metric</span>
+                            <span class="tag">진행 중</span>
+                            <span class="tag">UTM</span>
                         </div>
                     </div>
 
@@ -506,17 +946,18 @@
             <h2> Approach to Work 💡 </h2>
             <p class="modal-meta">How We Work & IT Governance</p>
             <div class="modal-text">
-                <p><strong> 더 밝게, 더 넓게 </strong></p>
-                <p>AI는 분산된 정보를 연결하고 활용하는 기술입니다. 하지만 모든 정보를 하나의 저장소나 권한 체계에 집중시키는 운영 방식은, 침해 발생 시 피해를 조직 전체로 확산시킬 수 있습니다.<P>
-                <P>저는 조직 전반에 흩어져 있던 데이터를 식별하고, 각 부서와 협의를 통해 보안 등급을 정의했습니다. 필요한 정보는 안전하게 공유하고, 민감한 정보는 분산 관리하는 체계를 구축하여 AI 활용성과 보안 사이의 균형을 지향했습니다.</p>
+                <p><strong> 정보를 연결하고, 보호하다 </strong></p>
+                <p>AI는 분산된 정보를 연결하고 활용하는 기술입니다. 데이터가 늘어날수록 정보의 활용과 보호는 함께 이루어져야 합니다. <P>
+                <P>저는 조직 전반에 흩어져 있던 데이터를 식별하고, 각 부서와 협의를 통해 보안 등급을 정의하여 안정적으로 관리한 경험이 있습니다.</p>
+                <P>폐쇄적인 정보 관리보다, 명확한 기준과 안전한 공유가 공존하는 보안을 추구합니다.<P>
                 <br>
                 <p><strong> 철저한 실용주의 </strong></p>
-                <p>다양한 서버와 보안 솔루션(방화벽, EDR, NAC, DLP), 협업 도구를 운영하며 얻은 결론은 단순합니다. 트래픽과 절차만 늘리는 기능보다 업무를 정확히 분석하고, 필요한 곳에 필요한 기술을 적용하는 것이 더 중요합니다.</p>
+                <p>다양한 서버와 보안 솔루션(방화벽, EDR, NAC, DLP), 협업 도구를 운영하며 얻은 결론은 단순합니다.<p> 
+                <p>트래픽과 절차만 늘리는 기능보다 업무를 정확히 분석하고, 필요한 곳에 필요한 기술을 적용하는 것이 더 중요합니다.</p>
                 <br>
-                <p><strong> 고객중심주의 </strong></p>
-                <p>저는 단순한 IT 인프라 운영을 넘어, 조직 구성원의 업무 환경과 요구를 이해하고 이에 맞는 서비스를 제공하는 것을 중요하게 생각합니다.</p>
-                <p>현장, 연구실, 사무실, 해외 등 다양한 업무 환경에 맞춰 IT 장비와 서비스를 구축해 왔으며, 사용자의 업무 방식과 목적에 맞는 최적의 환경을 제공하기 위해 노력했습니다.</p>
-                <p>좋은 IT는 사용자가 기술을 의식하지 않고 업무에만 집중할 수 있도록 만드는 것이라고 생각합니다.</p>
+                <p><strong> 능동적 업무지원 </strong></p>
+                <p>저는 단순한 IT 인프라 운영을 넘어, 구성원의 업무를 이해하고 필요한 IT 환경을 제공하는 것을 중요하게 생각합니다.</p>
+                <p>현장, 연구실, 사무실, 해외 등 다양한 업무 환경에 맞는 IT 서비스를 구축해 왔으며, 좋은 IT는 사용자가 기술을 의식하지 않고 업무에만 집중할 수 있도록 만드는 것이라고 생각합니다.<p>
                 <p></p>
             </div>
         </div>
@@ -556,61 +997,501 @@
     </div>
 </div>
 
-<div class="full-page-overlay" id="project1-modal">
+<!-- ===================================================== -->
+<!-- 신규 프로젝트 5: 국토교통부 보안감사 대응                  -->
+<!-- ===================================================== -->
+<div class="full-page-overlay" id="project5-modal">
     <div class="modal-content">
         <div class="close-hint">닫기 ✕</div>
         <div class="modal-body">
-            <h2>Forest Test System</h2>
-            <p class="modal-meta">Infra Security & Enterprise Architecture</p>
-            <div class="modal-text">
-                <p><strong>상세 프로젝트 명세:</strong></p>
-                <br>
-                <p>기업 내부 자산 보호를 위한 인프라 방어선 아키텍처 설계입니다. 방화벽 규칙 자동화 및 침입 탐지 시스템(IDS)을 연동하여, 외부 트래픽 노이즈 필터링 및 악성 행위의 가시성을 확보하는 안정적인 보안 환경을 제공합니다.</p>
+            <h2>국토교통부 보안감사 대응</h2>
+            <p class="modal-meta">Ministry of Land Infrastructure — Security Audit Response · 2021.07 ~ 2021.12</p>
+
+            <div class="viz-sec-label">감사 성과 요약</div>
+            <div class="kpi-row">
+                <div class="kpi-card">
+                    <div class="kpi-num count-num" data-suffix="%" data-target="100">0%</div>
+                    <div class="kpi-label">감사 통과율</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-num count-num" data-suffix="건" data-target="0">0건</div>
+                    <div class="kpi-label">지적사항<br>미처리</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-num count-num" data-suffix="개" data-target="4">0개</div>
+                    <div class="kpi-label">점검 도메인</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-num count-num" data-suffix="년" data-target="2">0년</div>
+                    <div class="kpi-label">정기감사<br>주기 기준 수립</div>
+                </div>
+            </div>
+
+            <div class="viz-sec-label">영역별 점검 완료율</div>
+            <div class="viz-bar-row">
+                <div class="viz-bar-meta"><span>네트워크 · 방화벽 보안</span><span class="viz-pct count-pct" data-target="100">0%</span></div>
+                <div class="viz-bar-track"><div class="viz-bar-fill" data-w="100"></div></div>
+            </div>
+            <div class="viz-bar-row">
+                <div class="viz-bar-meta"><span>OS · 시스템 보안 설정</span><span class="viz-pct count-pct" data-target="100">0%</span></div>
+                <div class="viz-bar-track"><div class="viz-bar-fill" data-w="100"></div></div>
+            </div>
+            <div class="viz-bar-row">
+                <div class="viz-bar-meta"><span>계정 · 패치 · 정책 관리</span><span class="viz-pct count-pct" data-target="95">0%</span></div>
+                <div class="viz-bar-track"><div class="viz-bar-fill" data-w="95"></div></div>
+            </div>
+            <div class="viz-bar-row">
+                <div class="viz-bar-meta"><span>감사 자료 제출 · 응대</span><span class="viz-pct count-pct" data-target="100">0%</span></div>
+                <div class="viz-bar-track"><div class="viz-bar-fill" data-w="100"></div></div>
+            </div>
+
+            <div class="viz-sec-label">감사 진행 흐름</div>
+            <div class="viz-timeline">
+                <div class="viz-tl-item">
+                    <div class="viz-tl-dot-col"><div class="viz-tl-dot done"></div><div class="viz-tl-line"></div></div>
+                    <div class="viz-tl-body">
+                        <div class="viz-tl-title">사전 준비 · 인프라 점검</div>
+                        <div class="viz-tl-desc">폐쇄망 환경에 적합한 방화벽 정책 운영 여부 점검, 무선 인터넷 사용 제한 및 보안 설정 여부 확인 대응</div>
+                    </div>
+                </div>
+                <div class="viz-tl-item">
+                    <div class="viz-tl-dot-col"><div class="viz-tl-dot done"></div><div class="viz-tl-line"></div></div>
+                    <div class="viz-tl-body">
+                        <div class="viz-tl-title">OS · 계정 보안 항목 대응</div>
+                        <div class="viz-tl-desc">Windows OS 보안 설정 현황 점검 및 감사 대응, 계정 관리·패치 상태·보안 정책 적용 여부 확인</div>
+                    </div>
+                </div>
+                <div class="viz-tl-item">
+                    <div class="viz-tl-dot-col"><div class="viz-tl-dot done"></div><div class="viz-tl-line"></div></div>
+                    <div class="viz-tl-body">
+                        <div class="viz-tl-title">감사관 응대 · 자료 제출</div>
+                        <div class="viz-tl-desc">감사관과의 유선 및 서면 질의 응답 수행, 보안 설정 현황 자료 정리 및 제출</div>
+                    </div>
+                </div>
+                <div class="viz-tl-item">
+                    <div class="viz-tl-dot-col"><div class="viz-tl-dot done"></div></div>
+                    <div class="viz-tl-body">
+                        <div class="viz-tl-title">지적 사항 조치 · 결과 보고</div>
+                        <div class="viz-tl-desc">지적 사항 조치 내역 보고 및 후속 관리 체계 정립</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="viz-sec-label">주요 성과</div>
+            <div class="result-badge">
+                <div class="dot"></div>
+                국토교통부 정기 보안감사 무사 통과 — 지적 미처리 0건, 폐쇄망 가급 시설 기준 운영 체계 정립
+            </div>
+            <div class="viz-checklist">
+                <div class="viz-check-item"><div class="viz-check-icon">✓</div>가급 국가 중요시설 기준에 부합하는 폐쇄망 인프라 보안 운영 기준 문서화</div>
+                <div class="viz-check-item"><div class="viz-check-icon">✓</div>이기종 서버(Win/Linux/Unix) 전체 보안 설정 항목 점검 및 조치 완료</div>
+                <div class="viz-check-item"><div class="viz-check-icon">✓</div>감사 증적 체계 수립 — 이후 2년 주기 정기감사 대응 기반 마련</div>
+                <div class="viz-check-item"><div class="viz-check-icon">✓</div>Air-Gapped 환경 특화 네트워크 장비 운영 절차 및 OS 패치 프로세스 정립</div>
             </div>
         </div>
     </div>
 </div>
 
-<div class="full-page-overlay" id="project2-modal">
+
+<!-- ===================================================== -->
+<!-- 신규 프로젝트 6: IT 자산 비용 최적화 & 전 주기 관리 체계      -->
+<!-- ===================================================== -->
+<div class="full-page-overlay" id="project6-modal">
     <div class="modal-content">
         <div class="close-hint">닫기 ✕</div>
         <div class="modal-body">
-            <h2>Nature Design Infra</h2>
-            <p class="modal-meta">High-Availability Cloud & Power Optimization</p>
-            <div class="modal-text">
-                <p><strong>상세 프로젝트 명세:</strong></p>
-                <br>
-                <p>시스템 부하량에 맞춘 유연한 전력 소모 가상화 엔진 설계 프로젝트입니다. 고가용성(High-Availability)을 보장하는 구조 내에서 불필요한 데이터 서버 소모 리소스를 예측·감축하여 중단 없는 탄력적 친환경 인프라 운용을 실현합니다.</p>
+            <h2>IT 자산 비용 최적화 & 전 주기 관리</h2>
+            <p class="modal-meta">IT Asset Cost Optimization & Full-Lifecycle Management · 2022.07 ~ 2025.11</p>
+
+            <div class="viz-sec-label">환율 상승기 대응 — 항목별 비용 절감률 (2023.12 ~ 2024.03)</div>
+            <div class="savings-grid">
+                <div class="saving-item">
+                    <div class="saving-pct"><span class="symbol">↓</span><span class="count-num" data-target="10">0</span><span class="symbol">%</span></div>
+                    <div class="saving-cat">PC 구매 단가</div>
+                    <div class="saving-desc">CPU 하향 · RAM 상향 · NAS 연계로 개인 스토리지 의존도 감소</div>
+                </div>
+                <div class="saving-item">
+                    <div class="saving-pct"><span class="symbol">↓</span><span class="count-num" data-target="15">0</span><span class="symbol">%</span></div>
+                    <div class="saving-cat">모니터 단가</div>
+                    <div class="saving-desc">환율 영향 적은 국산 브랜드 전환, 해상도 · 품질 기존 수준 유지</div>
+                </div>
+                <div class="saving-item">
+                    <div class="saving-pct"><span class="symbol">↓</span><span class="count-num" data-target="45">0</span><span class="symbol">%</span></div>
+                    <div class="saving-cat">MS Office 라이선스</div>
+                    <div class="saving-desc">폐쇄망 전용 → 범용 라이선스 전환, 관리 프로세스 매뉴얼화</div>
+                </div>
+            </div>
+
+            <div class="viz-sec-label">절감 전후 비용 비율 비교</div>
+            <div class="viz-bar-row">
+                <div class="viz-bar-meta"><span>PC 단가</span><span class="viz-pct">10% 절감</span></div>
+                <div class="viz-bar-track"><div class="viz-bar-fill" data-w="90"></div></div>
+            </div>
+            <div class="viz-bar-row">
+                <div class="viz-bar-meta"><span>모니터 단가</span><span class="viz-pct">15% 절감</span></div>
+                <div class="viz-bar-track"><div class="viz-bar-fill" data-w="85"></div></div>
+            </div>
+            <div class="viz-bar-row">
+                <div class="viz-bar-meta"><span>MS Office 라이선스</span><span class="viz-pct">45% 절감</span></div>
+                <div class="viz-bar-track"><div class="viz-bar-fill" data-w="55"></div></div>
+            </div>
+
+            <div class="viz-section-card" style="margin-bottom: 16px;">
+                <div style="font-size:0.78rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent-mint);margin-bottom:14px;">업무 영향 없음 확인</div>
+                <div class="viz-checklist">
+                    <div class="viz-check-item"><div class="viz-check-icon">✓</div>문서·이메일 중심 업무 — CPU 하향 후 체감 성능 저하 사례 없음</div>
+                    <div class="viz-check-item"><div class="viz-check-icon">✓</div>NAS 구축으로 개별 PC 저장공간 요구 자체를 감소시킴</div>
+                    <div class="viz-check-item"><div class="viz-check-icon">✓</div>모니터 해상도·품질 기존 수준 유지 — 사용자 불만 제로</div>
+                    <div class="viz-check-item"><div class="viz-check-icon">✓</div>라이선스 전환 후 관리 매뉴얼화로 운영 안정성 확보</div>
+                    <div class="viz-check-item"><div class="viz-check-icon">✓</div>IT 자산 표준화 및 중장기 구매 전략 수립 기반 마련</div>
+                </div>
+            </div>
+
+            <div class="viz-sec-label">IT 자산관리 프로세스 정비 · 전 주기 체계 수립 (2022.07 ~ 2025.11)</div>
+            <div class="kpi-row">
+                <div class="kpi-card">
+                    <div class="kpi-num count-num" data-suffix="개소" data-target="9">0개소</div>
+                    <div class="kpi-label">본사 + 8개 지점<br>전수조사</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-num count-num" data-suffix="대" data-target="80">0대</div>
+                    <div class="kpi-label">노후 PC<br>우선 교체</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-num count-num" data-suffix="년" data-target="7">0년</div>
+                    <div class="kpi-label">자산 교체 주기<br>기준 재정립</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-num">3년+</div>
+                    <div class="kpi-label">전 주기 관리<br>운영 기간</div>
+                </div>
+            </div>
+
+            <div class="viz-two-col">
+                <div class="viz-section-card">
+                    <div style="font-size:0.78rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent-mint);margin-bottom:14px;">수행 흐름</div>
+                    <div class="viz-timeline">
+                        <div class="viz-tl-item">
+                            <div class="viz-tl-dot-col"><div class="viz-tl-dot done"></div><div class="viz-tl-line"></div></div>
+                            <div class="viz-tl-body">
+                                <div class="viz-tl-title" style="font-size:0.92rem;">IT 자산 전수 조사 · 데이터 정비</div>
+                                <div class="viz-tl-desc" style="font-size:0.84rem;">본사·8개 지점 미관리 자산 포함 전수조사, 사용자·부서·IP 메타정보 정리</div>
+                            </div>
+                        </div>
+                        <div class="viz-tl-item">
+                            <div class="viz-tl-dot-col"><div class="viz-tl-dot done"></div><div class="viz-tl-line"></div></div>
+                            <div class="viz-tl-body">
+                                <div class="viz-tl-title" style="font-size:0.92rem;">IT 레이아웃 · 네트워크 가시화</div>
+                                <div class="viz-tl-desc" style="font-size:0.84rem;">좌석·부서·IP·전화번호 기반 레이아웃 문서화 — 외주·장애 대응 참조 자료</div>
+                            </div>
+                        </div>
+                        <div class="viz-tl-item">
+                            <div class="viz-tl-dot-col"><div class="viz-tl-dot done"></div><div class="viz-tl-line"></div></div>
+                            <div class="viz-tl-body">
+                                <div class="viz-tl-title" style="font-size:0.92rem;">노후 자산 교체 · 주기 기준 수립</div>
+                                <div class="viz-tl-desc" style="font-size:0.84rem;">12년 이상 노후 PC 80대 우선 교체, 교체 주기 7년으로 재정립</div>
+                            </div>
+                        </div>
+                        <div class="viz-tl-item">
+                            <div class="viz-tl-dot-col"><div class="viz-tl-dot done"></div></div>
+                            <div class="viz-tl-body">
+                                <div class="viz-tl-title" style="font-size:0.92rem;">전 주기 프로세스 확립 · 운영</div>
+                                <div class="viz-tl-desc" style="font-size:0.84rem;">도입 → 운영 → 교체 → 폐기 전 단계 체계화, 지점 원격 지원 고도화</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="viz-section-card">
+                    <div style="font-size:0.78rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent-mint);margin-bottom:14px;">주요 성과</div>
+                    <div class="result-badge">
+                        <div class="dot"></div>
+                        자산 도입부터 폐기까지 전 주기 관리 흐름 체계화 완료, 지점 원격 지원 및 외부 업체 협업 대응 속도 개선
+                    </div>
+                    <div class="viz-checklist">
+                        <div class="viz-check-item"><div class="viz-check-icon">✓</div>자산 현황 상시 최신화 — 미관리 자산 0 상태 유지</div>
+                        <div class="viz-check-item"><div class="viz-check-icon">✓</div>IT 레이아웃 문서로 외주·장애 초기 대응 시간 단축</div>
+                        <div class="viz-check-item"><div class="viz-check-icon">✓</div>교체 주기 기준 명문화로 예산 예측 가능성 확보</div>
+                        <div class="viz-check-item"><div class="viz-check-icon">✓</div>전 주기 체계를 통한 자산 낭비 및 중복 구매 방지</div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
-<div class="full-page-overlay" id="project3-modal">
+
+<!-- ===================================================== -->
+<!-- 신규 프로젝트 7: 신규 그룹웨어 구축 및 고도화 (SaaS 전환)    -->
+<!-- ===================================================== -->
+<div class="full-page-overlay" id="project7-modal">
     <div class="modal-content">
         <div class="close-hint">닫기 ✕</div>
         <div class="modal-body">
-            <h2>Stable Editor</h2>
-            <p class="modal-meta">Linux Vulnerability Scanner & Migration Scripts</p>
-            <div class="modal-text">
-                <p><strong>상세 프로젝트 명세:</strong></p>
-                <br>
-                <p>운영체제 전반의 보안 가이드라인 준수 여부를 단 몇 초 만에 자동으로 분석하는 쉘 스크립트 도구입니다. 취약점을 감지한 뒤 리눅스 서버 커널 옵션을 마이그레이션하고 보완 조치까지 원스톱으로 처리하는 자동화 엔진입니다.</p>
+            <h2>신규 그룹웨어 구축 및 고도화</h2>
+            <p class="modal-meta">On-premise → SaaS Groupware Migration & Enhancement · 2023.06 ~ 2025.01</p>
+
+            <div class="role-banner">
+                <div class="role-icon">🎯</div>
+                <div>
+                    <div class="role-title">IT 담당자 핵심 역할</div>
+                    <div class="role-desc">기존 그룹웨어의 <strong>보완할 점과 버릴 것을 선별</strong>하고, 실무 업무 방식에 가장 잘 맞는 SaaS 서비스를 찾아 전환 전략을 수립. 기존 데이터 백업 및 단계적 이전 전 과정 주도.</div>
+                </div>
+            </div>
+
+            <div class="viz-sec-label">전환 전 / 후</div>
+            <div class="before-after-grid">
+                <div class="ba-col before">
+                    <div class="ba-head bad">Before — 온프레미스</div>
+                    <div class="ba-list">
+                        <div class="ba-item"><div class="ba-dot red"></div>서버 저장 용량 한계, 지속적 초과 발생</div>
+                        <div class="ba-item"><div class="ba-dot red"></div>확장성 없음 — 하드웨어 증설만이 유일한 대안</div>
+                        <div class="ba-item"><div class="ba-dot red"></div>노후 시스템 유지보수 운영 부담 증가</div>
+                        <div class="ba-item"><div class="ba-dot red"></div>전자결재 기능 없음 — 수기·구두 결재 혼용</div>
+                    </div>
+                </div>
+                <div class="ba-arrow">→</div>
+                <div class="ba-col after">
+                    <div class="ba-head good">After — SaaS 기반</div>
+                    <div class="ba-list">
+                        <div class="ba-item"><div class="ba-dot green"></div>클라우드 저장공간으로 용량 제약 해소</div>
+                        <div class="ba-item"><div class="ba-dot green"></div>구독 기반 유연한 확장 — 운영 부담 최소화</div>
+                        <div class="ba-item"><div class="ba-dot green"></div>서버 직접 관리 불필요, 운영 안정성 확보</div>
+                        <div class="ba-item"><div class="ba-dot green"></div>전자결재 신규 도입 — 결재 프로세스 표준화</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="viz-sec-label">서비스 선별 및 설계 프로세스 — IT 담당자 주도</div>
+            <div class="select-grid">
+                <div class="select-card">
+                    <div class="step-num">STEP 01 · 현황 분석</div>
+                    <div class="step-title">기존 시스템 해부</div>
+                    <div class="step-body">실무 사용 패턴 파악, 실제로 쓰는 기능과 안 쓰는 기능 분리. 사용자 인터뷰 기반 불편 사항 수집.</div>
+                    <div class="badge-row">
+                        <span class="badge-pill keep">살릴 것</span>
+                        <span class="badge-pill" style="background:#2d1010;color:#f87171;border:1px solid #5a2020;">버릴 것</span>
+                    </div>
+                </div>
+                <div class="select-card">
+                    <div class="step-num">STEP 02 · 서비스 선택</div>
+                    <div class="step-title">최적 SaaS 선별</div>
+                    <div class="step-body">조직 규모·업무 방식에 맞는 서비스 비교 검토. 보안 정책, 비용 구조, 전자결재 지원 여부 기준으로 최종 선정.</div>
+                    <div class="badge-row">
+                        <span class="badge-pill new">신규 도입</span>
+                        <span class="badge-pill keep">기능 유지</span>
+                    </div>
+                </div>
+                <div class="select-card">
+                    <div class="step-num">STEP 03 · 데이터 이전</div>
+                    <div class="step-title">백업 및 마이그레이션</div>
+                    <div class="step-body">기존 메일·업무 데이터 전체 백업 후 단계별 이전. 정합성 검증 및 사용자 영향 최소화 방식 적용.</div>
+                    <div class="badge-row">
+                        <span class="badge-pill keep">데이터 보전</span>
+                        <span class="badge-pill new">무중단 전환</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="viz-sec-label">마이그레이션 흐름</div>
+            <div class="flow-row">
+                <div class="flow-step">
+                    <div class="flow-icon">🔍</div>
+                    <div class="flow-title">현황 분석</div>
+                    <div class="flow-desc">기능·데이터·불편 파악</div>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-icon">📋</div>
+                    <div class="flow-title">선별·설계</div>
+                    <div class="flow-desc">유지·제거·신규 결정</div>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-icon">💾</div>
+                    <div class="flow-title">데이터 백업</div>
+                    <div class="flow-desc">전체 백업·정합성 검증</div>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-icon">🚀</div>
+                    <div class="flow-title">단계별 전환</div>
+                    <div class="flow-desc">부서별 순차 마이그레이션</div>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-icon">✅</div>
+                    <div class="flow-title">안정화·운영</div>
+                    <div class="flow-desc">전자결재 세팅·고도화</div>
+                </div>
+            </div>
+
+            <div class="viz-sec-label">주요 성과</div>
+            <div class="viz-two-col">
+                <div class="viz-section-card">
+                    <div class="result-badge" style="margin-bottom:14px;">
+                        <div class="dot"></div>
+                        서버 용량 문제 완전 해소, 전자결재 도입으로 업무 처리 효율성 및 관리 편의성 향상
+                    </div>
+                    <div class="viz-checklist">
+                        <div class="viz-check-item"><div class="viz-check-icon">✓</div>기존 데이터 유실 없이 전체 이전 완료</div>
+                        <div class="viz-check-item"><div class="viz-check-icon">✓</div>전환 후 사용자 업무 중단 사례 없음</div>
+                    </div>
+                </div>
+                <div class="viz-section-card">
+                    <div class="viz-checklist">
+                        <div class="viz-check-item"><div class="viz-check-icon">✓</div>조직 구조에 맞춘 전자결재 프로세스 설계·적용</div>
+                        <div class="viz-check-item"><div class="viz-check-icon">✓</div>SaaS 운영 경험 및 대규모 마이그레이션 수행 이력 확보</div>
+                        <div class="viz-check-item"><div class="viz-check-icon">✓</div>구독 기반 전환으로 장기 운영 비용 예측 가능성 확보</div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
-<div class="full-page-overlay" id="project4-modal">
+
+<!-- ===================================================== -->
+<!-- 신규 프로젝트 8: 정보보안 체계 구축 및 IT 비용 재정비 (진행 중) -->
+<!-- ===================================================== -->
+<div class="full-page-overlay" id="project8-modal">
     <div class="modal-content">
         <div class="close-hint">닫기 ✕</div>
         <div class="modal-body">
-            <h2>Ceaino Design Dashboard</h2>
-            <p class="modal-meta">Real-time Traffic Monitoring & Interface</p>
-            <div class="modal-text">
-                <p><strong>상세 프로젝트 명세:</strong></p>
-                <br>
-                <p>전체 서브넷망의 실시간 유입 트래픽과 하드웨어 노드 리소스를 메트릭 수치로 통합 가시화한 UI 대시보드 연동 프로젝트입니다. 장애 발생 가능 지점을 즉각 모니터링하여 임계치 초과 시 조기 대응이 가능하도록 설계했습니다.</p>
+            <h2>정보보안 체계 구축 및 IT 비용 재정비</h2>
+            <p class="modal-meta">KOSDAQ-listed Company — Security Governance Overhaul</p>
+            <div class="status-badge-inline"><div class="status-dot-pulse"></div>진행 중</div>
+
+            <div class="viz-sec-label">IT 유지보수 월 결재 비용 절감</div>
+            <div class="cost-hero">
+                <div class="cost-compare-row">
+                    <div class="cost-block">
+                        <div class="cost-block-tag">부임 전</div>
+                        <div class="cost-block-num before"><span class="count-num" data-target="900">0</span><span class="cost-block-unit">만원/월</span></div>
+                    </div>
+                    <div class="cost-arrow">→</div>
+                    <div class="cost-block">
+                        <div class="cost-block-tag">현재</div>
+                        <div class="cost-block-num after"><span class="count-num" data-target="670">0</span><span class="cost-block-unit">만원/월</span></div>
+                    </div>
+                </div>
+                <div class="viz-bar-track" style="height:14px; border-radius:7px;">
+                    <div class="viz-bar-fill" data-w="74.4" style="border-radius:7px 0 0 7px;"></div>
+                </div>
+                <div style="display:flex; justify-content:space-between; margin-top:8px; font-size:0.8rem; color:var(--text-sub);">
+                    <span>현재 비용 비중 74%</span>
+                    <span>절감분 26%</span>
+                </div>
+                <div class="annual-savings-box" style="margin-top:20px;">
+                    연간 약 <span class="count-num" data-target="2760" style="color:#4ade80;">0</span>만원 절감&nbsp;<span class="small">(월 230만원 × 12개월)</span>
+                </div>
+            </div>
+
+            <div class="viz-sec-label">비용 절감 세부 항목</div>
+            <div class="breakdown-grid">
+                <div class="bd-card">
+                    <div class="bd-icon">🔌</div>
+                    <div class="bd-name">미사용 SaaS · 원격지원</div>
+                    <div class="bd-action">연결 해지</div>
+                    <div class="bd-desc">실사용 없는 협업툴 및 원격지원 프로그램 라이선스 정리</div>
+                </div>
+                <div class="bd-card">
+                    <div class="bd-icon">🤖</div>
+                    <div class="bd-name">AI 이용료</div>
+                    <div class="bd-action">사용량 기반 축소</div>
+                    <div class="bd-desc">정액제에서 실사용량 기준 플랜으로 전환</div>
+                </div>
+                <div class="bd-card">
+                    <div class="bd-icon">💾</div>
+                    <div class="bd-name">넷백업(NetBackup)</div>
+                    <div class="bd-action">유지보수 범위 축소</div>
+                    <div class="bd-desc">필수 백업 범위만 남기고 유지보수 계약 슬림화</div>
+                </div>
+            </div>
+
+            <div class="viz-sec-label">보안 솔루션 운영 현황</div>
+            <div class="solution-grid">
+                <div class="sol-card">
+                    <div class="sol-icon">📡</div>
+                    <div class="sol-name">UTM</div>
+                    <span class="sol-status review">신규 도입 진행</span>
+                    <div class="sol-reason">라이선스 만료 후 공백 상태, 재선정 진행 중</div>
+                </div>
+                <div class="sol-card">
+                    <div class="sol-icon">🔒</div>
+                    <div class="sol-name">DLP</div>
+                    <span class="sol-status keep">유지</span>
+                    <div class="sol-reason">기능 정상 운영 중</div>
+                </div>
+                <div class="sol-card">
+                    <div class="sol-icon">🌐</div>
+                    <div class="sol-name">NAC</div>
+                    <span class="sol-status keep">유지</span>
+                    <div class="sol-reason">네트워크 접근 통제 핵심 기능 유지</div>
+                </div>
+                <div class="sol-card">
+                    <div class="sol-icon">💻</div>
+                    <div class="sol-name">EDR · 문서중앙화</div>
+                    <span class="sol-status keep">유지</span>
+                    <div class="sol-reason">필수 보안 솔루션, 지속 운영</div>
+                </div>
+            </div>
+
+            <div class="viz-two-col">
+                <div class="viz-section-card">
+                    <div style="font-size:0.78rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent-mint);margin-bottom:14px;">로그 수집 체계 신규 구축</div>
+                    <div class="viz-timeline">
+                        <div class="viz-tl-item">
+                            <div class="viz-tl-dot-col"><div class="viz-tl-dot done"></div><div class="viz-tl-line"></div></div>
+                            <div class="viz-tl-body">
+                                <div class="viz-tl-title" style="font-size:0.92rem;">로그 서버 신규 구축</div>
+                                <div class="viz-tl-desc" style="font-size:0.84rem;">UTM 라이선스 만료로 중단됐던 로그 수집 기능을 자체 서버 구축으로 복원</div>
+                            </div>
+                        </div>
+                        <div class="viz-tl-item">
+                            <div class="viz-tl-dot-col"><div class="viz-tl-dot done"></div><div class="viz-tl-line"></div></div>
+                            <div class="viz-tl-body">
+                                <div class="viz-tl-title" style="font-size:0.92rem;">이슈 알림 자동화</div>
+                                <div class="viz-tl-desc" style="font-size:0.84rem;">이상 징후 및 보안 이벤트 발생 시 담당자 메일 자동 발송 체계 구축</div>
+                            </div>
+                        </div>
+                        <div class="viz-tl-item">
+                            <div class="viz-tl-dot-col"><div class="viz-tl-dot done"></div></div>
+                            <div class="viz-tl-body">
+                                <div class="viz-tl-title" style="font-size:0.92rem;">보안 감사 추적 기반 마련</div>
+                                <div class="viz-tl-desc" style="font-size:0.84rem;">상장사 정보보호 감사 대응을 위한 로그 증적 체계 확보</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="viz-section-card">
+                    <div style="font-size:0.78rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent-mint);margin-bottom:14px;">진행 로드맵</div>
+                    <div class="viz-timeline">
+                        <div class="viz-tl-item">
+                            <div class="viz-tl-dot-col"><div class="viz-tl-dot done"></div><div class="viz-tl-line"></div></div>
+                            <div class="viz-tl-body">
+                                <div class="viz-tl-title" style="font-size:0.92rem;">로그 서버 구축 · 알림 체계 완료</div>
+                                <div class="viz-tl-desc" style="font-size:0.84rem;">로그 수집 공백 해소, 메일 발송 자동화 구축</div>
+                            </div>
+                        </div>
+                        <div class="viz-tl-item">
+                            <div class="viz-tl-dot-col"><div class="viz-tl-dot done"></div><div class="viz-tl-line"></div></div>
+                            <div class="viz-tl-body">
+                                <div class="viz-tl-title" style="font-size:0.92rem;">IT 유지보수 비용 재정비 완료</div>
+                                <div class="viz-tl-desc" style="font-size:0.84rem;">미사용 SaaS·원격지원 해지, AI·백업 비용 구조 개선으로 월 230만원 절감</div>
+                            </div>
+                        </div>
+                        <div class="viz-tl-item">
+                            <div class="viz-tl-dot-col"><div class="viz-tl-dot active"></div><div class="viz-tl-line"></div></div>
+                            <div class="viz-tl-body">
+                                <div class="viz-tl-title active" style="font-size:0.92rem;">UTM 신규 도입 — 진행 중</div>
+                                <div class="viz-tl-desc" style="font-size:0.84rem;">제품 비교 검토 및 도입 절차 진행 중</div>
+                            </div>
+                        </div>
+                        <div class="viz-tl-item">
+                            <div class="viz-tl-dot-col"><div class="viz-tl-dot todo"></div></div>
+                            <div class="viz-tl-body">
+                                <div class="viz-tl-title" style="font-size:0.92rem;">정보보안 거버넌스 문서화 — 예정</div>
+                                <div class="viz-tl-desc" style="font-size:0.84rem;">전사 보안 정책 및 운영 기준 수립 예정</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -626,6 +1507,7 @@
             if (overlay) {
                 overlay.classList.add('active');
                 document.body.classList.add('modal-open'); 
+                runCountUpAnimations(overlay);
             }
         });
     });
@@ -638,6 +1520,72 @@
             }
         });
     });
+
+    /* 숫자 / 퍼센트 카운트업 애니메이션
+       모달이 열릴 때마다 해당 모달 내부의 .count-num, .count-pct, .viz-bar-fill 을 찾아
+       0에서 목표 값까지 올라가는 애니메이션과 막대바 채움 애니메이션을 실행 */
+    function runCountUpAnimations(overlay) {
+        const duration = 1200; // ms
+
+        // 일반 숫자 카운트업 (예: 100%, 80대, 900 -> 670 등)
+        overlay.querySelectorAll('.count-num').forEach(el => {
+            const target = parseFloat(el.getAttribute('data-target'));
+            const suffix = el.getAttribute('data-suffix') || '';
+            if (isNaN(target)) return;
+            const startTime = performance.now();
+
+            function tick(now) {
+                const progress = Math.min((now - startTime) / duration, 1);
+                const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+                const current = Math.round(target * eased);
+                el.textContent = current + suffix;
+                if (progress < 1) {
+                    requestAnimationFrame(tick);
+                } else {
+                    el.textContent = target + suffix;
+                }
+            }
+            requestAnimationFrame(tick);
+        });
+
+        // 퍼센트 전용 카운트업 (진행률 바 옆 수치)
+        overlay.querySelectorAll('.count-pct').forEach(el => {
+            const target = parseFloat(el.getAttribute('data-target'));
+            if (isNaN(target)) return;
+            const startTime = performance.now();
+
+            function tick(now) {
+                const progress = Math.min((now - startTime) / duration, 1);
+                const eased = 1 - Math.pow(1 - progress, 3);
+                const current = Math.round(target * eased);
+                el.textContent = current + '%';
+                if (progress < 1) {
+                    requestAnimationFrame(tick);
+                } else {
+                    el.textContent = target + '%';
+                }
+            }
+            requestAnimationFrame(tick);
+        });
+
+        // 진행률 바 채우기 애니메이션
+        overlay.querySelectorAll('.viz-bar-fill').forEach(el => {
+            const w = el.getAttribute('data-w');
+            el.style.width = '0%';
+            // 강제 리플로우 후 트랜지션 적용
+            void el.offsetWidth;
+            setTimeout(() => {
+                el.style.width = w + '%';
+            }, 50);
+        });
+
+        // 절감 항목 카드 하단 라인 애니메이션 (saving-item)
+        overlay.querySelectorAll('.saving-item').forEach(el => {
+            el.classList.remove('ready');
+            void el.offsetWidth;
+            setTimeout(() => el.classList.add('ready'), 50);
+        });
+    }
 </script>
 
 </body>
