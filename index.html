@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -330,6 +331,37 @@
         .saving-pct .symbol { font-size: 1.5rem; }
         .saving-cat { font-size: 0.9rem; color: var(--text-main); font-weight: 600; margin-bottom: 6px; }
         .saving-desc { font-size: 0.8rem; color: var(--text-sub); line-height: 1.6; }
+
+        /* ===== 이력서 모달 - 기술 스택 뱃지 (신규 추가) ===== */
+        .tech-badge-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 12px;
+            margin-bottom: 8px;
+        }
+        .tech-badge-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--card-inner-bg);
+            border: 1px solid #254a37;
+            color: #cbd5e1;
+            font-size: 0.85rem;
+            font-weight: 500;
+            padding: 7px 13px;
+            border-radius: 8px;
+            line-height: 1.2;
+            transition: border-color 0.2s, transform 0.15s;
+        }
+        .tech-badge-item:hover {
+            border-color: var(--accent-mint);
+            transform: translateY(-1px);
+        }
+        .tech-badge-item .icon {
+            font-size: 1rem;
+            line-height: 1;
+        }
     </style>
 </head>
 <body>
@@ -485,28 +517,65 @@
             <h2>Hwang Jun-myeong | Resume</h2>
             <p class="modal-meta">IT Infrastructure & Security Specialist</p>
             <div class="modal-text">
-                <p style="font-size: 1.3rem; margin-bottom: 15px; color: var(--text-main);"><strong>[주요 근무 이력]</strong></p>
+                <p style="font-size: 1.3rem; margin-bottom: 25px; color: var(--text-main);"><strong>[주요 근무 이력]</strong></p>
 
+                <!-- 1. 젠큐릭스 -->
                 <p>• <strong>젠큐릭스 (2026.04 ~ 재직 중)</strong> — [코스닥 상장사] IT 인프라 & 정보보안 총괄<br>
-                  &nbsp;&nbsp;- IT 인프라·네트워크 독자 설계/구축 및 실시간 모니터링 환경 구현<br>
-                  &nbsp;&nbsp;- IT 자산관리, 입퇴사자 PC 온/오프보딩, OA관리(복합기,전화기 및 근태관리 등)<br>
-                  &nbsp;&nbsp;- 바이오 상장사 정보보호 감사 대응 및 IT 통제체계 운영<br>
-                  &nbsp;&nbsp;- 사내 시스템 보안 취약점 검토 및 기술적/행정적 정보보안 가이드라인 수립 및 사내교육</p>
-                <br>
+                    &nbsp;&nbsp;- 사내 정보보호 정책 수립, 최신 보안 위협 및 취약점 분석 기반의 보안 솔루션 검토·도입<br>
+                    &nbsp;&nbsp;- 전사 정보보호 솔루션 및 시스템 어드민 관리자 권한 총괄 운영 및 보안 정책 관리<br>
+                    &nbsp;&nbsp;- Microsoft 365 및 생성형 AI(ChatGPT, Genspark) Enterprise 관리자 권한 및 거버넌스 제어<br>
+                    &nbsp;&nbsp;- PowerShell 및 Batch 스크립트 기반 보안 인프라 자동화 및 운영 프로세스 개선
+                </p>
+                <div class="tech-badge-container">
+                    <span class="tech-badge-item"><span class="icon">🛡️</span>DLP (S1)</span>
+                    <span class="tech-badge-item"><span class="icon">🔑</span>NAC (지니언스)</span>
+                    <span class="tech-badge-item"><span class="icon">📁</span>문서중앙화 (DOCUONE)</span>
+                    <span class="tech-badge-item"><span class="icon">💾</span>NetBackup</span>
+                    <span class="tech-badge-item"><span class="icon">🧱</span>UTM / VPN</span>
+                    <span class="tech-badge-item"><span class="icon">🚀</span>EDR</span>
+                    <span class="tech-badge-item"><span class="icon">🖥️</span>Windows Server</span>
+                    <span class="tech-badge-item"><span class="icon">🤖</span>GenAI Enterprise</span>
+                    <span class="tech-badge-item"><span class="icon">📜</span>PowerShell</span>
+                </div>
+                <br><br>
+
+                <!-- 2. 샤프에비에이션케이 -->
                 <p>• <strong>(주)샤프에비에이션케이 (2022.04 ~ 2026.04)</strong> — [1500명 규모] IT 인프라 & 엔드포인트 보안 운영<br>
-                  &nbsp;&nbsp;- 전사 그룹웨어(다우오피스) 도입 TF 주도 및 계정/권한 거버넌스 확립<br>
-                  &nbsp;&nbsp;- IT 헬프데스크,  전생애주기 IT 자산관리 프로세스 구축 및 운영, 비용절감<br>
-                  &nbsp;&nbsp;- 네트워크, 방화벽/VPN 및 IDC·NAS 서버 운영, IT 자산 전생애주기 관리 프로세스 구축</p>
-                <br>
-                <p>• <strong>(주)유씨에스시스템 (2021.04 ~ 2022.04)</strong> — [국토교통부 산하 (가)급 보안시설] IT 보안 엔지니어 <br>
-                  &nbsp;&nbsp;- 국토부 산하 보안시설 내 이기종 서버(Win/Linux/Unix) 및 네트워크 실시간 트래픽 보안 관제<br>
-                  &nbsp;&nbsp;- 특수 폐쇄망(Air-Gapped) 환경 내 네트워크 장비 운영, OS 보안 패치 및 감사 증적 관리</p>
+                    &nbsp;&nbsp;- 사내 개인정보보호 총괄 담당자 업무 수행 및 컴플라이언스 준수 여부 정기 점검<br>
+                    &nbsp;&nbsp;- 국제 항공 보안 인증(ISAGO) IT 파트 부문 리드로 참여하여 24년 인증 심사 대응 및 수검 완료<br>
+                    &nbsp;&nbsp;- 전사 데이터 자산 NAS 중앙화 운영 관리 및 퇴사자 발생 시 로그 분석, 데이터 유출 모니터링 체계 확립<br>
+                    &nbsp;&nbsp;- 최신 보안 이슈 및 취약점 공지, 전사 임직원 대상 보안 인식 제고 교육 사항 사내 게시판 기획·게시
+                </p>
+                <div class="tech-badge-container">
+                    <span class="tech-badge-item"><span class="icon">✈️</span>ISAGO 인증</span>
+                    <span class="tech-badge-item"><span class="icon">🕵️</span>개인정보보호</span>
+                    <span class="tech-badge-item"><span class="icon">🗄️</span>NAS 중앙화</span>
+                    <span class="tech-badge-item"><span class="icon">📊</span>로그 분석 / 모니터링</span>
+                    <span class="tech-badge-item"><span class="icon">🧱</span>Network Firewall</span>
+                    <span class="tech-badge-item"><span class="icon">🏫</span>보안 공지·교육</span>
+                </div>
+                <br><br>
+
+                <!-- 3. 유씨에스시스템 -->
+                <p>• <strong>(주)유씨에스시스템 (2021.04 ~ 2022.04)</strong> — [국토교통부 산하 (가)급 보안시설] IT 보안 엔지니어<br>
+                    &nbsp;&nbsp;- 국토교통부 산하 최고 보안 등급 시설 내 특수 폐쇄망(Air-Gapped) 인프라 전용 DML 마스터 관리자 역임<br>
+                    &nbsp;&nbsp;- 안랩(AhnLab) 방화벽 시스템을 활용한 실시간 트래픽 및 보안 이벤트 모니터링, 이상 징후 초동 조치<br>
+                    &nbsp;&nbsp;- 2년 주기 국토교통부 정기 보안감사 및 상시 보안감사 수검 실무 대응, 지적사항 후속 조치 이행<br>
+                    &nbsp;&nbsp;- 폐쇄망 인프라 내 하드웨어 장비 반출입 보안성 검토, 승인 절차 관리 및 대관 행정업무 총괄
+                </p>
+                <div class="tech-badge-container">
+                    <span class="tech-badge-item"><span class="icon">🌐</span>폐쇄망 전용 DML</span>
+                    <span class="tech-badge-item"><span class="icon">🧱</span>안랩 방화벽 (AhnLab)</span>
+                    <span class="tech-badge-item"><span class="icon">🔍</span>보안 관제 / 모니터링</span>
+                    <span class="tech-badge-item"><span class="icon">🛡️</span>국가 보안감사 수검</span>
+                    <span class="tech-badge-item"><span class="icon">⚙️</span>Win / Linux Server</span>
+                    <span class="tech-badge-item"><span class="icon">📑</span>보안성 검토</span>
+                </div>
                 <br><br>
             </div>
         </div>
     </div>
 </div>
-
 <!-- 신규 프로젝트 5: 국토교통부 보안감사 대응 -->
 <div class="full-page-overlay" id="project5-modal">
     <div class="modal-content">
