@@ -186,7 +186,10 @@
             box-shadow: 0 0 0 3px var(--bg-color), 0 0 0 5px var(--accent-mint);
         }
         .profile-img-container img { width: 100%; height: 100%; object-fit: cover; display: block; }
-        .profile-name { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.01em; margin-bottom: 4px; }
+        .profile-name { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.01em; margin-bottom: 2px; }
+        .profile-name-ko { font-size: 1.05rem; font-weight: 700; color: var(--text-body); letter-spacing: 0.12em; margin-bottom: 6px; }
+        .web-pill { display: inline-flex; align-items: center; gap: 5px; font-size: 0.72rem; font-weight: 700; color: var(--accent-soft); background: rgba(82,183,136,0.12); border: 1px solid rgba(82,183,136,0.4); padding: 2px 9px; border-radius: 999px; }
+        .web-pill::before { content: "🔒"; font-size: 0.7rem; }
         .profile-sub { color: var(--accent-mint); font-size: 0.92rem; margin-bottom: 18px; }
         .profile-desc {
             color: var(--text-body); font-size: 0.93rem; text-align: left;
@@ -662,6 +665,7 @@
                     <img src="증명사진.jpg" alt="황준명 프로필 사진">
                 </div>
                 <div class="profile-name">Hwang Jun-myeong</div>
+                <div class="profile-name-ko">황준명</div>
                 <div class="profile-sub">Information Security & Infrastructure</div>
                 <div class="profile-desc">조직의 환경에 최적화된 IT 거버넌스를 설계합니다.</div>
             </div>
@@ -708,7 +712,7 @@
 
                 <div class="bt-feature">
                     <div>
-                        <span class="bt-badge">★ 대표 산출물 · 다이퀘스트</span>
+                        <span class="bt-badge">★ 대표 산출물 · 다이퀘스트</span> <span class="web-pill">외부 접속 · 도메인 · SSL</span>
                         <h4>사내 인프라 포털</h4>
                         <p class="bt-lead">엑셀, 메신저, 개인 메모에 흩어져 있던 서버·IP·신청 업무를 아무도 시키지 않았지만 하나의 포털로 통합했습니다.</p>
                         <ul class="bt-points">
@@ -738,19 +742,19 @@
                     <div class="card expandable press bt-card" data-target="project9-modal" tabindex="0" role="button" aria-label="사내 드라이브 자세히 보기">
                         <div class="bt-thumb"><img src="img/drive.webp" alt="사내 드라이브 화면" loading="lazy"></div>
                         <div class="bt-body">
-                            <div class="bt-title">사내 드라이브 (Nextcloud)</div>
+                            <div class="bt-title">사내 드라이브 (Nextcloud) <span class="web-pill">외부 접속 · SSL</span></div>
                             <div class="bt-impact">연 약 1,000만 원 Microsoft 클라우드 추가 결제 취소</div>
                             <div class="bt-desc">용량이 차서 추가 결제가 필요하던 상황에, 쓰지 않던 하드웨어를 모아 사내 드라이브를 구축하고 결제를 취소했습니다.</div>
-                            <div class="project-tags"><span class="tag">Nextcloud</span><span class="tag">LDAP</span><span class="tag">유휴 장비 재활용</span></div>
+                            <div class="project-tags"><span class="tag">Nextcloud</span><span class="tag">LDAP</span><span class="tag">도메인 · SSL</span><span class="tag">유휴 장비 재활용</span></div>
                         </div>
                     </div>
                     <div class="card expandable press bt-card" data-target="nexus-modal" tabindex="0" role="button" aria-label="Nexus 저장소 자세히 보기">
                         <div class="bt-thumb"><img src="img/nexus.webp" alt="Nexus 저장소 화면" loading="lazy"></div>
                         <div class="bt-body">
-                            <div class="bt-title">Nexus 저장소 마이그레이션</div>
+                            <div class="bt-title">Nexus 저장소 마이그레이션 <span class="web-pill">외부 접속 · SSL</span></div>
                             <div class="bt-impact">용량 부족·보안 취약 구버전 → 신버전 전환</div>
                             <div class="bt-desc">개발팀의 Docker 이미지와 Maven 라이브러리를 관리하는 저장소를 유휴 장비로 옮기며 최신 버전으로 올렸습니다.</div>
-                            <div class="project-tags"><span class="tag">Nexus 3</span><span class="tag">Docker</span><span class="tag">Maven</span></div>
+                            <div class="project-tags"><span class="tag">Nexus 3</span><span class="tag">Docker</span><span class="tag">Maven</span><span class="tag">도메인 · SSL</span></div>
                         </div>
                     </div>
                     <div class="card expandable press bt-card" data-target="eml-modal" tabindex="0" role="button" aria-label="EML 뷰어 자세히 보기">
@@ -763,7 +767,7 @@
                         </div>
                     </div>
                 </div>
-                <p class="bt-note"><b>AI 바이브 코딩</b><span>네 가지 모두 AI를 활용해 직접 기획하고 구현했습니다. 사내 전용 서비스라 외부에서는 접속할 수 없어, 화면은 캡처 또는 예시 데이터로 보여드립니다.</span></p>
+                <p class="bt-note"><b>AI 바이브 코딩</b><span>네 가지 모두 AI를 활용해 직접 기획하고 구현했습니다. 포털·드라이브·Nexus는 도메인과 SSL 인증서를 적용해 사외에서도 안전하게 접속할 수 있게 열어 두었습니다. 다만 사내 계정 로그인이 필요해, 화면은 캡처 또는 예시 데이터로 보여드립니다.</span></p>
             </section>
 
             <section class="card">
@@ -1022,6 +1026,7 @@
                     <p class="exp-role">[AI·자연어처리 솔루션 기업] IT 인프라 운영</p>
                     <ul>
                         <li>사내 인프라 포털 기획·구축: 사무실 IP 자동 배정, VM·방화벽·계정·VPN 신청 전산화, 네트워크 배치도·IDC 인프라 맵 통합</li>
+                        <li>인프라 포털·사내 드라이브·Nexus에 도메인과 SSL 인증서를 적용해 사외 HTTPS 접속 환경 구성</li>
                         <li>IDC·사내 서버 전수 실측 기반 자산통합대장 현행화, 랙 실장도·Zabbix 연동 대시보드 구축</li>
                         <li>유휴 하드웨어로 Nextcloud 사내 드라이브 구축, 연 약 1,000만 원 Microsoft 클라우드 추가 결제 취소</li>
                         <li>구버전 Nexus(용량·보안 취약) 신버전 마이그레이션, Docker·Maven 저장소 운영</li>
@@ -1168,6 +1173,7 @@
                     <div class="card-mini-title">보안과 기록</div>
                     <div class="result-badge"><div class="dot"></div>편하게 만들되, 권한과 기록은 더 엄격하게. 로그인부터 관리자 작업까지 모두 월별로 남깁니다.</div>
                     <div class="viz-checklist">
+                        <div class="viz-check-item"><div class="viz-check-icon">✓</div>전용 도메인과 SSL 인증서를 적용해 사외에서도 HTTPS로 접속</div>
                         <div class="viz-check-item"><div class="viz-check-icon">✓</div>LDAP 그룹 권한, 5회 실패 시 15분 잠금, 퇴사·만료 계정 차단</div>
                         <div class="viz-check-item"><div class="viz-check-icon">✓</div>VM 접속 정보 암호화 보관, 재인증 후에만 열람</div>
                         <div class="viz-check-item"><div class="viz-check-icon">✓</div>SSL VPN: 방화벽 관리자 계정 공유 방식 → 개인 계정·기간 관리로 중앙화 진행 중</div>
@@ -1200,6 +1206,7 @@
                     <div class="ba-head good">이후 · 신버전 Nexus</div>
                     <div class="ba-list">
                         <div class="ba-item"><div class="ba-dot green"></div>입사 후 모은 유휴 하드웨어로 이전, 신규 구매 없이 용량 확보</div>
+                        <div class="ba-item"><div class="ba-dot green"></div>도메인과 SSL을 적용해 사외 개발 환경에서도 HTTPS로 사용</div>
                         <div class="ba-item"><div class="ba-dot green"></div>최신 버전으로 마이그레이션해 보안 취약 버전 제거</div>
                     </div>
                 </div>
@@ -1322,7 +1329,7 @@
                         <div class="viz-check-item"><div class="viz-check-icon">✓</div>OS 디스크와 데이터 디스크를 분리해 OS 재설치·장애 시에도 데이터 영향 최소화</div>
                         <div class="viz-check-item"><div class="viz-check-icon">✓</div>외부 스토리지 마운트 방식으로 용량 증설 시 서비스 재구성 없이 확장</div>
                         <div class="viz-check-item"><div class="viz-check-icon">✓</div>부서별 요청 폴더를 그룹 권한으로 개설해 최소 권한 원칙 유지</div>
-                        <div class="viz-check-item"><div class="viz-check-icon">✓</div>도메인·SSL 적용으로 사내 사용자가 브라우저에서 바로 접근</div>
+                        <div class="viz-check-item"><div class="viz-check-icon">✓</div>전용 도메인과 SSL 인증서를 적용해 사내외 어디서나 브라우저로 HTTPS 접속</div>
                     </div>
                 </div>
             </div>
