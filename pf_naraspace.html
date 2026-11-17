@@ -923,6 +923,20 @@
         @media (max-width: 700px) { .tl-slogan .q { font-size: 1.15rem; } }
         @media (prefers-reduced-motion: reduce) { .jr-node, .jr-line i { transition: none; opacity: 1; transform: none; } .jr-node.now .dot { animation: none; } }
 
+        /* ---------- uniform clickable matcher cards ---------- */
+        button.mx-card { font: inherit; color: inherit; text-align: left; cursor: pointer; display: flex; flex-direction: column; width: 100%; -webkit-tap-highlight-color: transparent; }
+        button.mx-card:hover { border-color: rgba(185,178,222,.7); background: rgba(24,28,60,.75); }
+        button.mx-card.in:hover { transform: translateY(-2px); }
+        button.mx-card:active { transform: scale(.98); }
+        .mx-card .row1 { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 7px; }
+        .mx-card .row1 .co { margin-bottom: 0; }
+        .mx-card .pref { font-size: .7rem; font-weight: 700; color: var(--warn); background: rgba(242,193,78,.1); border: 1px solid rgba(242,193,78,.35); border-radius: 999px; padding: 1px 8px; }
+        .mx-card .go { margin-top: auto; padding-top: 10px; font-size: .78rem; font-weight: 700; color: var(--accent-soft); }
+        button.mx-card:hover .go { color: #fff; }
+        .mx-cards { grid-template-columns: repeat(3, minmax(0,1fr)); }
+        @media (max-width: 1180px) { .mx-cards { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+        @media (max-width: 700px) { .mx-cards { grid-template-columns: 1fr; } }
+
     </style>
 </head>
 <body>
@@ -971,7 +985,7 @@
 
     <!-- ===== 02 모집공고 기반 직무 수행 역량 ===== -->
     <section class="np-sec" id="s1">
-        <div class="np-sh"><span class="no">02</span><div><h2>모집공고 기반 직무 수행 역량</h2><p>공고의 주요 업무와 우대사항을 선택하면, 해당 업무를 수행한 경력이 표시됩니다.</p></div></div>
+        <div class="np-sh"><span class="no">02</span><div><h2>모집공고 기반 직무 수행 역량</h2><p>공고의 주요 업무를 선택하면 수행 경력이 나타나고, 각 경력을 누르면 해당 프로젝트가 열립니다.</p></div></div>
         <div class="mx">
             <div class="mx-list" id="mxList" role="tablist" aria-label="모집공고 요구사항"></div>
             <div class="mx-panel" id="mxPanel" role="tabpanel" aria-live="polite">
@@ -981,7 +995,6 @@
                 </div>
                 <svg class="mx-wire" viewBox="0 0 600 24" preserveAspectRatio="none" aria-hidden="true"><path d="M0 12 H600"/></svg>
                 <div class="mx-cards" id="mxCards"></div>
-                <div class="mx-rel" id="mxRel"></div>
             </div>
         </div>
     </section>
@@ -1112,6 +1125,7 @@
     <footer>황준명 · 인프라 / 보안 엔지니어<br><span>사내 서비스 화면은 보안을 위해 예시 데이터로 재현하거나 일부만 보여드립니다.</span></footer>
 </div>
 
+<div hidden aria-hidden="true"><button type="button" data-target="audit-modal" tabindex="-1"></button><button type="button" data-target="netsec-modal" tabindex="-1"></button><button type="button" data-target="network-modal" tabindex="-1"></button></div>
 <!-- ===================== 경력 여정 작은 설명 창 ===================== -->
 <div class="jr-pop" id="jrPop" role="dialog" aria-modal="true" aria-labelledby="jrTitle" hidden>
     <div class="jr-card">
@@ -1386,6 +1400,63 @@
             <div class="viz-check-item"><div class="viz-check-icon">✓</div>방화벽 펌웨어 보안 패치</div>
             <div class="viz-check-item"><div class="viz-check-icon">✓</div>PHP 보안 이슈 공개 후 해당 서버 확인·전체 패치</div>
             <div class="viz-check-item"><div class="viz-check-icon">✓</div>전 서버 실측으로 EOL OS 서버 식별</div>
+        </div>
+    </div></div>
+</div>
+
+<div class="full-page-overlay" id="audit-modal" role="dialog" aria-modal="true" aria-label="국가 중요시설 보안 운영">
+    <div class="modal-content"><div class="modal-body">
+        <h2>국가 중요시설 폐쇄망 운영 · 보안감사 대응</h2>
+        <p class="modal-meta">유씨에스시스템 · 국토교통부 산하 (가)급 국가 중요시설 · 항공물류정보시스템 유지보수팀 · 2021.03 ~ 2022.04</p>
+        <div class="kpi-row">
+            <div class="kpi-card"><div class="kpi-num">(가)급</div><div class="kpi-label">국가 중요시설<br>폐쇄망</div></div>
+            <div class="kpi-card"><div class="kpi-num count-num" data-suffix="건" data-target="0">0건</div><div class="kpi-label">지적사항<br>미처리</div></div>
+            <div class="kpi-card"><div class="kpi-num">DML</div><div class="kpi-label">마스터<br>관리자</div></div>
+            <div class="kpi-card"><div class="kpi-num count-num" data-suffix="년" data-target="2">0년</div><div class="kpi-label">정기감사<br>주기 대응</div></div>
+        </div>
+        <div class="viz-two-col" style="margin-top:14px">
+            <div class="viz-section-card"><div class="card-mini-title">보안 운영</div><div class="viz-checklist">
+                <div class="viz-check-item"><div class="viz-check-icon">✓</div>AhnLab 방화벽 실시간 트래픽·이벤트 모니터링과 이상 징후 초동 대응</div>
+                <div class="viz-check-item"><div class="viz-check-icon">✓</div>폐쇄망 회선 추가와 라우터 증적 관리, Windows·Linux 서버 운영</div>
+                <div class="viz-check-item"><div class="viz-check-icon">✓</div>협력업체 장비 반입·반출 보안성 검토, 출입 권한 관리</div>
+            </div></div>
+            <div class="viz-section-card"><div class="card-mini-title">국가 보안감사 대응</div><div class="viz-checklist">
+                <div class="viz-check-item"><div class="viz-check-icon">✓</div>방화벽 정책, OS·장비 보안 설정과 보안 패치, 계정 점검</div>
+                <div class="viz-check-item"><div class="viz-check-icon">✓</div>감사관 질의응답과 자료 정리·제출</div>
+                <div class="viz-check-item"><div class="viz-check-icon">✓</div>지적사항 조치 후 증적 체계 마련</div>
+            </div></div>
+        </div>
+    </div></div>
+</div>
+
+<div class="full-page-overlay" id="netsec-modal" role="dialog" aria-modal="true" aria-label="네트워크 보안 장비와 보안 솔루션 운영">
+    <div class="modal-content"><div class="modal-body">
+        <h2>네트워크 보안 장비 · 보안 솔루션 운영</h2>
+        <p class="modal-meta">4개 회사에서 운영한 장비와 솔루션</p>
+        <div class="breakdown-grid">
+            <div class="bd-card"><div class="bd-icon">🤖</div><div class="bd-name">다이퀘스트</div><div class="bd-action">Sophos Firewall · SSL VPN</div><div class="bd-desc">방화벽·포트맵 규칙 관리, 외부 오픈 요청 보안성 검토, 펌웨어 보안 패치, VPN 개인 계정 중앙화</div></div>
+            <div class="bd-card"><div class="bd-icon">🧬</div><div class="bd-name">젠큐릭스</div><div class="bd-action">UTM · VPN · EDR · DLP · NAC · 문서중앙화 · NetBackup</div><div class="bd-desc">전사 보안 솔루션 관리자 권한 총괄, 비인가 SW 점검·차단, 로그 수집 서버 구축</div></div>
+            <div class="bd-card"><div class="bd-icon">✈️</div><div class="bd-name">샤프에비에이션케이</div><div class="bd-action">방화벽 · VPN · EDR(알약)</div><div class="bd-desc">EDR 관리자 운영, 공항 내부 IT 보안 프로그램, 방화벽 벤더 관리</div></div>
+        </div>
+        <div class="bd-card" style="margin-top:14px"><div class="bd-icon">🛡️</div><div class="bd-name">유씨에스시스템</div><div class="bd-action">AhnLab 방화벽</div><div class="bd-desc">국가 중요시설 폐쇄망 트래픽·이벤트 실시간 모니터링과 초동 대응</div></div>
+    </div></div>
+</div>
+
+<div class="full-page-overlay" id="network-modal" role="dialog" aria-modal="true" aria-label="지점과 공항 네트워크 운영">
+    <div class="modal-content"><div class="modal-body">
+        <h2>본사 · 8개 지점 · 공항 사무실 인프라</h2>
+        <p class="modal-meta">샤프에비에이션케이 · 1,500인 항공 조업·정비 · 3명이 계열사까지 IT 전반 담당 · 2022.04 ~ 2026.04</p>
+        <div class="kpi-row">
+            <div class="kpi-card"><div class="kpi-num count-num" data-suffix="개" data-target="8">0개</div><div class="kpi-label">국내 지점<br>+ 해외 거점</div></div>
+            <div class="kpi-card"><div class="kpi-num">300인+</div><div class="kpi-label">정비 그룹<br>테크닉스케이 IT</div></div>
+            <div class="kpi-card"><div class="kpi-num count-num" data-suffix="대" data-target="600">0대</div><div class="kpi-label">PC 교체<br>(노트북 200대 별도)</div></div>
+            <div class="kpi-card"><div class="kpi-num count-num" data-suffix="%" data-target="45">0%</div><div class="kpi-label">Office 라이선스<br>단가 절감</div></div>
+        </div>
+        <div class="viz-checklist" style="margin-top:14px">
+            <div class="viz-check-item"><div class="viz-check-icon">✓</div>사옥 이전: 레이아웃 기반 가구·전기·통신 공사 일정 조율, LAN·무선 AP 설계·구축, 공사 현장 직접 확인</div>
+            <div class="viz-check-item"><div class="viz-check-icon">✓</div>공항 사무실 IT 인프라와 전용망 연결, 인터넷전화(VoIP) 관리</div>
+            <div class="viz-check-item"><div class="viz-check-icon">✓</div>네트워크·무선 AP 장애 트러블슈팅, 지점·해외 거점 원격 지원</div>
+            <div class="viz-check-item"><div class="viz-check-icon">✓</div>IT 자산 생애주기 관리(견적·구매·지급·회수·폐기), 노후 모니터 문제를 데이터로 증명해 구매 계획 변경</div>
         </div>
     </div></div>
 </div>
@@ -1720,63 +1791,30 @@
 (function () {
     const D = '다이퀘스트', G = '젠큐릭스 · 코스닥 의료기업', S = '샤프에비에이션케이', U = '유씨에스시스템 · 국가 중요시설';
     const REQ = [
-        { t: '인프라 보안 체계 구축 및 개선', c: [
-            { co: D, b: '사내 인프라 포털로 증적 체계 구축', p: '서버·방화벽·VPN·계정 신청부터 처리까지 기록이 남는 구조로 통합', m: 'portal-modal' },
-            { co: D, b: '침해사고 3건 이후 재발 방지 체계', p: 'EOL 서버 식별, 외부 접근 정책 점검, 로그 기록 강화로 연결', m: 'ir1-modal' },
-            { co: G, b: '상장 의료기업 보안 요구사항 대응', p: '요구사항에 맞춰 보안 정책·통제 정비, 증적 관리 프로세스 수립', m: 'cost-modal' },
-            { co: U, b: '국가 중요시설 보안 운영 기준', p: '폐쇄망 보안 운영과 감사 증적 체계 마련' } ] },
-        { t: '계정·권한·백업, SSO/MFA 등 접근 통제', c: [
-            { co: D, b: 'LDAP 통합계정 · 그룹 권한', p: '포털·드라이브 등 하나의 계정, 본부별 그룹 권한, 5회 실패 잠금, 퇴사자 차단', m: 'portal-modal' },
-            { co: D, b: '최소 권한 원칙 검토', p: 'sudo 등 권한 요청과 외부 포트 오픈 요청을 보안성 기준으로 검토' },
-            { co: D, b: '관리자 다단계 인증·점프 서버 권고', p: '침해사고 보고서에서 관리 접속 분리와 MFA 도입을 권고', m: 'ir1-modal' },
-            { co: G, b: '백업 · 데이터 접근 통제', p: 'NetBackup 운영, 생성형 AI 데이터 접근 권한 통제, 문서중앙화' } ] },
-        { t: '보안 패치, 취약점 점검 및 개선', c: [
-            { co: D, b: '방화벽 펌웨어 · PHP 보안 패치', p: 'PHP 보안 이슈 공개 후 해당 서버 확인·전체 패치', m: 'vpn-modal' },
-            { co: D, b: 'EOL 서버 식별', p: '전 서버 실측으로 노후 OS를 찾아 정리 대상으로 관리' },
-            { co: D, b: 'Nexus 취약 버전 교체', p: '보안 취약 구버전을 신버전으로 마이그레이션', m: 'nexus-modal' },
-            { co: U, b: 'OS·장비 보안 설정·패치 점검', p: '국가 보안감사 기준으로 점검·조치, 지적 미처리 0건' } ] },
-        { t: '시스템·보안 로그 모니터링, 이상 징후 대응', c: [
+        { t: '회사의 인프라 보안 체계 구축 및 개선', c: [
+            { co: D, b: 'IT 인프라 포털로 증적 체계 구축', p: '서버·방화벽·VPN·계정 신청부터 처리까지 기록이 남는 구조로 통합', m: 'portal-modal' },
+            { co: G, b: '상장 의료기업 IT 운영 체계화', p: '계약서 전수 수집, 보안 요구사항 대응, 증적 관리 프로세스 수립', m: 'cost-modal' },
+            { co: D, b: '침해사고 이후 재발 방지 체계', p: 'EOL 서버 식별, 외부 접근 정책 점검, 로그 기록 강화로 연결', m: 'ir3-modal' } ] },
+        { t: '계정·권한·백업, SSO/MFA 등 시스템 접근 통제 운영', c: [
+            { co: D, b: 'LDAP 통합계정 · 그룹 권한', p: '하나의 계정으로 포털·드라이브 사용, 5회 실패 잠금, 퇴사자 차단, 최소 권한 검토', m: 'portal-modal' },
+            { co: D, b: 'SSL VPN 개인 계정 중앙화', p: '공유 관리자 계정 → 개인 계정·사용 기간 관리', m: 'vpn-modal' },
+            { co: D, b: '본부별 그룹 권한 · 데이터 이관', p: 'Nextcloud에 LDAP 그룹 권한 적용, Teams 데이터 이관', m: 'drive-modal' } ] },
+        { t: '보안 패치, 취약점 점검 및 개선 활동', c: [
+            { co: D, b: '방화벽 · PHP 보안 패치', p: '방화벽 펌웨어 패치, PHP 보안 이슈 점검 후 전체 패치, EOL 서버 식별', m: 'vpn-modal' },
+            { co: D, b: 'Nexus 취약 버전 교체', p: '용량 부족·보안 취약 구버전을 신버전으로 마이그레이션', m: 'nexus-modal' },
+            { co: U, b: '국가 보안감사 점검 · 조치', p: 'OS·장비 보안 설정과 패치 점검, 지적사항 미처리 0건', m: 'audit-modal' } ] },
+        { t: '시스템 및 보안 로그 모니터링, 이상 징후 대응', c: [
             { co: D, b: '7개월 잠복 침해 탐지 · 대응', p: '통신 장애에서 단서를 찾아 격리·제거·역추적, 13쪽 보고서', m: 'ir1-modal' },
-            { co: D, b: '랜섬웨어 · 코인 채굴 악성 파일', p: '노후 서버 랜섬웨어 분리, 개발·DB 서버 악성 파일 제거', m: 'ir2-modal' },
-            { co: G, b: '방화벽 관리자 계정 무단 접속 대응', p: '로그 2시간 보관 한계 → 유휴 PC로 로그 수집 서버 구축, 주기적 접속 확인·차단', m: 'fw-modal' },
-            { co: G, b: '회사 정보 유출 모니터링 · 조사', p: '회사 정보 유출 정황 모니터링과 사안 조사' },
-            { co: D, b: 'Zabbix · Grafana 구축', p: '서버 상태와 랙 위치를 한 화면에서 보는 모니터링' } ] },
+            { co: D, b: '랜섬웨어 발견 · 분리', p: '방치된 노후 서버 감염 확인, 외부 포트 차단과 데이터 이전', m: 'ir2-modal' },
+            { co: G, b: '방화벽 관리자 계정 무단 접속 대응', p: '유휴 PC로 로그 수집 서버 구축, 주기적 접속 확인·차단', m: 'fw-modal', tag: '우대 · 로그 모니터링' } ] },
         { t: '방화벽·UTM·VPN 등 네트워크 보안 장비 운영', c: [
-            { co: D, b: 'Sophos 방화벽 · 포트맵 관리', p: '외부 오픈 요청 보안성 검토, 노출 정책 정리' },
-            { co: D, b: 'SSL VPN 개인 계정 중앙화', p: '공유 관리자 계정 → 개인 계정·기간 관리', m: 'vpn-modal' },
-            { co: G, b: 'UTM · VPN · NAC 운영', p: 'EDR·DLP·문서중앙화와 함께 전사 보안 솔루션 운영' },
-            { co: U, b: 'AhnLab 방화벽 모니터링', p: '실시간 트래픽·이벤트 모니터링과 초동 대응' } ] },
-        { t: '서버·인프라·보안 정책 및 운영 가이드 문서', c: [
-            { co: D, b: '13쪽 침해사고 대응 보고서', p: '타임라인, 침입 경로, IOC, 증거 보관, 미확인 사항, 권고', m: 'ir1-modal' },
-            { co: D, b: '사용자 가이드', p: 'VPN 접속·사무실 IP·서버 모니터링을 화면 따라가기로 작성' },
-            { co: S, b: '보안 · 헬프데스크 매뉴얼', p: '지점·해외 직원도 따라 할 수 있는 운영 매뉴얼' },
-            { co: G, b: '정보보호 정책 수립', p: '생성형 AI 보안 정책 포함' } ] },
-        { t: '사내 서버 및 IT 인프라 운영·관리', c: [
-            { co: D, b: '서버·VM 105대 1인 운영', p: 'IDC·내부 서버실, GPU 서버 포함, 전수조사로 자산통합대장 현행화' },
-            { co: D, b: 'Nextcloud 사내 드라이브', p: '유휴 장비로 구축, 연 약 1,000만 원 클라우드 추가 결제 취소', m: 'drive-modal' },
-            { co: S, b: '1,500인 · 8개 지점 · 정비 계열사 IT', p: 'IT 자산 생애주기, PC 600대·노트북 200대 교체, 300인 이상 정비 그룹 IT 지원', m: 'monitor-modal' },
-            { co: G, b: 'IT 계약 정리 · 비용 26% 절감', p: '계약서 전수 수집, 미사용 계약 해지, 월 900만 → 670만 원', m: 'cost-modal' } ] },
-        { t: 'Linux 기반 서버 운영 및 유지보수', c: [
-            { co: D, b: 'Rocky · Ubuntu 운영', p: 'OS별 표준 템플릿(Rocky 9·10, Ubuntu), LVM 확장, Docker' },
-            { co: D, b: '장애 원인 분석', p: 'firewalld zone 충돌 SSH 장애, 메모리·Swap 포화 프리징', m: 'ts-modal' },
-            { co: D, b: 'Nginx · DNS · SSL', p: '리버스 프록시, 와일드카드·Let\'s Encrypt 인증서 관리' } ] },
-        { t: '가상화 및 네트워크 환경 운영', c: [
-            { co: D, b: 'Hyper-V VM 구축 · 증설', p: 'VM 표준 템플릿, IDC VM IP 대역 관리', m: 'portal-modal' },
-            { co: S, b: '사옥 이전 네트워크 설계', p: 'LAN·무선 AP 설계·구축, 공사 현장 직접 확인' },
-            { co: S, b: '공항 사무실 · 전용망 · VoIP', p: '전용망 연결, 인터넷전화, 네트워크·AP 장애 트러블슈팅' },
-            { co: U, b: '폐쇄망 회선 · 라우터 관리', p: '회선 추가와 라우터 증적 관리' } ] },
-        { t: '유관 부서와의 커뮤니케이션 및 협업', c: [
-            { co: D, b: '개발 조직 지원', p: 'VM·포트·도메인·인증서 구성, 권한 요청 함께 검토', m: 'ts-modal' },
-            { co: U, b: '국가 보안감사 대응', p: '감사관 질의응답과 자료 제출' },
-            { co: S, b: '공사 업체 조율', p: '가구·전기·통신 공사 일정 조율' },
-            { co: D, b: '요청 창구 일원화 · 정보 공개', p: '인프라 포털로 처리 상태를 공유하고 가이드로 직접 처리 지원', m: 'collab-modal' } ] },
-        { t: 'Shell Script 또는 Python 활용', tag: '우대', c: [
-            { co: G, b: 'PowerShell · Batch 자동화', p: '서버 모니터링과 보안 운영 자동화' },
-            { co: D, b: 'AI 활용 개발', p: '인프라 포털, EML 메일 뷰어를 직접 구현·배포', m: 'portal-modal' } ] },
-        { t: '보안 솔루션 운영, 보안 점검 또는 로그 모니터링', tag: '우대', c: [
-            { co: G, b: 'EDR · DLP · NAC · 문서중앙화', p: '관리자 권한 총괄 운영, 비인가 SW 점검·차단' },
-            { co: S, b: 'EDR(알약) 관리자 운영', p: '엔드포인트 보안 정책 관리' },
-            { co: G, b: '로그 수집 서버 · 증적 관리', p: '로그 보관 공백 해소, 이후 증적 관리 프로세스 수립', m: 'fw-modal' } ] }
+            { co: '4개 회사', b: '방화벽 · UTM · 보안 솔루션 운영', p: 'Sophos·AhnLab 방화벽, UTM·VPN, EDR·DLP·NAC·문서중앙화', m: 'netsec-modal', tag: '우대 · 보안 솔루션 운영' },
+            { co: G, b: '방화벽 관리자 페이지 접근 통제', p: '관리자 페이지 외부 IP 전면 차단, 유지보수용 계정 정리', m: 'fw-modal' },
+            { co: U, b: 'AhnLab 방화벽 실시간 모니터링', p: '국가 중요시설 폐쇄망 트래픽·이벤트 모니터링과 초동 대응', m: 'audit-modal' } ] },
+        { t: '사내 서버·IT 인프라, Linux, 가상화 및 네트워크 운영', c: [
+            { co: D, b: '서버·VM 105대 1인 운영 · 장애 분석', p: 'Rocky·Ubuntu, Hyper-V, GPU 서버, firewalld·Swap 장애 원인 분석', m: 'ts-modal', tag: '우대 · Shell Script' },
+            { co: D, b: '유휴 장비로 Nextcloud 구축', p: '연 약 1,000만 원 클라우드 추가 결제 취소, 8TB 증설', m: 'drive-modal' },
+            { co: S, b: '본사 · 8개 지점 · 공항 네트워크', p: '사옥 이전 LAN·AP 설계, 공항 사무실 전용망·인터넷전화', m: 'network-modal' } ] }
     ];
 
     const list = document.getElementById('mxList');
@@ -1784,8 +1822,6 @@
     const title = document.getElementById('mxTitle');
     const count = document.getElementById('mxCount');
     const wire = document.querySelector('.mx-wire');
-    const rel_ = document.getElementById('mxRel');
-    const NAMES = { 'ir1-modal':'침해사고 ① 원격 제어', 'ir2-modal':'침해사고 ② 랜섬웨어', 'ir3-modal':'침해사고 ③ 코인 채굴', 'fw-modal':'방화벽 무단 접속 대응', 'portal-modal':'IT 인프라 포털', 'drive-modal':'Nextcloud 드라이브', 'nexus-modal':'Nexus 마이그레이션', 'vpn-modal':'VPN 중앙화 · 보안 패치', 'ts-modal':'서버 장애 트러블슈팅', 'cost-modal':'IT 운영 체계화 · 비용 절감', 'monitor-modal':'노후 모니터 구매 계획', 'collab-modal':'요청 일원화 · 정보 공유' };
     if (!list) return;
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     let cur = -1, timers = [];
@@ -1814,12 +1850,11 @@
         countTo(r.c.length);
         wire.classList.remove('go'); void wire.getBoundingClientRect(); wire.classList.add('go');
         cards.innerHTML = r.c.map(c =>
-            `<div class="mx-card">
-                <span class="co">${c.co}</span>
+            `<button class="mx-card" type="button" data-open="${c.m}">
+                <span class="row1"><span class="co">${c.co}</span>${c.tag ? `<span class="pref">${c.tag}</span>` : ''}</span>
                 <b>${c.b}</b><p>${c.p}</p>
-            </div>`).join('');
-        const rel = [...new Set(r.c.filter(c => c.m).map(c => c.m))];
-        rel_.innerHTML = rel.length ? '<span class="lb">관련 프로젝트</span>' + rel.map(m => `<button type="button" data-open="${m}">${NAMES[m] || m}</button>`).join('') : '';
+                <span class="go">프로젝트 보기 →</span>
+            </button>`).join('');
         [...cards.children].forEach((el, k) => timers.push(setTimeout(() => el.classList.add('in'), reduce ? 0 : 120 + k * 90)));
     }
 
@@ -1828,7 +1863,7 @@
         if (e.key === 'ArrowDown' || e.key === 'ArrowRight') { e.preventDefault(); const n = (cur + 1) % REQ.length; show(n); list.children[n].focus(); auto = false; }
         if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') { e.preventDefault(); const n = (cur - 1 + REQ.length) % REQ.length; show(n); list.children[n].focus(); auto = false; }
     });
-    rel_.addEventListener('click', e => {
+    cards.addEventListener('click', e => {
         const b = e.target.closest('[data-open]'); if (!b) return;
         const t = document.querySelector(`[data-target="${b.dataset.open}"]`);
         if (t) t.click();
