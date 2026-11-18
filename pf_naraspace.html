@@ -1141,7 +1141,22 @@
         @media (max-width: 900px) { .tl-hero { grid-template-columns: 1fr; } .tl-hero-q { border-right: 0; border-bottom: 1px dashed rgba(185,178,222,.35); } .tl-hero-q h3 { font-size: 1.3rem; } }
         .tl-card .tl-case { font-size: .92rem; color: #ece7ff; }
         .tl-card .kw { color: #d8ceff; }
-        .tl-hero-q { display: flex; flex-direction: column; justify-content: center; }
+
+        /* v10 · 인재상 대표 사례: 위는 큰 질문, 아래는 한눈에 보이는 해답 */
+        .tl-hero { display: block; }
+        .tl-hero-q { padding: 30px 30px 24px; border-right: 0; border-bottom: 1px dashed rgba(185,178,222,.35); }
+        .tl-hero-k { display: inline-flex; align-items: center; gap: 6px; width: auto; align-self: flex-start; font-size: .82rem; }
+        .tl-hero-q h3 { font-size: 2.05rem; line-height: 1.35; margin: 4px 0 18px; }
+
+        .tl-issues { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
+        .tl-issues li { flex-direction: column; gap: 6px; font-size: .9rem; padding: 12px; }
+        .tl-issues li span { font-size: 1.5rem; }
+        .tl-hero-a { display: grid; grid-template-columns: 300px 1fr; grid-template-areas: "k k" "shot txt"; column-gap: 22px; align-items: start; padding: 22px 30px 26px; }
+        .tl-hero-a .tl-hero-k { grid-area: k; justify-self: start; }
+        .tl-hero-a .np-shot { grid-area: shot; margin: 0; }
+        .tl-hero-a .tl-txt { grid-area: txt; }
+        .tl-hero-a .tl-txt b.big { display: block; font-size: 1.35rem; font-weight: 800; color: #fff; margin-bottom: 6px; }
+        @media (max-width: 1000px) { .tl-issues { grid-template-columns: repeat(2, 1fr); } .tl-hero-a { grid-template-columns: 1fr; grid-template-areas: "k" "shot" "txt"; } .tl-hero-a .np-shot { margin-bottom: 14px; } .tl-hero-q h3 { font-size: 1.45rem; } }
 
     </style>
 </head>
@@ -1211,7 +1226,7 @@
         <div class="tl-hero">
             <div class="tl-hero-q">
                 <span class="tl-hero-k">✨ 새로운 질문을 던지고 스스로 해답을 만들어갈 동료</span>
-                <h3>“매년 반복되는 인프라 이슈들,<br><em>하나로 통일할 순 없을까?</em>”</h3>
+                <h3>“매년 반복되는 인프라 이슈들, <em>하나로 통일할 순 없을까?</em>”</h3>
                 <ul class="tl-issues">
                     <li><span>🧱</span>VM에 구버전 OS가 깔려 생기는 호환성 이슈</li>
                     <li><span>🔐</span>몇 년째 같은 SSL VPN 단일 계정·비밀번호, 잦은 무인가 내부 접속</li>
@@ -1223,11 +1238,14 @@
             <div class="tl-hero-a">
                 <span class="tl-hero-k">💡 스스로 만든 해답 · IT 인프라 포털</span>
                 <a class="np-shot" href="pf_portal.html"><img src="img/pt/home.webp" alt="IT 인프라 포털 메인 화면 (회사 정보 블러)" loading="lazy"><span>실제 메인 화면 · 회사명·주소 블러</span></a>
+                <div class="tl-txt">
+                    <b class="big">IT 인프라 포털 · 증적이 남는 하나의 창구</b>
                 <p class="np-lead2">모든 요청을 <b>통합계정 로그인 뒤</b>로 모았습니다. VM은 표준 OS로 신청받고, VPN은 개인 계정·승인제로, IP는 장부 기준 자동 부여, 서버는 담당자가 직접 확인하게 만들었습니다. 일을 처리하는 것만으로 증적이 남습니다.</p>
-                <div class="proof"><span>🔑 통합계정 로그인</span><span>🌐 사설 IP 자동 부여</span><span>📜 로그 자동 수집</span><span>📦 반출입 확인서</span><span>🔐 VPN 승인제</span></div>
-                <div class="np-actions">
-                    <a class="np-btn" href="pf_portal.html">포털 프로젝트 페이지 →</a>
-                    <button class="np-btn ghost" type="button" data-target="portal-modal">요약 보기</button>
+                    <div class="proof"><span>🔑 통합계정 로그인</span><span>🌐 사설 IP 자동 부여</span><span>📜 로그 자동 수집</span><span>📦 반출입 확인서</span><span>🔐 VPN 승인제</span></div>
+                    <div class="np-actions">
+                        <a class="np-btn" href="pf_portal.html">포털 프로젝트 페이지 →</a>
+                        <button class="np-btn ghost" type="button" data-target="portal-modal">요약 보기</button>
+                    </div>
                 </div>
             </div>
         </div>

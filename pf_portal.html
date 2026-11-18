@@ -1141,7 +1141,22 @@
         @media (max-width: 900px) { .tl-hero { grid-template-columns: 1fr; } .tl-hero-q { border-right: 0; border-bottom: 1px dashed rgba(185,178,222,.35); } .tl-hero-q h3 { font-size: 1.3rem; } }
         .tl-card .tl-case { font-size: .92rem; color: #ece7ff; }
         .tl-card .kw { color: #d8ceff; }
-        .tl-hero-q { display: flex; flex-direction: column; justify-content: center; }
+
+        /* v10 · 인재상 대표 사례: 위는 큰 질문, 아래는 한눈에 보이는 해답 */
+        .tl-hero { display: block; }
+        .tl-hero-q { padding: 30px 30px 24px; border-right: 0; border-bottom: 1px dashed rgba(185,178,222,.35); }
+        .tl-hero-k { display: inline-flex; align-items: center; gap: 6px; width: auto; align-self: flex-start; font-size: .82rem; }
+        .tl-hero-q h3 { font-size: 2.05rem; line-height: 1.35; margin: 4px 0 18px; }
+
+        .tl-issues { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
+        .tl-issues li { flex-direction: column; gap: 6px; font-size: .9rem; padding: 12px; }
+        .tl-issues li span { font-size: 1.5rem; }
+        .tl-hero-a { display: grid; grid-template-columns: 300px 1fr; grid-template-areas: "k k" "shot txt"; column-gap: 22px; align-items: start; padding: 22px 30px 26px; }
+        .tl-hero-a .tl-hero-k { grid-area: k; justify-self: start; }
+        .tl-hero-a .np-shot { grid-area: shot; margin: 0; }
+        .tl-hero-a .tl-txt { grid-area: txt; }
+        .tl-hero-a .tl-txt b.big { display: block; font-size: 1.35rem; font-weight: 800; color: #fff; margin-bottom: 6px; }
+        @media (max-width: 1000px) { .tl-issues { grid-template-columns: repeat(2, 1fr); } .tl-hero-a { grid-template-columns: 1fr; grid-template-areas: "k" "shot" "txt"; } .tl-hero-a .np-shot { margin-bottom: 14px; } .tl-hero-q h3 { font-size: 1.45rem; } }
 
 
         /* ===================== portal page ===================== */
