@@ -1037,6 +1037,21 @@
         .note-q { font-size: .82rem; color: var(--text-sub); border-left: 3px solid #f2c14e; padding: 8px 12px; background: rgba(242,193,78,.06); border-radius: 0 8px 8px 0; margin: 12px 0; line-height: 1.6; }
         .np-sec .np-shot img { filter: none; }
 
+        /* ---------- v5 ---------- */
+        .when { display: inline-block; font-size: .74rem; font-weight: 800; color: #0b0d1c; background: var(--np-grad); border-radius: 999px; padding: 2px 10px; margin-right: 8px; letter-spacing: .02em; vertical-align: 1px; }
+        .when.sm { font-size: .68rem; padding: 1px 8px; margin: 0 0 0 6px; }
+        .emo.three { grid-template-columns: repeat(3, 1fr); }
+        @media (max-width: 700px) { .emo.three { grid-template-columns: 1fr; } }
+        .emo.lg b { font-size: 1.08rem; } .emo.lg p { font-size: .96rem; line-height: 1.7; } .emo.lg .e { font-size: 2rem; }
+        .emo .logo { display: flex; align-items: center; justify-content: center; height: 84px; background: #fff; border-radius: 12px; padding: 8px 14px; margin-bottom: 10px; }
+        .emo .logo img { max-height: 66px; max-width: 100%; object-fit: contain; }
+        .branches > div.air { background: linear-gradient(120deg, rgba(60,211,204,.22), rgba(138,91,214,.14)); border-color: rgba(60,211,204,.5); color: #fff; font-weight: 700; }
+        .np-co { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 14px 0; }
+        .np-co .viz-section-card { margin: 0; }
+        @media (max-width: 900px) { .np-co { grid-template-columns: 1fr; } }
+        .mx-card .dt { font-size: .7rem; font-weight: 700; color: #dff8f6; background: rgba(60,211,204,.12); border: 1px solid rgba(60,211,204,.4); border-radius: 999px; padding: 1px 8px; }
+        .np-tag .d { opacity: .8; font-weight: 600; margin-left: 6px; }
+
     </style>
 </head>
 <body>
@@ -1144,7 +1159,7 @@
         <div class="np-sub">대표 프로젝트</div>
         <div class="np-feature">
             <div>
-                <span class="np-tag">🧭 다이퀘스트 · 기획부터 구현까지 직접</span>
+                <span class="np-tag">🧭 다이퀘스트 · 기획부터 구현까지 직접<span class="d">2026.10.14 ~ 진행 중</span></span>
                 <h3>IT 인프라 포털 · 증적이 남는 하나의 창구</h3>
                 <p class="np-lead2">계정 신청, 방화벽 오픈, VM, VPN, 사무실 IP, 장비 반출입까지 모든 요청을 <b>통합계정으로 로그인한 뒤</b> 처리하게 만들었습니다. 누가 언제 무엇을 신청하고 누가 승인했는지가 자동으로 기록되어, 증적을 따로 모을 필요가 없습니다.</p>
                 <div class="proof"><span>🔑 통합계정 로그인</span><span>🌐 사설 IP 자동 부여</span><span>📜 로그 자동 수집</span><span>📦 반출입 확인서</span><span>🔐 VPN 승인제</span></div>
@@ -1159,19 +1174,19 @@
         <div class="np-sub">침해 대응 · 로그 모니터링</div>
         <div class="np-grid g2">
             <div class="card expandable press np-case" data-target="ransom-modal" tabindex="0" role="button">
-                <span class="np-tag red">🔒 랜섬웨어 2건</span>
-                <h3>서버 105대 전수조사에서 찾은 랜섬웨어</h3>
-                <p class="np-flow"><b>발견</b>3년 넘게 접속 기록 없는 방치 서버 <i>→</i> <b>조치</b>열린 포트 전부 차단, 계정 변경, 암호화 파일 분류</p>
+                <span class="np-tag red">🧹 스스로 기획 · 랜섬웨어 2건<span class="d">2026.11.01 ~ 12.31</span></span>
+                <h3>아무도 시키지 않은 연말 서버 점검에서 찾은 랜섬웨어</h3>
+                <p class="np-flow"><b>기획</b>105대 점검 페이지 직접 구현 <i>→</i> <b>발견</b>랜섬웨어 2건 <i>→</i> <b>조치</b>포트 차단, 계정 변경, 경영진 보고</p>
                 <span class="np-more">과정 보기 →</span>
             </div>
             <div class="card expandable press np-case" data-target="intrusion-modal" tabindex="0" role="button">
-                <span class="np-tag red">🚨 침해사고 2건</span>
+                <span class="np-tag red">🚨 침해사고 2건<span class="d">2026.09 ~ 11</span></span>
                 <h3>악성봇 채굴 서버 · 포트 수천 개 점유 서버</h3>
                 <p class="np-flow"><b>악성봇</b>채굴 코드·암호화 DB 제거 <i>/</i> <b>포트 점유</b>외부 경로 차단, 지속 모니터링</p>
                 <span class="np-more">과정 보기 →</span>
             </div>
             <div class="card expandable press np-case" data-target="mon-modal" tabindex="0" role="button">
-                <span class="np-tag">📈 실시간 모니터링</span>
+                <span class="np-tag">📈 실시간 모니터링<span class="d">2026.10.12 ~ 10.28</span></span>
                 <h3>Grafana 직접 구축 · Zabbix 개선</h3>
                 <p class="np-flow"><b>구축</b>Grafana 대시보드 <i>+</i> <b>개선</b>기존 Zabbix <i>→</i> <b>연동</b>포털 IDC 맵 상태 표시</p>
                 <span class="np-more">과정 보기 →</span>
@@ -1187,27 +1202,27 @@
         <div class="np-sub">네트워크 보안 장비 · 접근 통제</div>
         <div class="np-grid g2">
             <div class="card expandable press np-case" data-target="sophos-modal" tabindex="0" role="button">
-                <span class="np-tag">🛡️ Sophos · IPsec</span>
-                <h3>구로 사무실 ↔ IDC 방화벽 연동, 펌웨어 3회 패치</h3>
-                <p class="np-flow"><b>정기</b>펌웨어 2회 <i>+</i> <b>긴급</b>취약점 패치 1회 <i>+</i> <b>지원</b>SSL VPN·고객사 통신</p>
+                <span class="np-tag">🛡️ Sophos · 1인 전담<span class="d">상시</span></span>
+                <h3>펌웨어·정책·외부 통신을 혼자 통제하는 방화벽 운영</h3>
+                <p class="np-flow"><b>펌웨어</b>정기 2회 + 긴급 1회 <i>/</i> <b>정책</b>NAT 순서 장애 해결 <i>/</i> <b>통신</b>구로 ↔ IDC IPsec</p>
                 <span class="np-more">과정 보기 →</span>
             </div>
             <div class="card expandable press np-case" data-target="zyxel-modal" tabindex="0" role="button">
-                <span class="np-tag">🧰 Zyxel · 업체 없이 직접</span>
+                <span class="np-tag">🧰 Zyxel · 업체 없이 1인<span class="d">상시</span></span>
                 <h3>밀려 있던 방화벽 펌웨어를 몇 주에 걸쳐 올림</h3>
                 <p class="np-flow"><b>본사 ↔ 지사</b>IPsec <i>→</i> <b>단계적</b>버전 업 <i>→</i> <b>정전·주말</b>직접 대응</p>
                 <span class="np-more">과정 보기 →</span>
             </div>
             <div class="card expandable press np-case" data-target="vpn-modal" tabindex="0" role="button">
-                <span class="np-tag">🔐 SSL VPN</span>
+                <span class="np-tag">🔐 SSL VPN<span class="d">2026.10.19 ~ 11.11</span></span>
                 <h3>모두가 돌려 쓰던 VPN 계정을 승인제 개인 계정으로</h3>
                 <p class="np-flow"><b>이전</b>공용 계정, 추적 불가 <i>→</i> <b>이후</b>신청서 → 로그 → 승인 → LDAP 권한</p>
                 <span class="np-more">과정 보기 →</span>
             </div>
             <div class="card expandable press np-case" data-target="ldap-modal" tabindex="0" role="button">
-                <span class="np-tag">👥 LDAP</span>
-                <h3>퇴사자·고객사 계정이 얽힌 LDAP를 조직도 기준으로 재편</h3>
-                <p class="np-flow"><b>재편</b>현재 조직도 기준 <i>+</i> <b>차단</b>PHP 취약점 관리자 페이지 내부망 전용</p>
+                <span class="np-tag">👥 통합계정(LDAP) 관리<span class="d">2026.10</span></span>
+                <h3>현 근무자 기준으로 정비, 129명 비활성화</h3>
+                <p class="np-flow"><b>정비</b>퇴사자·미사용 129명 <i>+</i> <b>강제</b>초기 비밀번호 변경 <i>+</i> <b>차단</b>관리자 페이지 내부망 전용</p>
                 <span class="np-more">과정 보기 →</span>
             </div>
         </div>
@@ -1227,8 +1242,8 @@
                 <span class="np-more">과정 보기 →</span>
             </div>
             <div class="card expandable press np-case" data-target="site-modal" tabindex="0" role="button">
-                <span class="np-tag">👷 항공 조업 · 정비</span>
-                <h3>공사 현장 입회와 8개 지점 사무실 레이아웃</h3>
+                <span class="np-tag">👷 항공 조업 · 정비<span class="d">상시</span></span>
+                <h3>공사 현장 입회와 7개 지점 사무실 레이아웃</h3>
                 <p class="np-flow"><b>현장</b>포설 경로·공항 전용망 확인 <i>→</i> <b>산출물</b>본사·지점 레이아웃 주기 갱신</p>
                 <span class="np-more">과정 보기 →</span>
             </div>
@@ -1240,19 +1255,39 @@
             </div>
         </div>
 
-        <div class="np-sub">서버 · 인프라 운영</div>
+        <div class="np-sub">서버 · 인프라 · 네트워크 운영</div>
         <div class="np-grid g3">
             <div class="card expandable press np-proj" data-target="linux-modal" tabindex="0" role="button">
                 <div class="np-thumb ico">🐧</div>
-                <div class="np-pb"><h4>Linux 서버 약 100대 운영</h4><p class="hi">VM · GPU · 노후 서버, NHN 클라우드</p><p>Nginx 포트 바인딩, 도메인, SSL 인증서까지 직접 적용</p></div>
+                <div class="np-pb"><h4>서버·가상화 운영 체계화</h4><p class="hi">OS 표준화 · 자원 제한 · ISMS 기준 반출 절차</p><p>Linux 약 100대, 서버 2대 신규, VM 8대 신규·약 20대 정리</p></div>
             </div>
             <div class="card expandable press np-proj" data-target="drive-modal" tabindex="0" role="button">
                 <div class="np-thumb"><img src="img/drive.webp" alt="" loading="lazy"></div>
-                <div class="np-pb"><h4>Nextcloud 사내 드라이브</h4><p class="hi">연 약 1,000만 원 클라우드 추가 결제 취소</p><p>유휴 장비로 구축, Teams 클라우드 데이터 이관</p></div>
+                <div class="np-pb"><h4>Nextcloud 사내 드라이브 <span class="when sm">2026.09</span></h4><p class="hi">연 약 1,000만 원 클라우드 추가 결제 취소</p><p>유휴 PC로 구축, Teams 이관, 1인 운영</p></div>
             </div>
             <div class="card expandable press np-proj" data-target="nexus-modal" tabindex="0" role="button">
                 <div class="np-thumb"><img src="img/nexus.webp" alt="" loading="lazy"></div>
-                <div class="np-pb"><h4>Nexus 마이그레이션</h4><p class="hi">용량 부족·보안 취약 구버전 → 신버전</p><p>Docker·Maven 저장소 15개 통합, 도메인·SSL 적용</p></div>
+                <div class="np-pb"><h4>Nexus Docker·Maven <span class="when sm">2026.09 ~ 10</span></h4><p class="hi">무거운 구버전 → 유휴 PC 신규 서버</p><p>데이터 정리·이전, Docker 저장소 추가, 1인 운영</p></div>
+            </div>
+        </div>
+        <div class="np-grid g3" style="margin-top:14px">
+            <div class="card expandable press np-case" data-target="net-modal" tabindex="0" role="button">
+                <span class="np-tag">🌐 3개 회사 현장<span class="d">상시</span></span>
+                <h3>랜선 제작부터 장비 설정까지, 네트워크 관리</h3>
+                <p class="np-flow"><b>원인</b>노후 배선·루프·커플러 <i>→</i> <b>해결</b>직접 포설·장비 정리</p>
+                <span class="np-more">과정 보기 →</span>
+            </div>
+            <div class="card expandable press np-case" data-target="edr-modal" tabindex="0" role="button">
+                <span class="np-tag">🧷 EDR(알약)<span class="d">상시</span></span>
+                <h3>약 200명 PC 식별 정비와 패치 관리</h3>
+                <p class="np-flow"><b>식별</b>자산번호·실사용자 <i>→</i> <b>패치</b>원격 최신화, 공항 보안망 수동 패치</p>
+                <span class="np-more">과정 보기 →</span>
+            </div>
+            <div class="card expandable press np-case" data-target="ucs-modal" tabindex="0" role="button">
+                <span class="np-tag">🛫 국가 중요시설<span class="d">2021.03 ~ 2022.04</span></span>
+                <h3>폐쇄망 서버 27대 운영, 첫 인프라 경력</h3>
+                <p class="np-flow"><b>주기</b>하루 3회 트래픽, 월간 보고서 <i>+</i> <b>소통</b>월 1회 담당자 점검</p>
+                <span class="np-more">과정 보기 →</span>
             </div>
         </div>
 
@@ -1267,7 +1302,7 @@
     <footer>황준명 · 인프라 / 보안 엔지니어<br><span>사내 화면은 실제 화면이며, 회사명·로고·IP·이름·주소·배치도·랙 정보는 블러 처리하거나 예시 데이터로 바꿨습니다.</span></footer>
 </div>
 
-<div hidden aria-hidden="true"><button type="button" data-target="audit-modal" tabindex="-1"></button><button type="button" data-target="switch-modal" tabindex="-1"></button><button type="button" data-target="edr-modal" tabindex="-1"></button></div>
+<div hidden aria-hidden="true"><button type="button" data-target="audit-modal" tabindex="-1"></button></div>
 <!-- ===================== 경력 여정 작은 설명 창 ===================== -->
 <div class="jr-pop" id="jrPop" role="dialog" aria-modal="true" aria-labelledby="jrTitle" hidden>
     <div class="jr-card">
@@ -1285,7 +1320,7 @@
 <div class="full-page-overlay" id="fw-modal" role="dialog" aria-modal="true" aria-label="방화벽 관리자 계정 무단 접속 대응">
     <div class="modal-content"><div class="modal-body">
         <h2>방화벽 관리자 계정 무단 접속 대응</h2>
-        <p class="modal-meta">코스닥 상장 의료기업 · 2026 · 인재상 “새로운 질문을 던지고 스스로 해답을 만들어갈 동료”</p>
+        <p class="modal-meta"><span class="when">2026.04 ~ 08</span>젠큐릭스 · 코스닥 상장 의료기업 · 인재상 “새로운 질문을 던지고 스스로 해답을 만들어갈 동료”</p>
         <div class="role-banner"><div class="role-icon">❓</div><div><div class="role-title">질문</div><div class="role-desc">방화벽 점검 중, <strong>아무도 설정을 바꾸지 않았는데 수정 날짜가 갱신</strong>되는 것을 발견했습니다. 유지보수 업체도 없었고 정책 변경도 없었습니다. 방화벽 내부 로그는 <strong>2시간만 저장</strong>돼 원인을 확인할 수 없었습니다.</div></div></div>
         <div class="viz-sec-label">스스로 만든 해답</div>
         <div class="flow-row">
@@ -1363,39 +1398,10 @@
     </div></div>
 </div>
 
-<div class="full-page-overlay" id="drive-modal" role="dialog" aria-modal="true" aria-label="Nextcloud 사내 드라이브">
-    <div class="modal-content"><div class="modal-body">
-        <h2>Nextcloud 사내 드라이브</h2>
-        <p class="modal-meta">다이퀘스트 · 구축부터 Teams 데이터 이관, 도메인·SSL까지 완료</p>
-        <div class="cost-hero"><div class="annual-savings-box">연 약 1,000만 원 Microsoft 클라우드 추가 결제 취소&nbsp;<span class="small">(용량 초과로 추가 결제가 필요했던 상황)</span></div>
-        <p style="margin-top:12px;text-align:center;color:var(--text-body);font-size:.92rem">신규 장비를 사지 않고, 입사 후 모은 유휴 하드웨어로 구축했습니다.</p></div>
-        <div class="viz-checklist" style="margin-bottom:16px">
-            <div class="viz-check-item"><div class="viz-check-icon">✓</div>Samba로 먼저 구성했다가, 권한 관리 부담을 보고 웹 기반 그룹 권한이 되는 Nextcloud로 전환</div>
-            <div class="viz-check-item"><div class="viz-check-icon">✓</div>OS·데이터 디스크 분리, 8TB 스토리지 증설</div>
-            <div class="viz-check-item"><div class="viz-check-icon">✓</div>LDAP 연동, 본부별 그룹 권한으로 최소 권한 유지</div>
-            <div class="viz-check-item"><div class="viz-check-icon">✓</div>Teams 클라우드에 있던 데이터를 Nextcloud로 이관, 도메인·SSL 적용</div>
-        </div>
-        <div class="shot-frame"><img src="img/drive.webp" alt="사내 드라이브 화면" loading="lazy"><div class="shot-cap">사내 드라이브 프로젝트 폴더</div></div>
-    </div></div>
-</div>
-
-<div class="full-page-overlay" id="nexus-modal" role="dialog" aria-modal="true" aria-label="Nexus 마이그레이션">
-    <div class="modal-content"><div class="modal-body">
-        <h2>Nexus 저장소 마이그레이션</h2>
-        <p class="modal-meta">다이퀘스트 · Docker·Maven 형상관리 저장소</p>
-        <div class="before-after-grid">
-            <div class="ba-col before"><div class="ba-head bad">이전 · 구버전</div><div class="ba-list"><div class="ba-item"><div class="ba-dot red"></div>저장 용량 부족</div><div class="ba-item"><div class="ba-dot red"></div>보안 취약 버전 사용</div></div></div>
-            <div class="ba-arrow">→</div>
-            <div class="ba-col after"><div class="ba-head good">이후 · 신버전</div><div class="ba-list"><div class="ba-item"><div class="ba-dot green"></div>유휴 하드웨어로 이전해 용량 확보</div><div class="ba-item"><div class="ba-dot green"></div>신버전 마이그레이션, 저장소 15개 통합</div><div class="ba-item"><div class="ba-dot green"></div>도메인·SSL 적용</div></div></div>
-        </div>
-        <div class="shot-frame"><img src="img/nexus.webp" alt="Nexus 저장소 목록" loading="lazy"><div class="shot-cap">Nexus 저장소 목록</div></div>
-    </div></div>
-</div>
-
 <div class="full-page-overlay" id="audit-modal" role="dialog" aria-modal="true" aria-label="국가 중요시설 보안 운영">
     <div class="modal-content"><div class="modal-body">
         <h2>🛡️ (가)급 폐쇄망 · DML 마스터 관리자 · 보안감사 대응</h2>
-        <p class="modal-meta">유씨에스시스템 · 국토교통부 산하 (가)급 국가 중요시설 · 항공물류정보시스템 유지보수팀 · 2021.03 ~ 2022.04</p>
+        <p class="modal-meta"><span class="when">2021.03 ~ 2022.04</span>유씨에스시스템 · 국토교통부 산하 (가)급 국가 중요시설 · 항공물류정보시스템 유지보수팀 · 2021.03 ~ 2022.04</p>
         <div class="kpi-row">
             <div class="kpi-card"><div class="kpi-num">(가)급</div><div class="kpi-label">국가 중요시설<br>폐쇄망</div></div>
             <div class="kpi-card"><div class="kpi-num count-num" data-suffix="건" data-target="0">0건</div><div class="kpi-label">지적사항<br>미처리</div></div>
@@ -1403,7 +1409,7 @@
             <div class="kpi-card"><div class="kpi-num count-num" data-suffix="년" data-target="2">0년</div><div class="kpi-label">정기감사<br>주기 대응</div></div>
         </div>
         <div class="viz-sec-label">DML 마스터 관리자 · 모든 것이 승인을 거치는 망</div>
-        <div class="emo">
+        <div class="emo three">
             <div><span class="e">✉️</span><b>메일 전송 승인</b><p>외부로 나가는 메일도 승인을 받아야 전송되는 구조를 관리</p></div>
             <div><span class="e">📄</span><b>공문 관리</b><p>기관 공문 접수·발송을 같은 체계 안에서 처리</p></div>
             <div><span class="e">🚪</span><b>방문 신청</b><p>외부 인력 방문 신청과 출입 승인 처리</p></div>
@@ -1426,7 +1432,7 @@
 <div class="full-page-overlay" id="portal-modal" role="dialog" aria-modal="true" aria-label="IT 인프라 포털">
     <div class="modal-content"><div class="modal-body">
         <h2>🧭 IT 인프라 포털 · 증적 체계</h2>
-        <p class="modal-meta">다이퀘스트 · 기획, 구현, 매뉴얼까지 직접 · AI 바이브 코딩 활용 · 12월 정식 오픈, 일부 기능 선오픈</p>
+        <p class="modal-meta"><span class="when">2026.10.14 ~ 진행 중</span>다이퀘스트 · 기획, 구현, 매뉴얼까지 1인 · AI 바이브 코딩 활용</p>
         <div class="role-banner"><div class="role-icon">🎯</div><div><div class="role-title">왜 만들었나</div><div class="role-desc">약 20년간 인프라 전담 인력이 없던 회사라 요청이 메신저·구두·엑셀로 흩어져 있었고, <strong>누가 언제 무엇을 요청하고 누가 처리했는지 남지 않았습니다.</strong> 모든 요청을 통합계정 로그인 뒤에 두면, 처리하는 것만으로 증적이 쌓입니다.</div></div></div>
         <figure class="shot2"><img src="img/pt/home.webp" alt="인프라 포털 메인 화면" loading="lazy"><span class="bl">회사명·주소 블러</span><figcaption>메인 화면 · IDC, 사무실, 신청서, 매뉴얼, 설치파일 공유서버, 서버 모니터링으로 바로 이동</figcaption></figure>
         <div class="emo">
@@ -1434,6 +1440,15 @@
             <div><span class="e">🌐</span><b>사설 IP 자동 부여</b><p>사무실 유선에서 접속하면 장부 기준으로 IP 배정, 설정 파일까지 내려받음</p></div>
             <div><span class="e">📜</span><b>로그 자동 수집</b><p>로그인·관리자 작업·신청서·메일·IP 기록을 한 화면에서 검색, CSV로 반출</p></div>
             <div><span class="e">📦</span><b>장비 반출입</b><p>확인서 출력 → 서명본 스캔 → 완료하면 장비 상태가 바뀌고 잠김</p></div>
+        </div>
+        <div class="viz-sec-label">기능을 연 순서</div>
+        <div class="htl">
+            <div data-e="🧭"><b>10.14</b><span>포털 생성, LDAP 로그인</span></div>
+            <div data-e="📝"><b>10.19</b><span>VM 신청 → IP 자동 예약 → IDC 맵 반영</span></div>
+            <div data-e="🌐"><b>10.21</b><span>첫 접속자 IP·자리 등록</span></div>
+            <div data-e="🔐"><b>11.11</b><span>외부 고객사 VPN 발급</span></div>
+            <div data-e="📦"><b>11.12</b><span>장비 관리 · 반출 확인서</span></div>
+            <div data-e="🧹"><b>11.16</b><span>연말 서버 정리 페이지</span></div>
         </div>
         <div class="kpi-row">
             <div class="kpi-card"><div class="kpi-num count-num" data-suffix="대" data-target="105">0대</div><div class="kpi-label">서버·VM<br>IDC 맵 등록</div></div>
@@ -1445,57 +1460,66 @@
     </div></div>
 </div>
 
-<div class="full-page-overlay" id="ransom-modal" role="dialog" aria-modal="true" aria-label="랜섬웨어 대응">
+<div class="full-page-overlay" id="ransom-modal" role="dialog" aria-modal="true" aria-label="연말 서버 점검과 랜섬웨어 대응">
     <div class="modal-content"><div class="modal-body">
-        <h2>🔒 서버 전수조사에서 찾은 랜섬웨어 2건</h2>
-        <p class="modal-meta">다이퀘스트 · 2026 · 입사 직후 전수조사부터 조치까지 주도</p>
-        <p class="anon-note">대외비 사안이라 서버명, IP, 계정, 침입 경위는 빼고 대응 방식만 정리했습니다.</p>
-        <div class="viz-sec-label">입사 후 가장 먼저 한 일 · 전수조사</div>
+        <h2>🧹 연말 서버 점검 · 그 안에서 찾은 랜섬웨어 2건</h2>
+        <p class="modal-meta"><span class="when">2026.11.01 ~ 12.31</span>다이퀘스트 · 누가 시킨 일이 아니라 필요하다고 판단해 직접 기획한 점검</p>
+        <p class="anon-note">대외비 사안이라 서버명, IP, 계정, 침입 경위는 빼고 진행 방식만 정리했습니다.</p>
+        <div class="role-banner"><div class="role-icon">❓</div><div><div class="role-title">스스로 던진 질문</div><div class="role-desc">서버는 계속 늘어나는데 <strong>누가 쓰는지, 아직 필요한지, 안전한지</strong> 아무도 몰랐습니다. 접속 기록이 3년 넘게 없는 서버도 있었습니다. 연말을 기준으로 모든 서버를 한 번씩 확인하는 점검을 직접 만들었습니다.</div></div></div>
+        <div class="viz-sec-label">진행 순서</div>
         <div class="htl">
-            <div data-e="🔎"><b>전수조사</b><span>VM 포함 서버 약 105대 확인</span></div>
-            <div data-e="💤"><b>방치 서버</b><span>접속 기록이 3년 넘게 없는 서버 다수</span></div>
-            <div data-e="🚨" class="hot"><b>침해 이력 4건</b><span>로그·프로세스·파일 점검으로 발견</span></div>
-            <div data-e="🔒" class="hot"><b>랜섬웨어 2건</b><span>나머지 2건은 침해사고로 따로 대응</span></div>
+            <div data-e="🧾"><b>점검 체계</b><span>침해 흔적 점검 스크립트 작성 (외부 로그인·채굴·백도어·랜섬 흔적)</span></div>
+            <div data-e="🔎"><b>전수 점검</b><span>IDC 서버 33 + VM 72 = 105대</span></div>
+            <div data-e="🚨" class="hot"><b>침해 이력 4건</b><span>랜섬웨어 2 · 악성봇 1 · 포트 점유 1</span></div>
+            <div data-e="📣"><b>경영진 보고</b><span>랜섬웨어 확인 즉시 대표이사까지 보고</span></div>
+            <div data-e="🧹"><b>담당자 확인</b><span>포털 점검 페이지로 계속 사용·반납 회신</span></div>
         </div>
         <div class="vbars">
-            <div class="vb"><b class="count-num" data-target="105" data-suffix="대">0대</b><i style="--h:100%"></i><span>전수조사<br>서버·VM</span></div>
-            <div class="vb"><b class="count-num" data-target="4" data-suffix="건">0건</b><i class="red" style="--h:16%"></i><span>침해 이력</span></div>
-            <div class="vb"><b class="count-num" data-target="2" data-suffix="건">0건</b><i class="red" style="--h:9%"></i><span>랜섬웨어</span></div>
+            <div class="vb"><b class="count-num" data-target="105" data-suffix="대">0대</b><i style="--h:100%"></i><span>점검 대상<br>서버·VM</span></div>
+            <div class="vb"><b class="count-num" data-target="33" data-suffix="대">0대</b><i class="gray" style="--h:31%"></i><span>지원 종료 OS<br>VM (정리 대상)</span></div>
+            <div class="vb"><b class="count-num" data-target="4" data-suffix="건">0건</b><i class="red" style="--h:8%"></i><span>침해 이력</span></div>
+            <div class="vb"><b class="count-num" data-target="2" data-suffix="건">0건</b><i class="red" style="--h:5%"></i><span>랜섬웨어</span></div>
         </div>
         <div class="viz-two-col">
-            <div class="viz-section-card"><div class="card-mini-title">즉시 차단</div><div class="viz-checklist">
+            <div class="viz-section-card"><div class="card-mini-title">🔒 랜섬웨어 즉시 대응</div><div class="viz-checklist">
                 <div class="viz-check-item"><div class="viz-check-icon">1</div>외부에 열려 있던 포트를 모두 닫음</div>
                 <div class="viz-check-item"><div class="viz-check-icon">2</div>서버 계정 정보 전부 변경</div>
-                <div class="viz-check-item"><div class="viz-check-icon">3</div>남은 데이터를 다른 서버로 옮겨 운영에서 분리</div>
+                <div class="viz-check-item"><div class="viz-check-icon">3</div>암호화된 파일은 지우지 않고 별도 보존 복사 후 검증</div>
+                <div class="viz-check-item"><div class="viz-check-icon">4</div>암호화 파일 분류, 개인정보보호법 기준으로 개인정보 포함 여부 재분류</div>
             </div></div>
-            <div class="viz-section-card"><div class="card-mini-title">피해 범위 정리</div><div class="viz-checklist">
-                <div class="viz-check-item"><div class="viz-check-icon">✓</div>암호화된 파일을 종류별로 분류</div>
-                <div class="viz-check-item"><div class="viz-check-icon">✓</div>개인정보보호법 기준으로 개인정보 포함 여부를 다시 분류</div>
-                <div class="viz-check-item"><div class="viz-check-icon">✓</div>노후·방치 서버를 정리 대상 목록으로 관리</div>
+            <div class="viz-section-card"><div class="card-mini-title">🧭 점검 프로세스 페이지 (직접 구현)</div><div class="viz-checklist">
+                <div class="viz-check-item"><div class="viz-check-icon">✓</div>담당자가 서버마다 계속 사용 / 반납 / 지울 파일 선택 후 제출</div>
+                <div class="viz-check-item"><div class="viz-check-icon">✓</div>“제 서버가 아니에요”를 고르면 본부장에게 자동 이관</div>
+                <div class="viz-check-item"><div class="viz-check-icon">✓</div>그룹웨어 조직도 연동, 담당자 여러 명 지정, 미제출자 안내 메일</div>
+                <div class="viz-check-item"><div class="viz-check-icon">✓</div>확인 기한 2027.01.31, 기한 뒤에도 자동 삭제 없이 관리자가 회수</div>
             </div></div>
         </div>
-        <div class="result-badge"><div class="dot"></div>두 건 모두 아무도 관리하지 않던 노후 서버에서 시작됐습니다. 그래서 전수조사 결과를 인프라 포털의 IDC 맵과 서버 목록으로 옮겨, 방치 서버가 다시 생기지 않게 관리합니다.</div>
+        <div class="shots">
+            <figure class="shot2"><img src="img/pt/cleanup.webp" alt="연말 서버 정리 페이지" loading="lazy"><span class="bl">서버명·IP·이름 블러</span><figcaption>연말 서버 정리 페이지 · 미확인·확인 완료 상태를 한눈에</figcaption></figure>
+            <figure class="shot2"><img src="img/pt/cleanup-guide.webp" alt="연말 서버 정리 안내" loading="lazy"><figcaption>처음 들어오면 뜨는 4단계 안내</figcaption></figure>
+        </div>
+        <div class="result-badge"><div class="dot"></div>랜섬웨어 두 건 모두 아무도 관리하지 않던 노후 서버에서 나왔습니다. 점검을 일회성으로 끝내지 않고 포털 페이지로 만들어, 담당자가 없는 서버가 다시 생기지 않게 했습니다.</div>
     </div></div>
 </div>
 
 <div class="full-page-overlay" id="intrusion-modal" role="dialog" aria-modal="true" aria-label="침해사고 대응">
     <div class="modal-content"><div class="modal-body">
         <h2>🚨 침해사고 2건 · 악성봇과 포트 점유</h2>
-        <p class="modal-meta">다이퀘스트 · 2026 · 전수조사에서 발견한 4건 중 랜섬웨어를 뺀 2건</p>
+        <p class="modal-meta"><span class="when">2026.09 ~ 11</span>다이퀘스트 · 침해 이력 4건 중 랜섬웨어를 뺀 2건</p>
         <p class="anon-note">대외비 사안이라 서버명, IP, 계정, 공격 경로는 적지 않았습니다.</p>
         <div class="viz-two-col">
-            <div class="viz-section-card"><div class="card-mini-title">🤖 ① 개발 서버 악성봇</div><div class="viz-checklist">
-                <div class="viz-check-item"><div class="viz-check-icon">🔍</div>악성 채굴 코드와 공격자가 암호화한 DB 발견</div>
-                <div class="viz-check-item"><div class="viz-check-icon">🧹</div>채굴 코드 제거, 암호화된 DB 제거</div>
-                <div class="viz-check-item"><div class="viz-check-icon">⛔</div>접근 경로 차단, 계정 정보 변경</div>
-                <div class="viz-check-item"><div class="viz-check-icon">💽</div>개발 서버라 담당자 확인 후 포맷 예정</div>
-            </div><div class="proof"><span>조치 완료</span><span>포맷 예정</span></div></div>
-            <div class="viz-section-card"><div class="card-mini-title">🕳️ ② 포트 수천 개를 잡고 있던 서버</div><div class="viz-checklist">
+            <div class="viz-section-card"><div class="card-mini-title">🕳️ ① 포트 수천 개를 잡고 있던 서버 <span class="when sm">2026.09.16 발견</span></div><div class="viz-checklist">
                 <div class="viz-check-item"><div class="viz-check-icon">🔍</div>포트 수천 개가 점유된 것을 보고 발견</div>
                 <div class="viz-check-item"><div class="viz-check-icon">🧾</div>뚜렷한 통신이나 이력은 보이지 않았고, 로그 일부가 삭제된 상태</div>
-                <div class="viz-check-item"><div class="viz-check-icon">⚖️</div>현업이 쓰는 VM 이미지가 여러 개 돌고 있어 바로 포맷할 수 없음</div>
-                <div class="viz-check-item"><div class="viz-check-icon">⛔</div>외부 경로 차단, 계정 변경 후 지속 모니터링</div>
+                <div class="viz-check-item"><div class="viz-check-icon">⛔</div>원인이 된 방화벽 허용 규칙 즉시 비활성화, 악성 프로세스·파일 제거</div>
+                <div class="viz-check-item"><div class="viz-check-icon">⚖️</div>현업이 쓰는 VM이 여러 개 돌고 있어 포맷 대신 계정 변경 후 지속 모니터링</div>
             </div><div class="proof"><span>차단 완료</span><span>모니터링 중</span></div></div>
+            <div class="viz-section-card"><div class="card-mini-title">🤖 ② 개발 서버 악성봇 <span class="when sm">2026.11.10</span></div><div class="viz-checklist">
+                <div class="viz-check-item"><div class="viz-check-icon">🔍</div>외부에 공개된 DB 포트로 들어온 채굴 악성코드 확인</div>
+                <div class="viz-check-item"><div class="viz-check-icon">🧹</div>증거 보관 후 악성 파일·프로세스·예약 작업 제거</div>
+                <div class="viz-check-item"><div class="viz-check-icon">⛔</div>침입자 계정 잠금, DB 접속을 사내·VPN만 허용</div>
+                <div class="viz-check-item"><div class="viz-check-icon">📋</div>삭제된 DB는 업무·개인정보 없음 확인 → 유출 신고 대상 아님 판단, 포맷 예정</div>
+            </div><div class="proof"><span>조치 완료</span><span>포맷 예정</span></div></div>
         </div>
         <div class="viz-sec-label">판단 기준</div>
         <div class="flow-row">
@@ -1511,44 +1535,71 @@
 <div class="full-page-overlay" id="mon-modal" role="dialog" aria-modal="true" aria-label="Grafana · Zabbix 모니터링">
     <div class="modal-content"><div class="modal-body">
         <h2>📈 Grafana 구축 · Zabbix 개선</h2>
-        <p class="modal-meta">다이퀘스트 · 서버·VM 실시간 모니터링</p>
-        <div class="emo">
-            <div><span class="e">🧱</span><b>Zabbix · 개선</b><p>기존에 구축돼 있던 Zabbix를 정비해 서버 상태를 다시 받도록 개선</p></div>
-            <div><span class="e">📊</span><b>Grafana · 직접 구축</b><p>대시보드를 직접 만들어 실시간으로 한 화면에서 확인</p></div>
-            <div><span class="e">🗺️</span><b>포털과 연동</b><p>IDC 맵에서 랙의 각 서버 옆에 Zabbix 상태가 실시간 표시</p></div>
+        <p class="modal-meta"><span class="when">2026.10.12 ~ 10.28</span>다이퀘스트 · 서버·VM·데모 솔루션 실시간 모니터링</p>
+        <div class="viz-two-col">
+            <div class="viz-section-card"><div class="card-mini-title">📊 Grafana · 직접 구축</div><div class="viz-checklist">
+                <div class="viz-check-item"><div class="viz-check-icon">✓</div>Zabbix 데이터를 조회 전용 계정으로 연동</div>
+                <div class="viz-check-item"><div class="viz-check-icon">✓</div>LDAP 로그인, 일반 사용자는 보기 전용 권한</div>
+                <div class="viz-check-item"><div class="viz-check-icon">✓</div>도메인·SSL 적용, 로그인하면 대시보드만 보이는 화면</div>
+                <div class="viz-check-item"><div class="viz-check-icon">✓</div>다운 서버, CPU·메모리·온도·디스크 높은 순, 현재 장애</div>
+            </div></div>
+            <div class="viz-section-card"><div class="card-mini-title">🧱 Zabbix · 기존 것 개선</div><div class="viz-checklist">
+                <div class="viz-check-item"><div class="viz-check-icon">✓</div>의도치 않게 올라간 버전을 롤백하고 버전 고정, 재부팅 후 자동 시작</div>
+                <div class="viz-check-item"><div class="viz-check-icon">✓</div>데모 솔루션 8종 감시 템플릿 (포트 16개, 웹 화면 25개)</div>
+                <div class="viz-check-item"><div class="viz-check-icon">✓</div>장애 메일은 서버 끊김·솔루션 다운 두 가지만, 불필요한 메일 정리</div>
+                <div class="viz-check-item"><div class="viz-check-icon">✓</div>잘못된 설정으로 수집이 안 되던 서버 정정</div>
+            </div></div>
+        </div>
+        <div class="bars">
+            <div class="bt">데모 솔루션 감시 범위</div>
+            <div class="bar"><span>🧩 솔루션</span><div class="tr"><i style="--w:32%"></i></div><b>8종</b></div>
+            <div class="bar"><span>🔌 포트 연결 확인</span><div class="tr"><i style="--w:64%"></i></div><b>16개</b></div>
+            <div class="bar"><span>🌐 웹 화면 응답 확인</span><div class="tr"><i style="--w:100%"></i></div><b>25개</b></div>
         </div>
         <figure class="shot2"><img src="img/pt/idc.webp" alt="IDC 인프라 맵" loading="lazy"><span class="bl">랙·서버 정보 블러</span><figcaption>포털 IDC 인프라 맵 · 랙 정면도와 Zabbix 실시간 상태(오른쪽 위)를 함께 표시</figcaption></figure>
-        <div class="result-badge"><div class="dot"></div>침해 서버를 찾을 때 가장 아쉬웠던 것이 평소 상태를 모른다는 점이었습니다. 이제는 어느 서버가 평소와 다른지 바로 볼 수 있습니다.</div>
     </div></div>
 </div>
 
-<div class="full-page-overlay" id="sophos-modal" role="dialog" aria-modal="true" aria-label="Sophos 방화벽 운영">
+<div class="full-page-overlay" id="sophos-modal" role="dialog" aria-modal="true" aria-label="Sophos 방화벽 1인 운영">
     <div class="modal-content"><div class="modal-body">
-        <h2>🛡️ Sophos 방화벽 · 구로 ↔ IDC IPsec</h2>
-        <p class="modal-meta">다이퀘스트 · 사무실과 IDC 양쪽 방화벽 운영</p>
+        <h2>🛡️ Sophos 방화벽 · 1인 전담 운영</h2>
+        <p class="modal-meta"><span class="when">2026.08 ~ 상시</span>다이퀘스트 · 구로 사무실과 IDC 양쪽 방화벽</p>
+        <div class="emo three">
+            <div><span class="e">🔧</span><b>펌웨어</b><p>정기 업데이트 2회 + 취약점 공개 직후 긴급 패치 1회</p></div>
+            <div><span class="e">📋</span><b>정책</b><p>방화벽·NAT 규칙 관리, 이름·로그 없이 과다하게 열린 규칙 정리</p></div>
+            <div><span class="e">🌐</span><b>외부 통신</b><p>외부 오픈 요청 검토, 포트 대신 SSL VPN, 고객사 통신 지원</p></div>
+        </div>
         <div class="topo">
             <div class="tn"><div class="ic">🏢</div><b>구로 사무실</b><small>Sophos Firewall</small></div>
             <div class="tl-link lock"><svg viewBox="0 0 100 14" preserveAspectRatio="none"><path d="M0 7 H100"/></svg><span>🔐 IPsec</span></div>
             <div class="tn"><div class="ic">🗄️</div><b>IDC</b><small>Sophos Firewall</small></div>
         </div>
+        <div class="viz-sec-label">정책 관리 사례 · 차단 로그조차 남지 않던 접속 <span class="when sm">2026.08.26 ~ 08.27</span></div>
+        <div class="flow-row">
+            <div class="flow-step"><div class="flow-icon">📨</div><div class="flow-title">요청</div><div class="flow-desc">타 사업장 근태 장비 → 본사 서버 접속</div></div>
+            <div class="flow-step"><div class="flow-icon">🔁</div><div class="flow-title">방향 정정</div><div class="flow-desc">IPsec 누락 추정 → 애초에 없던 구성 확인, 공인 IP NAT로 전환</div></div>
+            <div class="flow-step"><div class="flow-icon">🤔</div><div class="flow-title">이상 현상</div><div class="flow-desc">규칙을 만들었는데 허용도 차단도 로그 없음</div></div>
+            <div class="flow-step"><div class="flow-icon">🎯</div><div class="flow-title">원인</div><div class="flow-desc">새 NAT 규칙이 모든 트래픽을 먼저 잡는 기본 규칙 아래에 있음</div></div>
+            <div class="flow-step"><div class="flow-icon">✅</div><div class="flow-title">해결</div><div class="flow-desc">규칙 순서 이동 후 연결, 출발지를 해당 사업장으로 제한</div></div>
+        </div>
         <div class="viz-sec-label">보안 패치 이력</div>
         <div class="htl">
-            <div data-e="⬆️"><b>펌웨어 업데이트 ①</b><span>정기 버전 업</span></div>
-            <div data-e="⬆️"><b>펌웨어 업데이트 ②</b><span>정기 버전 업</span></div>
+            <div data-e="⬆️"><b>펌웨어 ①</b><span>정기 버전 업</span></div>
+            <div data-e="⬆️"><b>펌웨어 ②</b><span>정기 버전 업</span></div>
             <div data-e="🚨" class="hot"><b>긴급 패치</b><span>취약점 공개 직후 적용</span></div>
-        </div>
-        <div class="emo">
-            <div><span class="e">🔐</span><b>SSL VPN 계정 관리</b><p>개인 계정 발급과 기간 관리를 포털 신청서와 연결</p></div>
-            <div><span class="e">🤝</span><b>고객사 통신 지원</b><p>고객사와 사내 사이 통신이 안 될 때 정책·경로를 확인해 지원</p></div>
-            <div><span class="e">🧯</span><b>외부 오픈 검토</b><p>방화벽 오픈 요청을 포털 신청서로 받아 기간을 정해 허용</p></div>
         </div>
     </div></div>
 </div>
 
-<div class="full-page-overlay" id="zyxel-modal" role="dialog" aria-modal="true" aria-label="Zyxel 방화벽 직접 운영">
+<div class="full-page-overlay" id="zyxel-modal" role="dialog" aria-modal="true" aria-label="Zyxel 방화벽 1인 운영">
     <div class="modal-content"><div class="modal-body">
-        <h2>🧰 Zyxel 방화벽 · 업체 없이 직접 운영</h2>
-        <p class="modal-meta">젠큐릭스 · 코스닥 상장 의료기업 · 본사와 지사 방화벽</p>
+        <h2>🧰 Zyxel 방화벽 · 업체 없이 1인 운영</h2>
+        <p class="modal-meta"><span class="when">2026.04 ~ 08 · 상시</span>젠큐릭스 · 코스닥 상장 의료기업 · 본사와 지사 방화벽</p>
+        <div class="emo three">
+            <div><span class="e">🔧</span><b>펌웨어</b><p>여러 버전 밀려 있던 펌웨어를 몇 주에 걸쳐 단계적으로 버전 업</p></div>
+            <div><span class="e">📋</span><b>정책</b><p>본사↔지사 IPsec 유지, 관리자 페이지 외부 IP 차단, 유지보수용 계정 정리</p></div>
+            <div><span class="e">🌐</span><b>외부 통신</b><p>업체 없이 직접 판단·적용, 건물 정전·주말 작업 직접 대응</p></div>
+        </div>
         <div class="topo">
             <div class="tn"><div class="ic">🏢</div><b>본사</b><small>Zyxel</small></div>
             <div class="tl-link lock"><svg viewBox="0 0 100 14" preserveAspectRatio="none"><path d="M0 7 H100"/></svg><span>🔐 IPsec</span></div>
@@ -1558,77 +1609,100 @@
             <div class="ba-col before"><div class="ba-head bad">맡았을 때</div><div class="ba-list">
                 <div class="ba-item"><div class="ba-dot red"></div>두 장비 모두 업체 유지보수 계약 없음</div>
                 <div class="ba-item"><div class="ba-dot red"></div>펌웨어가 여러 버전 밀려 있음</div>
+                <div class="ba-item"><div class="ba-dot red"></div>내부 로그는 2시간만 보관</div>
             </div></div>
             <div class="ba-arrow">→</div>
             <div class="ba-col after"><div class="ba-head good">직접 운영</div><div class="ba-list">
-                <div class="ba-item"><div class="ba-dot green"></div>몇 주에 걸쳐 단계적으로 버전 업, IPsec 연결 유지 확인</div>
-                <div class="ba-item"><div class="ba-dot green"></div>건물 정전 작업·주말 작업 때 직접 나와 대응</div>
-                <div class="ba-item"><div class="ba-dot green"></div>관리자 페이지 외부 IP 차단, 유지보수용 계정 정리</div>
+                <div class="ba-item"><div class="ba-dot green"></div>버전을 나눠 올리고 매번 지사 연결 확인</div>
+                <div class="ba-item"><div class="ba-dot green"></div>유휴 PC로 로그 수집 서버를 만들어 관리자 무단 접속 발견·차단</div>
+                <div class="ba-item"><div class="ba-dot green"></div>정전·주말 작업 때 직접 나와 재기동과 연결 확인</div>
             </div></div>
         </div>
-        <div class="result-badge"><div class="dot"></div>한 번에 최신으로 올리면 설정이 깨질 수 있어, 버전을 나눠 올리고 매번 지사 연결을 확인했습니다.</div>
     </div></div>
 </div>
 
-<div class="full-page-overlay" id="switch-modal" role="dialog" aria-modal="true" aria-label="스위치 포트 문제 해결">
+<div class="full-page-overlay" id="net-modal" role="dialog" aria-modal="true" aria-label="네트워크 관리">
     <div class="modal-content"><div class="modal-body">
-        <h2>🔌 유선랜이 안 되던 자리 · 막힌 스위치 포트</h2>
-        <p class="modal-meta">다이퀘스트 · Netgear 스위치</p>
-        <div class="role-banner"><div class="role-icon">😩</div><div><div class="role-title">불편이 당연했던 상황</div><div class="role-desc">일부 자리에서 유선랜이 안 돼 무선으로 쓰고 있었는데, IDC 서버 중 몇 대는 <strong>유선 사무실 IP로만 접속</strong>할 수 있어 자리를 옮기거나 회의실에서 작업하고 있었습니다.</div></div></div>
-        <div class="flow-row">
-            <div class="flow-step"><div class="flow-icon">📍</div><div class="flow-title">자리 확인</div><div class="flow-desc">배치도로 자리와 포트 위치 대조</div></div>
-            <div class="flow-step"><div class="flow-icon">🖧</div><div class="flow-title">스위치 접속</div><div class="flow-desc">Netgear 관리 화면에서 포트 상태 확인</div></div>
-            <div class="flow-step"><div class="flow-icon">🚫</div><div class="flow-title">원인</div><div class="flow-desc">특정 포트가 막혀 있음</div></div>
-            <div class="flow-step"><div class="flow-icon">✅</div><div class="flow-title">해결</div><div class="flow-desc">포트를 열고 유선 IP로 접속 확인</div></div>
+        <h2>🌐 네트워크 관리 · 3개 회사 현장</h2>
+        <p class="modal-meta"><span class="when">상시</span>유씨에스시스템 · 샤프에비에이션케이 · 다이퀘스트</p>
+        <div class="viz-sec-label">직접 할 수 있는 범위</div>
+        <div class="htl">
+            <div data-e="✂️"><b>랜선 제작</b><span>규격에 맞춰 직접 제작</span></div>
+            <div data-e="🧵"><b>포설</b><span>동선을 피해 경로 설계·시공</span></div>
+            <div data-e="🖧"><b>장비 설치</b><span>스위치·공유기·AP 설치</span></div>
+            <div data-e="⚙️"><b>설정</b><span>대역·포트·AP 모드 설정</span></div>
+            <div data-e="🩺"><b>장애 추적</b><span>루프·노후 장비·물리 결함</span></div>
         </div>
-        <div class="result-badge"><div class="dot"></div>이후 사용자가 자리에서 바로 유선 IP를 받을 수 있도록 포털의 사무실 IP 자동 부여와 배치도로 이어졌습니다.</div>
+        <div class="np-co">
+            <div class="viz-section-card"><div class="card-mini-title">🛡️ 유씨에스시스템 · 노후 배선 정리</div><div class="viz-checklist">
+                <div class="viz-check-item"><div class="viz-check-icon">!</div>사용자 10명 안팎인데 자리마다 스위치를 덧붙여 연결, 랜선 노출·노후로 인터넷이 자주 끊김</div>
+                <div class="viz-check-item"><div class="viz-check-icon">✓</div>주말에 날을 잡아 랜선을 직접 다시 깔고 한곳으로 모음</div>
+                <div class="viz-check-item"><div class="viz-check-icon">✓</div>스위치는 공항공사 장비라 교체할 수 없어, 메인 스위치만 남기고 나머지 모두 제거</div>
+            </div></div>
+            <div class="viz-section-card"><div class="card-mini-title">✈️ 샤프에비에이션케이 · 1,500명 규모 장애 대응</div><div class="viz-checklist">
+                <div class="viz-check-item"><div class="viz-check-icon">✓</div>정비 사무실 인터넷 끊김 → 낡은 커플러가 원인, 통신실에서 선을 새로 뽑음</div>
+                <div class="viz-check-item"><div class="viz-check-icon">✓</div>개인이 가져온 공유기로 루프 발생 → 찾아서 제거</div>
+                <div class="viz-check-item"><div class="viz-check-icon">✓</div>노후 장비가 트래픽을 계속 흘려 연결된 사용자 전체가 느려짐 → 장비 교체</div>
+            </div></div>
+            <div class="viz-section-card"><div class="card-mini-title">🤖 다이퀘스트 · 자리에서 안 되던 유선랜</div><div class="viz-checklist">
+                <div class="viz-check-item"><div class="viz-check-icon">✓</div>유선 IP로만 접속되는 서버가 있는데 일부 자리 유선이 안 돼 회의실로 옮겨 작업</div>
+                <div class="viz-check-item"><div class="viz-check-icon">✓</div>Netgear 스위치에서 막힌 포트를 찾아 해결</div>
+                <div class="viz-check-item"><div class="viz-check-icon">✓</div>회의실 공유기가 사내와 다른 대역을 뿌리던 문제, 잘못된 서브넷 마스크 정정</div>
+            </div></div>
+        </div>
+        <div class="result-badge"><div class="dot"></div>네트워크 장애의 상당수는 설정이 아니라 케이블, 커플러, 개인 장비 같은 물리적인 곳에 있었습니다. 그래서 현장에 직접 가서 선을 따라가 보는 것부터 시작합니다.</div>
     </div></div>
 </div>
 
 <div class="full-page-overlay" id="vpn-modal" role="dialog" aria-modal="true" aria-label="SSL VPN 승인제 개인 계정">
     <div class="modal-content"><div class="modal-body">
         <h2>🔐 SSL VPN · 공용 계정에서 승인제 개인 계정으로</h2>
-        <p class="modal-meta">다이퀘스트 · Sophos SSL VPN + LDAP + 인프라 포털 신청서</p>
+        <p class="modal-meta"><span class="when">2026.10.19 ~ 11.11</span>다이퀘스트 · Sophos SSL VPN + LDAP + 인프라 포털 신청서</p>
         <div class="before-after-grid">
             <div class="ba-col before"><div class="ba-head bad">이전</div><div class="ba-list">
                 <div class="ba-item"><div class="ba-dot red"></div>계정 하나를 모두가 돌려 씀</div>
                 <div class="ba-item"><div class="ba-dot red"></div>로그를 봐도 누가 접속했는지 알 수 없음</div>
-                <div class="ba-item"><div class="ba-dot red"></div>퇴사자 차단, 사용 기간 관리 불가</div>
+                <div class="ba-item"><div class="ba-dot red"></div>공유 계정끼리 세션이 꼬여 접속이 자주 끊김</div>
             </div></div>
             <div class="ba-arrow">→</div>
             <div class="ba-col after"><div class="ba-head good">이후</div><div class="ba-list">
                 <div class="ba-item"><div class="ba-dot green"></div>LDAP 연동, 개인 계정으로만 접속</div>
-                <div class="ba-item"><div class="ba-dot green"></div>계정이 있어도 담당자가 VPN 권한을 줘야 접속되는 규칙</div>
+                <div class="ba-item"><div class="ba-dot green"></div>계정이 있어도 VPN 권한 그룹에 담당자가 넣어야 접속</div>
                 <div class="ba-item"><div class="ba-dot green"></div>사용 기간 지정, 만료 임박 건 따로 표시</div>
             </div></div>
         </div>
-        <div class="viz-sec-label">신청 → 로그 → 승인</div>
-        <div class="flow-row">
-            <div class="flow-step"><div class="flow-icon">📝</div><div class="flow-title">포털 신청</div><div class="flow-desc">접속 대상·기간·사유, 보안 수칙 동의</div></div>
-            <div class="flow-step"><div class="flow-icon">📜</div><div class="flow-title">로그</div><div class="flow-desc">신청자·시각 자동 기록</div></div>
-            <div class="flow-step"><div class="flow-icon">✅</div><div class="flow-title">담당자 승인</div><div class="flow-desc">LDAP 그룹에 권한 부여</div></div>
-            <div class="flow-step"><div class="flow-icon">⏳</div><div class="flow-title">기간 관리</div><div class="flow-desc">만료 임박 표시, 기간 끝나면 회수</div></div>
+        <div class="viz-sec-label">진행</div>
+        <div class="htl">
+            <div data-e="🔗"><b>10.19</b><span>Sophos ↔ LDAP 연동, VPN 권한 그룹 신설</span></div>
+            <div data-e="🩺"><b>11.02</b><span>끊김 원인 분석 → 공유 계정 세션 충돌 확인</span></div>
+            <div data-e="📝"><b>신청서</b><span>포털 신청 → 로그 → 승인 → 권한</span></div>
+            <div data-e="🤝"><b>11.11</b><span>외부 고객사 VPN 발급 기능</span></div>
+        </div>
+        <div class="emo">
+            <div><span class="e">🧾</span><b>고객사 계정</b><p>책임 직원이 신청, 최대 6개월, 연장 신청</p></div>
+            <div><span class="e">🔢</span><b>안전한 전달</b><p>안내 링크 + 6자리 열람 코드, 14일 유효, 5회 실패 잠금</p></div>
+            <div><span class="e">🧭</span><b>접근 기준</b><p>사람이 접속하면 VPN 개인 계정, 시스템 연동이면 단일 IP + 종료일</p></div>
         </div>
         <figure class="shot2"><img src="img/pt/vpn.webp" alt="VPN 계정 신청서" loading="lazy"><span class="bl">주소·IP 블러</span><figcaption>실제 VPN 계정 신청서 · “접속 기록은 개인 계정 기준으로 모두 수집·보관됩니다” 수칙 동의 후 신청</figcaption></figure>
     </div></div>
 </div>
 
-<div class="full-page-overlay" id="ldap-modal" role="dialog" aria-modal="true" aria-label="LDAP 재편">
+<div class="full-page-overlay" id="ldap-modal" role="dialog" aria-modal="true" aria-label="통합계정 관리">
     <div class="modal-content"><div class="modal-body">
-        <h2>👥 LDAP 통합계정 재편 · 관리자 페이지 내부망 제한</h2>
-        <p class="modal-meta">다이퀘스트 · 포털·드라이브·VPN이 같은 계정을 쓰는 기반</p>
-        <div class="before-after-grid">
-            <div class="ba-col before"><div class="ba-head bad">이전 · 노후 LDAP</div><div class="ba-list">
-                <div class="ba-item"><div class="ba-dot red"></div>퇴사자 계정이 그대로 남아 있음</div>
-                <div class="ba-item"><div class="ba-dot red"></div>고객사 계정과 사내 계정이 섞여 있음</div>
-                <div class="ba-item"><div class="ba-dot red"></div>LDAP 관리자 페이지가 이번 PHP 취약점에 노출</div>
-            </div></div>
-            <div class="ba-arrow">→</div>
-            <div class="ba-col after"><div class="ba-head good">이후</div><div class="ba-list">
-                <div class="ba-item"><div class="ba-dot green"></div>현재 조직도 기준으로 계정·그룹 재편</div>
-                <div class="ba-item"><div class="ba-dot green"></div>그룹 권한으로 포털·드라이브·VPN 접근 결정</div>
-                <div class="ba-item"><div class="ba-dot green"></div>관리자 페이지는 내부망에서만 접속</div>
-            </div></div>
+        <h2>👥 통합계정(LDAP) 관리 · 현 근무자 기준 정비</h2>
+        <p class="modal-meta"><span class="when">2026.10</span>다이퀘스트 · 포털·드라이브·VPN·모니터링이 같은 계정을 쓰는 기반</p>
+        <div class="kpi-row">
+            <div class="kpi-card"><div class="kpi-num count-num" data-suffix="명" data-target="129">0명</div><div class="kpi-label">퇴사자·미사용 계정<br>비활성화 (삭제 없음)</div></div>
+            <div class="kpi-card"><div class="kpi-num">🔑 강제</div><div class="kpi-label">초기 비밀번호<br>첫 접속 시 변경</div></div>
+            <div class="kpi-card"><div class="kpi-num">🏢 내부망</div><div class="kpi-label">관리자 페이지<br>접속 범위</div></div>
+        </div>
+        <div class="viz-sec-label">정비 순서</div>
+        <div class="flow-row">
+            <div class="flow-step"><div class="flow-icon">👻</div><div class="flow-title">문제</div><div class="flow-desc">퇴사자 정리 안 됨, 고객사 계정과 섞임</div></div>
+            <div class="flow-step"><div class="flow-icon">🏢</div><div class="flow-title">기준</div><div class="flow-desc">현 근무자·조직도 기준으로 정리</div></div>
+            <div class="flow-step"><div class="flow-icon">🚫</div><div class="flow-title">비활성화</div><div class="flow-desc">129명, 기록은 남기고 로그인만 막음</div></div>
+            <div class="flow-step"><div class="flow-icon">🔑</div><div class="flow-title">초기 비밀번호</div><div class="flow-desc">포털 첫 접속 때 강제 변경</div></div>
+            <div class="flow-step"><div class="flow-icon">🔒</div><div class="flow-title">관리자 보호</div><div class="flow-desc">PHP 취약점 노출 → 내부망 전용</div></div>
         </div>
         <div class="topo">
             <div class="tn"><div class="ic">🌍</div><b>외부</b><small>접속 차단</small></div>
@@ -1637,14 +1711,14 @@
             <div class="tl-link lock"><svg viewBox="0 0 100 14" preserveAspectRatio="none"><path d="M0 7 H100"/></svg><span>✔ 허용</span></div>
             <div class="tn"><div class="ic">🏢</div><b>사내망</b><small>관리자만</small></div>
         </div>
-        <div class="proof"><span>하나의 계정으로 포털·드라이브·VPN</span><span>로그인 5회 실패 잠금</span><span>퇴사자 차단</span><span>그룹 단위 최소 권한</span></div>
+        <div class="proof"><span>하나의 계정으로 포털·드라이브·VPN</span><span>로그인 연속 실패 잠금</span><span>본인 그룹 임의 변경 차단</span><span>그룹 단위 최소 권한</span></div>
     </div></div>
 </div>
 
 <div class="full-page-overlay" id="cost-modal" role="dialog" aria-modal="true" aria-label="IT 운영 체계화">
     <div class="modal-content"><div class="modal-body">
         <h2>💸 상장 의료기업 IT 운영 체계화</h2>
-        <p class="modal-meta">젠큐릭스 · 약 80명 규모 코스닥 상장 의료기업 · IT 인프라·정보보안 1인 총괄</p>
+        <p class="modal-meta"><span class="when">2026.04 ~ 08</span>젠큐릭스 · 약 80명 규모 코스닥 상장 의료기업 · IT 인프라·정보보안 1인 총괄</p>
         <div class="role-banner"><div class="role-icon">🔍</div><div><div class="role-title">그룹웨어에 이미 있던 기능</div><div class="role-desc">입사 시점에 새 그룹웨어가 도입돼 있었는데, 협업툴을 대체할 메뉴들이 비활성 상태였습니다. 업체에 확인하니 <strong>실수로 열어 두지 않은 것</strong>이었습니다. 메뉴를 열고 협업과 보고를 그룹웨어로 옮긴 뒤, 겹치는 툴을 걷어냈습니다.</div></div></div>
         <div class="bars">
             <div class="bt">항목별 절감 (막대 = 줄어든 비율)</div>
@@ -1672,11 +1746,11 @@
 <div class="full-page-overlay" id="sol-modal" role="dialog" aria-modal="true" aria-label="NAC · DLP · DRM">
     <div class="modal-content"><div class="modal-body">
         <h2>🛂 NAC · DLP · DRM 운영과 계정 재편</h2>
-        <p class="modal-meta">젠큐릭스 · 코스닥 상장 의료기업 · 보안 솔루션 관리자</p>
-        <div class="emo">
-            <div><span class="e">🛂</span><b>NAC · 지니언스</b><p>MAC 주소와 등록 계정으로 무선 AP·유선 접근 통제</p></div>
-            <div><span class="e">🕵️</span><b>DLP · S1</b><p>첨부파일·메일·검색 로그 수집, 정보유출 의심 이슈 조사와 당사자 상담까지 진행</p></div>
-            <div><span class="e">🗄️</span><b>DRM · DocuONE</b><p>문서 중앙화 자료 전체를 NetBackup으로 통백업, 수시 모니터링</p></div>
+        <p class="modal-meta"><span class="when">2026.04 ~ 08 · 상시</span>젠큐릭스 · 코스닥 상장 의료기업 · 보안 솔루션 관리자</p>
+        <div class="emo three">
+            <div><span class="logo"><img src="img/logo/genian.webp" alt="Genian NAC"></span><b>NAC · 지니언스</b><p>MAC 주소와 등록 계정으로 무선 AP·유선 접근 통제</p></div>
+            <div><span class="logo"><img src="img/logo/s1.webp" alt="에스원"></span><b>DLP · 에스원</b><p>첨부파일·메일·검색 로그 수집, 정보유출 의심 이슈 조사와 당사자 상담까지 진행</p></div>
+            <div><span class="logo"><img src="img/logo/docuone.webp" alt="DocuONE"></span><b>DRM · DocuONE</b><p>문서 중앙화 자료 전체를 NetBackup으로 통백업, 수시 모니터링</p></div>
         </div>
         <div class="viz-sec-label">세 솔루션에 공통으로 있던 문제</div>
         <div class="flow-row">
@@ -1692,22 +1766,22 @@
 
 <div class="full-page-overlay" id="site-modal" role="dialog" aria-modal="true" aria-label="공사 현장 입회와 지점 레이아웃">
     <div class="modal-content"><div class="modal-body">
-        <h2>👷 공사 현장 입회 · 8개 지점 사무실 레이아웃</h2>
-        <p class="modal-meta">샤프에비에이션케이 · 약 1,500명 항공 조업·정비 · 본사 이전과 잦은 부서 이동</p>
-        <div class="emo">
-            <div><span class="e">🧵</span><b>포설 경로</b><p>옆에서 보지 않으면 업체 편한 대로 깔려 동선에 케이블이 걸림. 매번 현장에서 경로 확인</p></div>
-            <div><span class="e">✈️</span><b>공항 전용망</b><p>공항 사무실은 전용망과 보안 요구사항이 있어 공사마다 함께 확인</p></div>
-            <div><span class="e">📡</span><b>방치된 공유기</b><p>업력이 오래돼 숨은 공유기가 많음. 현장을 돌며 찾아 펌웨어 업데이트·암호 변경</p></div>
+        <h2>👷 공사 현장 입회 · 7개 지점 사무실 레이아웃</h2>
+        <p class="modal-meta"><span class="when">2022.04 ~ 2026.04 · 상시</span>샤프에비에이션케이 · 약 1,500명 항공 조업·정비 · 본사 이전과 잦은 부서 이동</p>
+        <div class="emo lg">
+            <div><span class="e">🧵</span><b>포설 경로</b><p>옆에서 보지 않으면 업체 편한 대로 깔려 동선에 케이블이 걸립니다. 매번 현장에서 경로를 같이 확인했습니다.</p></div>
+            <div><span class="e">✈️</span><b>공항 전용망</b><p>공항 사무실은 전용망과 보안 요구사항이 있어, 공사마다 보안 기준을 함께 확인했습니다.</p></div>
+            <div><span class="e">📡</span><b>방치된 공유기</b><p>업력이 오래돼 숨은 공유기가 많았습니다. 현장을 돌며 찾아 펌웨어를 올리고 암호를 바꿨습니다.</p></div>
         </div>
-        <div class="viz-sec-label">산출물 · 본사와 8개 지방 지점 사무실 레이아웃</div>
+        <div class="viz-sec-label">산출물 · 본사와 7개 지점 사무실 레이아웃</div>
         <div class="branches">
             <div class="hq">🏢 본사 레이아웃 · 이전·부서 이동 때마다 갱신</div>
-            <div><b>📍</b>지점 1</div><div><b>📍</b>지점 2</div><div><b>📍</b>지점 3</div><div><b>📍</b>지점 4</div>
-            <div><b>📍</b>지점 5</div><div><b>📍</b>지점 6</div><div><b>📍</b>지점 7</div><div><b>📍</b>지점 8</div>
+            <div><b>📍</b>서울</div><div><b>📍</b>김포</div><div><b>📍</b>인천</div><div><b>📍</b>군산</div>
+            <div><b>📍</b>청주</div><div><b>📍</b>김해</div><div><b>📍</b>제주</div><div class="air"><b>🛂</b>공항 보안구역</div>
         </div>
-        <div class="result-badge"><div class="dot"></div>지방 지점은 직접 가기 어려워, 공사나 장애 때 이 레이아웃을 업체와 같이 보며 위치와 경로를 맞췄습니다. 다이퀘스트 포털의 사무실 배치도도 같은 생각에서 만들었습니다.</div>
+        <div class="result-badge"><div class="dot"></div>지방 지점은 직접 가기 어려워, 공사나 장애 때 이 레이아웃을 업체와 같이 보며 위치와 경로를 맞췄습니다. 공항 보안구역 안 사무실도 출입 절차를 거쳐 직접 다녔습니다. 다이퀘스트 포털의 사무실 배치도도 같은 생각에서 만들었습니다.</div>
         <div class="kpi-row" style="margin-top:14px">
-            <div class="kpi-card"><div class="kpi-num count-num" data-suffix="개" data-target="8">0개</div><div class="kpi-label">지방 지점<br>레이아웃</div></div>
+            <div class="kpi-card"><div class="kpi-num count-num" data-suffix="개" data-target="7">0개</div><div class="kpi-label">지방 지점<br>레이아웃</div></div>
             <div class="kpi-card"><div class="kpi-num count-num" data-suffix="대" data-target="600">0대</div><div class="kpi-label">PC 교체<br>(노트북 200대 별도)</div></div>
             <div class="kpi-card"><div class="kpi-num count-num" data-suffix="%" data-target="45">0%</div><div class="kpi-label">Office 라이선스<br>단가 절감</div></div>
         </div>
@@ -1721,7 +1795,7 @@
 <div class="full-page-overlay" id="eml-modal" role="dialog" aria-modal="true" aria-label="피싱 대응과 EML 뷰어">
     <div class="modal-content"><div class="modal-body">
         <h2>🎣 피싱 대응 공지 · 사내 전용 EML 뷰어</h2>
-        <p class="modal-meta">젠큐릭스 · 코스닥 상장 의료기업</p>
+        <p class="modal-meta"><span class="when">2026.04 ~ 08</span>젠큐릭스 · 코스닥 상장 의료기업</p>
         <div class="viz-two-col">
             <div class="viz-section-card"><div class="card-mini-title">📢 피싱 메일 대응</div><div class="viz-checklist">
                 <div class="viz-check-item"><div class="viz-check-icon">✓</div>피싱 메일이 많이 들어오던 시기, 실제 계정 탈취 사례를 들어 전사 공지</div>
@@ -1742,29 +1816,65 @@
     </div></div>
 </div>
 
-<div class="full-page-overlay" id="edr-modal" role="dialog" aria-modal="true" aria-label="EDR 업데이트 관리">
+<div class="full-page-overlay" id="edr-modal" role="dialog" aria-modal="true" aria-label="EDR 운영 관리">
     <div class="modal-content"><div class="modal-body">
-        <h2>🧷 EDR로 Windows 업데이트 · 공유기 펌웨어 관리</h2>
-        <p class="modal-meta">샤프에비에이션케이 · EDR(알약) 관리자</p>
-        <div class="htl">
-            <div data-e="🔍"><b>확인</b><span>EDR 관리 화면에서 업데이트가 밀린 PC 확인</span></div>
-            <div data-e="⬆️"><b>최신화</b><span>Windows 업데이트·버전 상향</span></div>
-            <div data-e="📡"><b>공유기</b><span>펌웨어 업데이트</span></div>
-            <div data-e="🔑"><b>암호</b><span>공유기 암호 수시 변경</span></div>
-            <div data-e="🔁"><b>반복</b><span>주기적으로 다시 점검</span></div>
+        <h2>🧷 EDR(알약) 운영 · 식별 체계 정비와 패치 관리</h2>
+        <p class="modal-meta"><span class="when">2022.04 ~ 2026.04 · 상시</span>샤프에비에이션케이 · EDR 관리자 · 본사, 7개 지점, 공항</p>
+        <div class="kpi-row">
+            <div class="kpi-card"><div class="kpi-num count-num" data-suffix="명" data-target="200">0명</div><div class="kpi-label">PC 이름·사용자 이름<br>식별 정비 (약)</div></div>
+            <div class="kpi-card"><div class="kpi-num">🖥️ 원격</div><div class="kpi-label">지방 지점 PC<br>원격 최신화</div></div>
+            <div class="kpi-card"><div class="kpi-num">🛂 수동</div><div class="kpi-label">공항 보안망<br>V3 폐쇄망 전용 패치</div></div>
         </div>
-        <div class="result-badge"><div class="dot"></div>지점과 공항까지 PC가 흩어져 있어, 사람이 돌며 확인하기보다 EDR 화면에서 밀린 PC를 먼저 찾고 현장 점검은 공유기처럼 직접 봐야 하는 장비에 썼습니다.</div>
+        <div class="viz-sec-label">운영 흐름</div>
+        <div class="htl">
+            <div data-e="🏷️"><b>식별 정비</b><span>PC 이름 → 자산번호, 사용자 → 실제 사용자 이름</span></div>
+            <div data-e="🔍"><b>누락 확인</b><span>EDR 화면에서 업데이트 밀린 PC 찾기</span></div>
+            <div data-e="🖥️"><b>원격 최신화</b><span>지방 사용자는 원격 연결로 업데이트</span></div>
+            <div data-e="♻️" class="hot"><b>멈춘 PC</b><span>특정 단계에서 멈추면 강제 제거 후 재설치</span></div>
+            <div data-e="🛂"><b>폐쇄망</b><span>공항 보안망은 V3 폐쇄망 전용, 주기적 수동 패치</span></div>
+        </div>
+        <div class="before-after-grid">
+            <div class="ba-col before"><div class="ba-head bad">이전</div><div class="ba-list">
+                <div class="ba-item"><div class="ba-dot red"></div>EDR에서 검색되는 정보만으로는 어느 PC, 누구의 PC인지 식별이 어려움</div>
+                <div class="ba-item"><div class="ba-dot red"></div>공항 보안망 백신은 외부 통신이 막혀 패치가 안 됨</div>
+            </div></div>
+            <div class="ba-arrow">→</div>
+            <div class="ba-col after"><div class="ba-head good">이후</div><div class="ba-list">
+                <div class="ba-item"><div class="ba-dot green"></div>약 200명 PC를 자산번호·실사용자 기준으로 바로 찾음</div>
+                <div class="ba-item"><div class="ba-dot green"></div>V3 폐쇄망 전용 제품을 구매해 주기적으로 수동 패치</div>
+            </div></div>
+        </div>
+        <div class="result-badge"><div class="dot"></div>패치보다 먼저 “어느 PC인지 알아볼 수 있게” 만드는 것이 시작이었습니다. 식별이 되자 밀린 PC를 지점까지 원격으로 바로 찾아 올릴 수 있었습니다.</div>
     </div></div>
 </div>
 
-<div class="full-page-overlay" id="linux-modal" role="dialog" aria-modal="true" aria-label="Linux 서버 운영">
+<div class="full-page-overlay" id="linux-modal" role="dialog" aria-modal="true" aria-label="서버·가상화 운영 체계화">
     <div class="modal-content"><div class="modal-body">
-        <h2>🐧 Linux 서버 약 100대 운영</h2>
-        <p class="modal-meta">다이퀘스트 · VM · GPU · 노후 서버 · NHN 클라우드 1대</p>
-        <div class="kpi-row">
-            <div class="kpi-card"><div class="kpi-num count-num" data-suffix="대" data-target="100">0대</div><div class="kpi-label">Linux 서버<br>(약)</div></div>
-            <div class="kpi-card"><div class="kpi-num count-num" data-suffix="대" data-target="105">0대</div><div class="kpi-label">서버·VM<br>전수조사</div></div>
-            <div class="kpi-card"><div class="kpi-num count-num" data-suffix="대" data-target="1">0대</div><div class="kpi-label">NHN 클라우드</div></div>
+        <h2>🐧 서버·가상화 운영 체계화</h2>
+        <p class="modal-meta"><span class="when">2026.08 ~ 상시</span>다이퀘스트 · Linux 서버 약 100대 (VM·GPU·노후 서버) · NHN 클라우드 1대</p>
+        <div class="vbars">
+            <div class="vb"><b class="count-num" data-target="2" data-suffix="대">0대</b><i style="--h:10%"></i><span>신규 서버<br>설치</span></div>
+            <div class="vb"><b class="count-num" data-target="8" data-suffix="대">0대</b><i style="--h:40%"></i><span>새로 띄운<br>VM</span></div>
+            <div class="vb"><b class="count-num" data-target="10" data-suffix="대">0대</b><i class="gray" style="--h:50%"></i><span>반출 확인서<br>처리 장비</span></div>
+            <div class="vb"><b>약 20대</b><i class="gray" style="--h:100%"></i><span>내린<br>VM</span></div>
+        </div>
+        <div class="emo">
+            <div><span class="e">🧱</span><b>OS 표준화</b><p>오래된 OS로 된 VM 템플릿을 Ubuntu·Rocky Linux로 표준화. CentOS는 지원 종료로 보안 패치를 받을 수 없어 신규에서 제외</p></div>
+            <div><span class="e">🧯</span><b>자원 제한</b><p>AI 코딩이 남긴 로그·자동 백업으로 디스크가 차거나, 명령이 무한 반복돼 서버가 멈추는 일이 잦아 RAM·디스크 사용 제한</p></div>
+            <div><span class="e">🌡️</span><b>GPU 서버</b><p>A100 서버 온도 경고 분석, 열 관리, 포털에 GPU 정보 표시</p></div>
+            <div><span class="e">⚖️</span><b>자원 배분</b><p>서버 요청이 오면 남은 자원을 확인해 목적별로 배분, 부족하면 증설</p></div>
+        </div>
+        <div class="viz-two-col">
+            <div class="viz-section-card"><div class="card-mini-title">📄 서버 회수·반출 절차 신설 <span class="when sm">2026.11</span></div><div class="viz-checklist">
+                <div class="viz-check-item"><div class="viz-check-icon">!</div>사업이 끝난 서버 회수 요청이 왔는데 절차가 아예 없었음</div>
+                <div class="viz-check-item"><div class="viz-check-icon">✓</div>담당자와 협의해 ISMS 기준으로 서버 목록·반출 확인서 작성, 확인서 수령</div>
+                <div class="viz-check-item"><div class="viz-check-icon">✓</div>인프라 포털 장비 관리에 기능으로 구현 (반납 장비 10대 처리)</div>
+            </div></div>
+            <div class="viz-section-card"><div class="card-mini-title">🏃 직접 가서 해결한 장애</div><div class="viz-checklist">
+                <div class="viz-check-item"><div class="viz-check-icon">✓</div><b>11월</b> SSH·침해 문제로 원격 접속이 안 되던 노후 서버, IDC 방문해 콘솔로 직접 해결</div>
+                <div class="viz-check-item"><div class="viz-check-icon">✓</div><b>09.07 ~ 09.10</b> 사내 서버실 공조기 누수, 점검·수리 조치</div>
+                <div class="viz-check-item"><div class="viz-check-icon">✓</div><b>10.27</b> 디스크 100% 서버 3대, <b>10.30</b> 무한 반복 스크립트 CPU 점유 해소</div>
+            </div></div>
         </div>
         <div class="viz-sec-label">서비스 공개까지 직접</div>
         <div class="topo">
@@ -1774,18 +1884,89 @@
             <div class="tl-link"><svg viewBox="0 0 100 14" preserveAspectRatio="none"><path d="M0 7 H100"/></svg><span>내부 포트</span></div>
             <div class="tn"><div class="ic">🧪</div><b>내부 서비스</b><small>드라이브 · Nexus · 포털</small></div>
         </div>
-        <div class="viz-two-col">
-            <div class="viz-section-card"><div class="card-mini-title">SSH 접속 장애</div><div class="viz-checklist">
-                <div class="viz-check-item"><div class="viz-check-icon">1</div>특정 서버에 SSH 접속 불가</div>
-                <div class="viz-check-item"><div class="viz-check-icon">2</div>firewalld zone 설정 충돌로 허용 규칙 미적용 확인</div>
-                <div class="viz-check-item"><div class="viz-check-icon">3</div>zone 정리 후 복구</div>
+        <div class="result-badge"><div class="dot"></div>신규 서버 2대는 사내 드라이브와 Nexus 서버입니다. 연말 서버 정리는 담당자 회신을 받아, 내년에 서버실에서 직접 내릴 예정입니다.</div>
+        <div class="np-actions" style="justify-content:center;margin-top:14px"><button class="np-btn ghost" type="button" data-target="drive-modal">☁️ 사내 드라이브 보기</button><button class="np-btn ghost" type="button" data-target="nexus-modal">📦 Nexus 보기</button></div>
+    </div></div>
+</div>
+
+<div class="full-page-overlay" id="drive-modal" role="dialog" aria-modal="true" aria-label="Nextcloud 사내 드라이브">
+    <div class="modal-content"><div class="modal-body">
+        <h2>☁️ Nextcloud 사내 드라이브</h2>
+        <p class="modal-meta"><span class="when">2026.09.04 ~ 09.28</span>다이퀘스트 · 구축, Teams 데이터 이관, 운영까지 1인</p>
+        <div class="htl">
+            <div data-e="🖥️"><b>유휴 PC 조합</b><span>안 쓰는 PC를 모아 서버로</span></div>
+            <div data-e="🔀"><b>Samba → Nextcloud</b><span>권한 관리를 보고 웹 기반으로 전환</span></div>
+            <div data-e="💽"><b>8TB 증설</b><span>OS·데이터 디스크 분리</span></div>
+            <div data-e="🔄"><b>Teams 이관</b><span>기존 공유 자료 순차 이관</span></div>
+            <div data-e="✅"><b>09.28 오픈</b><span>지금은 운영·문의 1인 담당</span></div>
+        </div>
+        <div class="cost-hero"><div class="annual-savings-box">Teams 공유 비용 대체 · 연 약 1,000만 원 Microsoft 클라우드 추가 결제 취소</div></div>
+        <div class="viz-checklist" style="margin-bottom:16px">
+            <div class="viz-check-item"><div class="viz-check-icon">✓</div>LDAP 연동, 본부별 그룹 권한으로 최소 권한 유지</div>
+            <div class="viz-check-item"><div class="viz-check-icon">✓</div>업로드 임시 파일이 쌓여 업로드가 막히던 문제, 자동 삭제 설정으로 해결</div>
+            <div class="viz-check-item"><div class="viz-check-icon">✓</div>도메인·SSL 적용, 외부에서도 접속</div>
+        </div>
+        <figure class="shot2"><img src="img/drive.webp" alt="사내 드라이브 화면" loading="lazy"><figcaption>사내 드라이브 프로젝트 폴더</figcaption></figure>
+    </div></div>
+</div>
+
+<div class="full-page-overlay" id="nexus-modal" role="dialog" aria-modal="true" aria-label="Nexus 마이그레이션">
+    <div class="modal-content"><div class="modal-body">
+        <h2>📦 Nexus Docker·Maven 형상관리 서버</h2>
+        <p class="modal-meta"><span class="when">2026.09.30 ~ 10.19</span>다이퀘스트 · 신규 서버 구축, 데이터 이전, 전환, 운영까지 1인</p>
+        <div class="before-after-grid">
+            <div class="ba-col before"><div class="ba-head bad">이전 · 구버전</div><div class="ba-list">
+                <div class="ba-item"><div class="ba-dot red"></div>보안 취약 구버전</div>
+                <div class="ba-item"><div class="ba-dot red"></div>안 쓰는 데이터가 많고, Maven 라이브러리를 통째로 넣어 써서 무거움</div>
+                <div class="ba-item"><div class="ba-dot red"></div>Docker 저장소 없음</div>
             </div></div>
-            <div class="viz-section-card"><div class="card-mini-title">서버 프리징</div><div class="viz-checklist">
-                <div class="viz-check-item"><div class="viz-check-icon">1</div>서버가 주기적으로 멈춤</div>
-                <div class="viz-check-item"><div class="viz-check-icon">2</div>메모리·Swap 포화 확인</div>
-                <div class="viz-check-item"><div class="viz-check-icon">3</div>원인 프로세스와 자원 할당 조정</div>
+            <div class="ba-arrow">→</div>
+            <div class="ba-col after"><div class="ba-head good">이후 · 신버전</div><div class="ba-list">
+                <div class="ba-item"><div class="ba-dot green"></div>유휴 PC를 조합해 서버실에 신규 서버 설치</div>
+                <div class="ba-item"><div class="ba-dot green"></div>필요한 저장소만 이전, Maven 그룹 저장소로 정리 (총 15개)</div>
+                <div class="ba-item"><div class="ba-dot green"></div>Docker 저장소 추가, 도메인·SSL로 별도 포트 없이 사용</div>
             </div></div>
         </div>
+        <div class="htl">
+            <div data-e="🖥️"><b>09.30</b><span>서버 구축 (4TB + 2TB + 2TB)</span></div>
+            <div data-e="🔄"><b>10.07</b><span>사내 저장소 데이터 이전, 용량 대조</span></div>
+            <div data-e="🧩"><b>10.08</b><span>Maven 그룹 저장소 구성</span></div>
+            <div data-e="🌐"><b>10.14</b><span>도메인 전환</span></div>
+            <div data-e="🐳"><b>10.19</b><span>Docker 외부 연결 · 전환 완료</span></div>
+        </div>
+        <figure class="shot2"><img src="img/nexus.webp" alt="Nexus 저장소 목록" loading="lazy"><figcaption>Nexus 저장소 목록 · 지금은 유지보수와 문의를 직접 받고 있습니다</figcaption></figure>
+    </div></div>
+</div>
+
+<div class="full-page-overlay" id="ucs-modal" role="dialog" aria-modal="true" aria-label="폐쇄망 서버 운영">
+    <div class="modal-content"><div class="modal-body">
+        <h2>🛫 (가)급 폐쇄망 서버 27대 운영 · 첫 인프라 경력</h2>
+        <p class="modal-meta"><span class="when">2021.03 ~ 2022.04</span>유씨에스시스템 · 국토교통부 산하 국가 중요시설 · 항공물류정보시스템 유지보수팀</p>
+        <div class="kpi-row">
+            <div class="kpi-card"><div class="kpi-num count-num" data-suffix="대" data-target="27">0대</div><div class="kpi-label">운영 서버<br>(약)</div></div>
+            <div class="kpi-card"><div class="kpi-num count-num" data-suffix="회" data-target="3">0회</div><div class="kpi-label">하루 트래픽<br>조회</div></div>
+            <div class="kpi-card"><div class="kpi-num">월 1회</div><div class="kpi-label">담당자 방문 점검<br>· 트러블슈팅</div></div>
+            <div class="kpi-card"><div class="kpi-num">AhnLab</div><div class="kpi-label">방화벽<br>모니터링</div></div>
+        </div>
+        <div class="viz-sec-label">한 달의 운영 주기</div>
+        <div class="htl">
+            <div data-e="📈"><b>매일 3회</b><span>트래픽 조회·기록</span></div>
+            <div data-e="🔑"><b>주기별</b><span>서버 계정 암호 변경</span></div>
+            <div data-e="🧑‍🔧"><b>월 1회</b><span>솔루션·서버 담당자 방문 점검에 함께 참여</span></div>
+            <div data-e="📝"><b>월말</b><span>월간 보고서 작성</span></div>
+        </div>
+        <div class="viz-two-col">
+            <div class="viz-section-card"><div class="card-mini-title">🔒 폐쇄망에서 배운 기본</div><div class="viz-checklist">
+                <div class="viz-check-item"><div class="viz-check-icon">✓</div>초임이라 설정을 바꾸기보다, 정해진 주기의 점검과 기록을 빠짐없이 지키는 일부터 맡음</div>
+                <div class="viz-check-item"><div class="viz-check-icon">✓</div>AhnLab 방화벽 트래픽·이벤트 확인과 이상 징후 보고</div>
+                <div class="viz-check-item"><div class="viz-check-icon">✓</div>메일 전송·공문·방문까지 모두 승인을 거치는 DML 체계 운영</div>
+            </div></div>
+            <div class="viz-section-card"><div class="card-mini-title">🤝 담당자와 직접 소통</div><div class="viz-checklist">
+                <div class="viz-check-item"><div class="viz-check-icon">✓</div>월 1회 방문하는 솔루션·서버 담당자와 함께 점검하고 장애를 같이 확인</div>
+                <div class="viz-check-item"><div class="viz-check-icon">✓</div>현장 개발자들의 요구사항을 받아 담당자에게 정리해 전달</div>
+            </div></div>
+        </div>
+        <div class="result-badge"><div class="dot"></div>정해진 주기대로 같은 것을 보고 기록하는 습관이 여기서 생겼습니다. 지금 로그와 증적부터 설계하는 방식의 출발점입니다.</div>
     </div></div>
 </div>
 
@@ -2120,30 +2301,31 @@
     const D = '다이퀘스트', G = '젠큐릭스 · 코스닥 의료기업', S = '샤프에비에이션케이', U = '유씨에스시스템 · 국가 중요시설';
     const REQ = [
         { t: '회사의 인프라 보안 체계 구축 및 개선', c: [
-            { co: D, e: '🧭', b: 'IT 인프라 포털 증적 체계', p: '로그인한 계정으로 신청·승인·IP 배정·반출입이 자동 기록되는 하나의 창구', m: 'portal-modal' },
+            { co: D, d: '2026.10~', e: '🧭', b: 'IT 인프라 포털 증적 체계', p: '로그인한 계정으로 신청·승인·IP 배정·반출입이 자동 기록되는 하나의 창구', m: 'portal-modal' },
             { co: G, e: '💸', b: '상장 의료기업 IT 운영 체계화', p: '협업툴·원격툴 해지와 그룹웨어 통합, 백업 비용 1/3, AI 라이선스 30%↓', m: 'cost-modal' },
-            { co: S, e: '👷', b: '공사 현장 입회 · 8개 지점 레이아웃', p: '포설 경로·공항 전용망 확인, 방치 공유기 점검, 지점 레이아웃 주기 갱신', m: 'site-modal' } ] },
+            { co: S, d: '상시', e: '👷', b: '공사 현장 입회 · 7개 지점 레이아웃', p: '포설 경로·공항 전용망 확인, 방치 공유기 점검, 공항 보안구역까지 현장 지원', m: 'site-modal' } ] },
         { t: '계정·권한·백업, SSO/MFA 등 시스템 접근 통제 운영', c: [
-            { co: D, e: '👥', b: 'LDAP 조직도 기준 재편', p: '퇴사자·고객사 계정 정리, PHP 취약점에 노출된 관리자 페이지 내부망 전용', m: 'ldap-modal' },
-            { co: G, e: '🛂', b: 'NAC · DLP · DRM 계정 재편', p: '퇴사자·휴직자 미정리 해소, NAC 설정 누락 전 직원 재설정, NetBackup 통백업', m: 'sol-modal', tag: '우대 · 보안 솔루션 운영' },
+            { co: D, d: '2026.10', e: '👥', b: '통합계정(LDAP) 관리', p: '퇴사자·미사용 129명 비활성화, 초기 비밀번호 강제 변경, 관리자 페이지 내부망 전용', m: 'ldap-modal' },
+            { co: G, d: '상시', e: '🛂', b: 'NAC · DLP · DRM 운영과 계정 재편', p: '지니언스·에스원·DocuONE, 퇴사자·휴직자 정리, NAC 전 직원 재설정, NetBackup', m: 'sol-modal', tag: '우대 · 보안 솔루션 운영' },
             { co: U, e: '🛡️', b: '(가)급 폐쇄망 DML 마스터 관리자', p: '메일 전송 승인, 공문 관리, 방문 신청까지 승인 체계 운영', m: 'audit-modal' } ] },
         { t: '보안 패치, 취약점 점검 및 개선 활동', c: [
-            { co: D, e: '🔐', b: 'SSL VPN 공용 계정 → 승인제', p: 'LDAP 연동, 포털 신청서 → 로그 → 담당자 승인 후 접속', m: 'vpn-modal' },
+            { co: D, d: '2026.10.19~11.11', e: '🔐', b: 'SSL VPN 공용 계정 → 승인제', p: 'LDAP 연동, 포털 신청서 → 로그 → 승인, 고객사 VPN 열람 코드 발급', m: 'vpn-modal' },
             { co: G, e: '🎣', b: '피싱 공지 · 사내 EML 뷰어', p: '탈취 사례 전사 공지, 라이선스 문제 뷰어를 직접 만든 뷰어로 교체', m: 'eml-modal' },
-            { co: S, e: '🧷', b: 'EDR로 Windows 업데이트 관리', p: '밀린 PC 최신화, 공유기 펌웨어 업데이트와 암호 수시 변경', m: 'edr-modal' } ] },
+            { co: S, d: '상시', e: '🧷', b: 'EDR(알약) 운영 · 패치 관리', p: '약 200명 PC 식별 정비, 지점 원격 최신화, 공항 보안망 V3 수동 패치', m: 'edr-modal' } ] },
         { t: '시스템 및 보안 로그 모니터링, 이상 징후 대응', c: [
-            { co: D, e: '🔒', b: '전수조사 · 랜섬웨어 2건 대응', p: '서버 105대 중 3년+ 방치 서버 발견, 포트 차단·계정 변경·암호화 파일 분류', m: 'ransom-modal' },
-            { co: D, e: '🚨', b: '침해사고 2건 · 지속 모니터링', p: '악성봇 채굴 코드 제거, 포트 수천 개 점유 서버 경로 차단', m: 'intrusion-modal' },
-            { co: D, e: '📈', b: 'Grafana 구축 · Zabbix 개선', p: '실시간 대시보드, 포털 IDC 맵에 서버 상태 연동', m: 'mon-modal' },
+            { co: D, d: '2026.11.01~12.31', e: '🧹', b: '연말 서버 점검 직접 기획 · 랜섬웨어 2건', p: '105대 점검 페이지를 직접 만들어 진행, 그 안에서 랜섬웨어 발견·보고·차단', m: 'ransom-modal' },
+            { co: D, d: '2026.09~11', e: '🚨', b: '침해사고 2건 · 지속 모니터링', p: '포트 수천 개 점유 서버 경로 차단, 악성봇 채굴 코드 제거', m: 'intrusion-modal' },
+            { co: D, d: '2026.10.12~10.28', e: '📈', b: 'Grafana 구축 · Zabbix 개선', p: '실시간 대시보드, 데모 솔루션 8종 감시, 장애 메일 알림', m: 'mon-modal' },
             { co: G, e: '🧾', b: '방화벽 관리자 무단 접속 로그 대응', p: '유휴 PC로 로그 수집 서버 구축, 주기적 접속 확인·차단', m: 'fw-modal', tag: '우대 · 로그 모니터링' } ] },
         { t: '방화벽·UTM·VPN 등 네트워크 보안 장비 운영', c: [
-            { co: D, e: '🛡️', b: 'Sophos 구로 ↔ IDC IPsec', p: '펌웨어 2회 + 취약점 긴급 패치 1회, SSL VPN·고객사 통신 지원', m: 'sophos-modal' },
-            { co: G, e: '🧰', b: 'Zyxel 본사 ↔ 지사 직접 운영', p: '유지보수 업체 없이 밀린 펌웨어를 몇 주에 걸쳐 버전 업, 정전·주말 대응', m: 'zyxel-modal' },
-            { co: D, e: '🔌', b: '스위치 막힌 포트 해결', p: '유선랜이 안 돼 자리를 옮기던 문제, Netgear 스위치에서 원인 찾아 해결', m: 'switch-modal' } ] },
+            { co: D, d: '상시', e: '🛡️', b: 'Sophos 방화벽 · 1인 전담', p: '펌웨어 3회 패치, 방화벽·NAT 정책, 외부 통신 통제, 구로 ↔ IDC IPsec', m: 'sophos-modal' },
+            { co: G, d: '상시', e: '🧰', b: 'Zyxel 방화벽 · 업체 없이 1인', p: '밀린 펌웨어 단계적 버전 업, 본사 ↔ 지사 IPsec, 정전·주말 대응', m: 'zyxel-modal' },
+            { co: '3개 회사', d: '상시', e: '🌐', b: '네트워크 관리 · 현장 장애 대응', p: '랜선 제작·포설부터 장비 설치·설정까지, 노후 배선·루프·커플러 장애 해결', m: 'net-modal' } ] },
         { t: '사내 서버·IT 인프라, Linux, 가상화 및 네트워크 운영', c: [
-            { co: D, e: '🐧', b: 'Linux 서버 약 100대 운영', p: 'VM·GPU·노후 서버, Nginx 포트 바인딩·도메인·SSL, NHN 클라우드', m: 'linux-modal', tag: '우대 · Shell Script' },
-            { co: D, e: '☁️', b: 'Nextcloud 구축 · Teams 이관', p: '유휴 장비로 연 약 1,000만 원 클라우드 추가 결제 취소', m: 'drive-modal' },
-            { co: D, e: '📦', b: 'Nexus 신버전 마이그레이션', p: '용량 부족·보안 취약 구버전 교체, 저장소 15개 통합', m: 'nexus-modal' } ] }
+            { co: D, d: '상시', e: '🐧', b: '서버·가상화 운영 체계화', p: 'OS 표준화, RAM·디스크 제한, ISMS 기준 반출 절차, 서버 2대 신규·VM 8대 신규·약 20대 정리', m: 'linux-modal', tag: '우대 · Shell Script' },
+            { co: D, d: '2026.09', e: '☁️', b: 'Nextcloud 사내 드라이브', p: '유휴 PC로 구축, Teams 이관, 연 약 1,000만 원 추가 결제 취소', m: 'drive-modal' },
+            { co: D, d: '2026.09~10', e: '📦', b: 'Nexus Docker·Maven 서버', p: '유휴 PC로 신규 서버, 구버전 데이터 정리·이전, Docker 저장소 추가', m: 'nexus-modal' },
+            { co: U, e: '🛫', b: '폐쇄망 서버 27대 운영', p: '하루 3회 트래픽 조회, 월간 보고서, 월 1회 담당자 점검 참여, AhnLab 방화벽', m: 'ucs-modal' } ] }
     ];
 
     const list = document.getElementById('mxList');
@@ -2181,7 +2363,7 @@
         cards.classList.toggle('n4', r.c.length === 4);
         cards.innerHTML = r.c.map(c =>
             `<button class="mx-card" type="button" data-open="${c.m}">
-                <span class="row1"><span class="co">${c.co}</span>${c.tag ? `<span class="pref">${c.tag}</span>` : ''}</span>
+                <span class="row1"><span class="co">${c.co}</span>${c.d ? `<span class="dt">${c.d}</span>` : ''}${c.tag ? `<span class="pref">${c.tag}</span>` : ''}</span>
                 <span class="em" aria-hidden="true">${c.e || ''}</span><b>${c.b}</b><p>${c.p}</p>
                 <span class="go">프로젝트 보기 →</span>
             </button>`).join('');
@@ -2248,7 +2430,7 @@
               '국가 정기·상시 보안감사 대응, OS·장비 보안 설정·패치 점검, 지적사항 미처리 0건'],
           k: '가장 엄격한 보안 기준에서 IT를 시작해, 규정과 증적의 무게를 먼저 배웠습니다.' },
         { step: 'IT 커리어 · 02', t: '㈜샤프에비에이션케이', s: '2022.04 ~ 2026.04 · 1,500인 항공 조업·정비',
-          l: ['3명이 본사, 국내 8개 지점, 해외 거점, 300인 이상 정비 그룹(테크닉스케이)까지 IT 전반 담당',
+          l: ['3명이 본사, 국내 7개 지점, 해외 거점, 300인 이상 정비 그룹(테크닉스케이)까지 IT 전반 담당',
               'IT 자산 생애주기 관리, PC 600대·노트북 200대 교체, 단가 절감 PC 10%·모니터 15%·Office 45%',
               '사옥 이전 네트워크 설계, 공항 사무실 전용망·인터넷전화, 네트워크·AP 장애 대응',
               'SaaS 그룹웨어 전환, EDR(알약) 운영, 보안·헬프데스크 매뉴얼 작성'],

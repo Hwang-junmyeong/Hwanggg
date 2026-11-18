@@ -1037,6 +1037,21 @@
         .note-q { font-size: .82rem; color: var(--text-sub); border-left: 3px solid #f2c14e; padding: 8px 12px; background: rgba(242,193,78,.06); border-radius: 0 8px 8px 0; margin: 12px 0; line-height: 1.6; }
         .np-sec .np-shot img { filter: none; }
 
+        /* ---------- v5 ---------- */
+        .when { display: inline-block; font-size: .74rem; font-weight: 800; color: #0b0d1c; background: var(--np-grad); border-radius: 999px; padding: 2px 10px; margin-right: 8px; letter-spacing: .02em; vertical-align: 1px; }
+        .when.sm { font-size: .68rem; padding: 1px 8px; margin: 0 0 0 6px; }
+        .emo.three { grid-template-columns: repeat(3, 1fr); }
+        @media (max-width: 700px) { .emo.three { grid-template-columns: 1fr; } }
+        .emo.lg b { font-size: 1.08rem; } .emo.lg p { font-size: .96rem; line-height: 1.7; } .emo.lg .e { font-size: 2rem; }
+        .emo .logo { display: flex; align-items: center; justify-content: center; height: 84px; background: #fff; border-radius: 12px; padding: 8px 14px; margin-bottom: 10px; }
+        .emo .logo img { max-height: 66px; max-width: 100%; object-fit: contain; }
+        .branches > div.air { background: linear-gradient(120deg, rgba(60,211,204,.22), rgba(138,91,214,.14)); border-color: rgba(60,211,204,.5); color: #fff; font-weight: 700; }
+        .np-co { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 14px 0; }
+        .np-co .viz-section-card { margin: 0; }
+        @media (max-width: 900px) { .np-co { grid-template-columns: 1fr; } }
+        .mx-card .dt { font-size: .7rem; font-weight: 700; color: #dff8f6; background: rgba(60,211,204,.12); border: 1px solid rgba(60,211,204,.4); border-radius: 999px; padding: 1px 8px; }
+        .np-tag .d { opacity: .8; font-weight: 600; margin-left: 6px; }
+
 
         /* ===================== portal page ===================== */
         .pt-back { display: inline-block; margin: 22px 0 0; font-size: .86rem; font-weight: 700; color: var(--accent-soft); text-decoration: none; }
@@ -1088,6 +1103,27 @@
         @media (max-width: 900px) { .pt-view { grid-template-columns: 1fr; } }
         .pt-vb { height: 260px; }
 
+        /* 글씨 크게 (v5) */
+        .pt-hero .np-lead { font-size: 1.08rem; line-height: 1.8; }
+        .pt-meta { font-size: .95rem; }
+        .np-sh p { font-size: 1rem; }
+        .pt-menu button b { font-size: 1.05rem; }
+        .pt-menu button em { font-size: .9rem; }
+        .pt-more span { font-size: .84rem; }
+        .pt-k h3 { font-size: 1.3rem; }
+        .pt-k p { font-size: 1rem; line-height: 1.75; }
+        .pt-k .proof span { font-size: .84rem; }
+        .pt-tabs button { font-size: .96rem; padding: 9px 17px; }
+        .pt-desc h3 { font-size: 1.3rem; }
+        .pt-desc > p { font-size: 1rem; line-height: 1.75; }
+        .pt-desc li { font-size: .98rem; line-height: 1.7; }
+        .pt-ev .lb { font-size: .86rem; }
+        .pt-ev .proof span { font-size: .84rem; }
+        .shot2 figcaption { font-size: .88rem; }
+        #p2 .ba-item, .pt-htl b { font-size: 1rem; }
+        .pt-htl span { font-size: .86rem; }
+        .vb span { font-size: .82rem; }
+
     </style>
 </head>
 <body>
@@ -1122,14 +1158,15 @@
         <div class="pt-main">
             <figure class="shot2"><img src="img/pt/home.webp" alt="인프라 포털 메인 화면"><span class="bl">로고·주소·이름 블러</span><figcaption>메인 · 자주 쓰는 사내 사이트와 신청서를 한 화면에</figcaption></figure>
             <div class="pt-menu">
-                <button type="button" data-go="6"><span>🗄️</span><b>IDC</b><em>랙 정면도 · 서버 목록 · VM IP 대역</em></button>
-                <button type="button" data-go="5"><span>🏢</span><b>사무실</b><em>층별 배치도 · 자리·랙·공유기</em></button>
+                <button type="button" data-go="7"><span>🗄️</span><b>IDC</b><em>랙 정면도 · 서버 목록 · VM IP 대역</em></button>
+                <button type="button" data-go="6"><span>🏢</span><b>사무실</b><em>층별 배치도 · 자리·랙·공유기</em></button>
                 <button type="button" data-go="3"><span>🌐</span><b>내 사무실 IP</b><em>사설 IP 확인 · 자동 부여 · 변경</em></button>
                 <button type="button" data-go="0"><span>📝</span><b>신청서 5종</b><em>통합계정 · 방화벽 오픈 · VM · VM 사양 · VPN</em></button>
                 <button type="button" data-go="1"><span>🗂️</span><b>관리자 · 신청서 관리</b><em>상태·처리자·만료 임박 관리</em></button>
                 <button type="button" data-go="2"><span>📜</span><b>관리자 · 로그</b><em>로그인·작업·신청·메일·IP 기록</em></button>
                 <button type="button" data-go="4"><span>📦</span><b>관리자 · 장비 관리</b><em>도입·반출(회수)·폐기 확인서</em></button>
-                <div class="pt-more"><span>📘 매뉴얼</span><span>VPN 접속</span><span>사무실 PC IP 설정</span><span>연말 서버 정리</span><span>🔗 설치파일 공유서버</span><span>📈 서버 모니터링</span></div>
+                <button type="button" data-go="5"><span>🧹</span><b>연말 서버 정리</b><em>105대 담당자 확인 · 본부장 자동 이관</em></button>
+                <div class="pt-more"><span>📘 매뉴얼</span><span>VPN 접속</span><span>사무실 PC IP 설정</span><span>연말 서버 정리 가이드</span><span>🔗 설치파일 공유서버</span><span>📈 서버 모니터링</span></div>
             </div>
         </div>
     </section>
@@ -1558,11 +1595,19 @@
           e: ['배정', '변경', '반납', '추가 IP 기간', '확인 시각'] },
         { k: '📦 장비 반출입', img: 'equip', bl: 'IP·담당자 블러 · 예시 데이터', cap: '장비 관리 · 그룹별 장부와 확인서 기록',
           t: '장비 도입 · 반출(회수) · 폐기 확인서',
-          p: '사업·대여 같은 그룹 단위로 장비와 기간을 관리하고, 장비가 들어오고 나갈 때는 확인서를 출력해 서명을 받습니다.',
+          p: '사업이 끝난 서버의 회수 요청이 왔을 때 절차가 아예 없어서, ISMS 기준으로 반출 확인서를 만들고 포털 기능으로 구현했습니다. 장비가 들어오고 나갈 때마다 확인서를 출력해 서명을 받습니다.',
           l: ['장부에서 장비를 골라 확인서 출력 → 업체 서명 → 서명본 스캔 업로드',
               '[완료]를 누르면 장비 상태·날짜가 바뀌고 🔒 잠김, 지울 수 없음(증적 보관)',
               '대여·사업 기간이 30일 안에 끝나는 그룹, 보증 만료 임박 장비를 따로 표시'],
           e: ['확인서 번호', '서명본 스캔', '반출·반입일', '변경 이력', '관리자 로그'] },
+        { k: '🧹 연말 서버 정리', img: 'cleanup', bl: '서버명·IP·이름 블러 · 예시 데이터', cap: '연말 서버 정리 · 담당자가 서버마다 계속 사용·반납을 직접 확인',
+          t: '연말 서버 정리 · 스스로 기획한 점검 프로세스',
+          p: '누가 시킨 일이 아니라, 담당자 없는 서버가 계속 늘어나는 것을 보고 직접 만든 점검입니다. IDC 서버 33대와 VM 72대, 105대 전체를 담당자가 직접 확인하게 했습니다.',
+          l: ['로그인하면 담당·접속 기록·같은 팀으로 찾은 “나와 관련된 서버”가 먼저 나옴',
+              '서버마다 계속 사용 / 반납 / 지울 컨테이너·파일을 골라 제출',
+              '“제 서버가 아니에요”를 고르면 본부장에게 자동 이관, 그룹웨어 조직도 연동',
+              '확인 기한이 지나도 자동 삭제 없이 관리자가 회수, 미제출자에게 안내 메일'],
+          e: ['확인자', '제출 시각', '사용·반납 선택', '담당 이관', '정리 완료'] },
         { k: '🗺️ 사무실 배치도', img: 'office', bl: '배치도 전체 블러', cap: '사무실 배치도 · 층별 자리·랙·공유기·분전반·실외기',
           t: '사무실 레이아웃 · 자리와 IP를 함께',
           p: '층마다 자리, 랙, 공유기, 분전반, 에어컨 실외기를 그려 두고, 자리를 누르면 사용자와 IP를 함께 봅니다.',
