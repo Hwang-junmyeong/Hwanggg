@@ -1182,6 +1182,48 @@
         .tl-hero-a .tl-txt .np-actions { margin-bottom: 36px; gap: 8px; }
         .tl-hero-a .tl-txt .np-actions .np-btn { font-size: .7rem; padding: 6px 11px; }
 
+        /* ===================== v14 · 모바일 가독성 ===================== */
+        .when.sm { font-size: .72rem; }
+        @media (max-width: 960px) {
+            .mx-list { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); overflow: visible; scroll-snap-type: none; padding-bottom: 0; }
+            .mx-list .mx-item { min-width: 0; }
+        }
+        @media (max-width: 700px) {
+            /* 가로 타임라인 → 세로 */
+            .htl { grid-auto-flow: row; grid-template-columns: 1fr; grid-auto-columns: auto; overflow: visible; gap: 0; }
+            .htl > div { text-align: left; padding: 0 0 14px 42px; min-height: 40px; }
+            .htl > div::before { left: 13px; right: auto; top: 0; bottom: 0; width: 2px; height: auto; }
+            .htl > div:first-child::before { left: 13px; top: 14px; } .htl > div:last-child::before { right: auto; bottom: auto; height: 14px; }
+            .htl > div::after { left: 0; transform: none; }
+            .htl b { font-size: .95rem; } .htl span { font-size: .86rem; }
+            /* 경력 여정 → 세로 */
+            .jr { overflow: visible; padding: 18px 16px; }
+            .jr-phase { display: none; }
+            .jr-track { min-width: 0; grid-template-columns: 1fr; gap: 12px; }
+            .jr-line { left: 40px; right: auto; top: 30px; bottom: 30px; width: 2px; height: auto; }
+            .jr-line i { transform-origin: top; transform: scaleY(0); }
+            .jr-track.go .jr-line i { transform: scaleY(1); }
+            .jr-node { display: grid; grid-template-columns: 52px 1fr; grid-template-rows: auto auto; column-gap: 14px; text-align: left; align-items: center; justify-items: start; padding: 0 0 0 14px; }
+            .jr-node .dot { grid-row: span 2; width: 52px; height: 52px; font-size: 1.3rem; }
+            .jr-node b { margin-top: 0; align-self: end; }
+            .jr-node em { align-self: start; }
+            /* 이모지 칸 · 로고 */
+            .emo.lg, .emo.three { grid-template-columns: 1fr; }
+            .emo .logo { height: 64px; } .emo .logo img { max-height: 46px; }
+            .modal-meta { font-size: .86rem; }
+            .tl-hero-q, .tl-hero-a { padding: 20px 16px; }
+            .tl-hero-q > .tl-hero-k { font-size: .95rem; }
+            .tl-hero-a .tl-txt .np-actions { margin-bottom: 0; }
+            .tl-hero-a .tl-txt .np-actions .np-btn { font-size: .8rem; padding: 8px 14px; }
+            .vbars { height: 180px; }
+            .bar { grid-template-columns: 1fr auto; }
+        }
+        @media (max-width: 700px) {
+            .mx-list { grid-template-columns: 1fr; gap: 6px; }
+            .mx-list .mx-item { padding: 10px 12px; }
+            .mx-list .mx-item .t { font-size: .9rem; }
+        }
+
     </style>
 </head>
 <body>
@@ -1211,7 +1253,7 @@
 
     <!-- ===== 01 경력 여정 ===== -->
     <section class="np-sec" id="s0">
-        <div class="np-sh"><span class="no">01</span><div><h2>경력 여정</h2><p>왼쪽부터 순서대로 보시면 됩니다. 각 단계를 누르면 짧은 설명이 열립니다.</p></div></div>
+        <div class="np-sh"><span class="no">01</span><div><h2>경력 여정</h2><p>순서대로 보시면 됩니다. 각 단계를 누르면 짧은 설명이 열립니다.</p></div></div>
         <div class="jr">
             <div class="jr-phase"><span class="p1">기반 형성</span><span class="p2">IT 인프라 · 보안 커리어</span></div>
             <div class="jr-track" id="jrTrack">
