@@ -1176,6 +1176,11 @@
         .tl-hero-a .tl-txt .proof span { text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
         .tl-hero-a .tl-txt .proof { grid-template-columns: repeat(4, minmax(0, 1fr)); }
         .tl-hero-a .tl-txt .proof span { white-space: normal; font-size: .7rem; padding: 6px 6px; line-height: 1.3; display: flex; align-items: center; justify-content: center; border-radius: 10px; }
+        /* v13 */
+        .tl-hero-a .tl-txt .proof span { flex-direction: column; gap: 5px; padding: 9px 6px; min-height: 64px; font-size: .72rem; }
+        .tl-hero-a .tl-txt .proof span i { font-style: normal; font-size: 1.25rem; line-height: 1; display: block; width: 1.4em; text-align: center; }
+        .tl-hero-a .tl-txt .np-actions { margin-bottom: 36px; gap: 8px; }
+        .tl-hero-a .tl-txt .np-actions .np-btn { font-size: .7rem; padding: 6px 11px; }
 
     </style>
 </head>
@@ -1260,7 +1265,7 @@
                 <div class="tl-txt">
                     <b class="big">IT 인프라 포털 · 증적이 남는 하나의 창구</b>
                 <p class="np-lead2">모든 요청을 <b>통합계정 로그인 뒤</b>로 모았습니다. VM은 표준 OS로 신청받고, VPN은 개인 계정·승인제로, IP는 장부 기준 자동 부여, 서버는 담당자가 직접 확인하게 만들었습니다. 일을 처리하는 것만으로 증적이 남습니다.</p>
-                    <div class="proof"><span>🔑 통합계정 로그인</span><span>🌐 사설 IP 자동 부여</span><span>📜 로그 자동 수집</span><span>📦 반출입 확인서</span><span>🔐 VPN 승인제</span><span>🗄️ IDC 서버 랙 현황</span><span>🗺️ 사무실 레이아웃 현황</span><span>📘 IT 매뉴얼</span></div>
+                    <div class="proof"><span><i>🔑</i>통합계정 로그인</span><span><i>🌐</i>사설 IP 자동 부여</span><span><i>📜</i>로그 자동 수집</span><span><i>📦</i>반출입 확인서</span><span><i>🔐</i>VPN 승인제</span><span><i>🗄️</i>IDC 서버 랙</span><span><i>🗺️</i>사무실 레이아웃</span><span><i>📘</i>IT 매뉴얼</span></div>
                     <div class="np-actions">
                         <a class="np-btn" href="pf_portal.html">포털 프로젝트 페이지 →</a>
                         <button class="np-btn ghost" type="button" data-target="portal-modal">요약 보기</button>
