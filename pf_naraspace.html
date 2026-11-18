@@ -1063,81 +1063,37 @@
         .branches > div:hover .bi { transform: translateY(-3px) scale(1.06); }
         .branches > div span { font-size: .9rem; font-weight: 700; color: #fff; }
 
-        /* ===================== v6 · 요구사항별 다른 카드 디자인 ===================== */
-        .mx-card .mt { display: block; font-size: 1.35rem; font-weight: 800; line-height: 1.1; margin: 2px 0 6px; background: var(--vg, var(--np-grad)); -webkit-background-clip: text; background-clip: text; color: transparent; }
-        .mx-panel { transition: background .5s; }
-        .mx-panel[data-v="0"] { --vc: #9a7cff; --vg: linear-gradient(90deg,#b08cff,#6b8bf0); }
-        .mx-panel[data-v="1"] { --vc: #e58cf0; --vg: linear-gradient(90deg,#f09bd8,#a67cff); }
-        .mx-panel[data-v="2"] { --vc: #f2c14e; --vg: linear-gradient(90deg,#ffd36b,#f59e5b); }
-        .mx-panel[data-v="3"] { --vc: #ff7d8f; --vg: linear-gradient(90deg,#ff8a9a,#ff6b5b); }
-        .mx-panel[data-v="4"] { --vc: #3cd3cc; --vg: linear-gradient(90deg,#4fe0d8,#5aa8ff); }
-        .mx-panel[data-v="5"] { --vc: #7ee08a; --vg: linear-gradient(90deg,#8ff0a0,#3cd3cc); }
-        .mx-panel[data-v] { background: radial-gradient(ellipse at 100% 0%, color-mix(in srgb, var(--vc) 16%, transparent), transparent 55%), var(--card-glass); }
+        /* ===================== v7 · 요구사항별 색만 살짝 다르게 (배치는 동일) ===================== */
+        .mx-card .mt { display: none; }
+        .mx-panel { transition: background .6s; }
+        .mx-panel[data-v="0"] { --vc: #9a7cff; --vg: linear-gradient(90deg,#a98cff,#7f9cf0); }
+        .mx-panel[data-v="1"] { --vc: #b08ae8; --vg: linear-gradient(90deg,#c29cf0,#9a86e8); }
+        .mx-panel[data-v="2"] { --vc: #8a9cf0; --vg: linear-gradient(90deg,#9aaaf5,#7f9cf0); }
+        .mx-panel[data-v="3"] { --vc: #c992c4; --vg: linear-gradient(90deg,#d4a0cc,#a98cf0); }
+        .mx-panel[data-v="4"] { --vc: #5fc8cc; --vg: linear-gradient(90deg,#6fd2d0,#7f9cf0); }
+        .mx-panel[data-v="5"] { --vc: #72c9b0; --vg: linear-gradient(90deg,#82d4b8,#5fc8cc); }
+        .mx-panel[data-v] { background: radial-gradient(ellipse at 100% 0%, color-mix(in srgb, var(--vc) 9%, transparent), transparent 55%), var(--card-glass); }
         .mx-panel[data-v] .mx-count b { background: var(--vg); -webkit-background-clip: text; background-clip: text; }
         .mx-panel[data-v] .mx-wire path { stroke: var(--vc); }
-        .mx-panel[data-v] .mx-card:hover { border-color: color-mix(in srgb, var(--vc) 70%, transparent); }
-
-        /* 01 · 대표 카드 하나를 크게 */
-        .mx-panel[data-v="0"] .mx-cards { grid-template-columns: 1.3fr 1fr; grid-template-rows: auto auto; }
-        .mx-panel[data-v="0"] .mx-card:first-child { grid-row: span 2; background: linear-gradient(160deg, color-mix(in srgb, var(--vc) 22%, transparent), rgba(10,12,28,.6) 70%); padding: 22px; }
-        .mx-panel[data-v="0"] .mx-card:first-child .em { font-size: 2.6rem; margin: 8px 0 10px; }
-        .mx-panel[data-v="0"] .mx-card:first-child .mt { font-size: 2rem; }
-        .mx-panel[data-v="0"] .mx-card:first-child b { font-size: 1.2rem; }
-        .mx-panel[data-v="0"] .mx-card:first-child p { font-size: .92rem; }
-
-        /* 02 · 가로 목록형 (아이콘 · 내용 · 숫자) */
-        .mx-panel[data-v="1"] .mx-cards { grid-template-columns: 1fr; gap: 10px; }
-        .mx-panel[data-v="1"] .mx-card { display: grid; grid-template-columns: 56px 1fr auto; grid-template-areas: "em r1 mt" "em b mt" "em p mt" "em go mt"; column-gap: 16px; align-items: start; border-left: 3px solid var(--vc); }
-        .mx-panel[data-v="1"] .mx-card .em { grid-area: em; font-size: 2rem; width: 56px; height: 56px; display: grid; place-items: center; border-radius: 16px; background: color-mix(in srgb, var(--vc) 14%, transparent); align-self: center; margin: 0; }
-        .mx-panel[data-v="1"] .mx-card .row1 { grid-area: r1; } .mx-panel[data-v="1"] .mx-card b { grid-area: b; } .mx-panel[data-v="1"] .mx-card p { grid-area: p; } .mx-panel[data-v="1"] .mx-card .go { grid-area: go; padding-top: 4px; }
-        .mx-panel[data-v="1"] .mx-card .mt { grid-area: mt; align-self: center; font-size: 1.7rem; text-align: right; }
-
-        /* 03 · 패치 · 위쪽 줄무늬 띠 + 큰 숫자 */
-        .mx-panel[data-v="2"] .mx-card { padding-top: 22px; overflow: hidden; }
-        .mx-panel[data-v="2"] .mx-card::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 6px; background: repeating-linear-gradient(-45deg, var(--vc) 0 8px, transparent 8px 14px); opacity: .8; }
-        .mx-panel[data-v="2"] .mx-card .mt { font-size: 1.9rem; }
-        .mx-panel[data-v="2"] .mx-card .em { position: absolute; right: 14px; top: 18px; font-size: 1.8rem; opacity: .9; }
-
-        /* 04 · 로그 · 경보 화면처럼 */
-        .mx-panel[data-v="3"] .mx-card { background: linear-gradient(180deg, rgba(60,14,26,.55), rgba(10,12,28,.7)); border-color: rgba(255,125,143,.25); font-variant-numeric: tabular-nums; }
-        .mx-panel[data-v="3"] .mx-card::after { content: ""; position: absolute; right: 14px; top: 16px; width: 9px; height: 9px; border-radius: 50%; background: var(--vc); box-shadow: 0 0 0 0 rgba(255,125,143,.6); animation: mx-ping 1.8s infinite; }
-        @keyframes mx-ping { 70% { box-shadow: 0 0 0 9px rgba(255,125,143,0); } 100% { box-shadow: 0 0 0 0 rgba(255,125,143,0); } }
-        .mx-panel[data-v="3"] .mx-card .mt { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 1.4rem; }
-        .mx-panel[data-v="3"] .mx-card .mt::before { content: "▸ "; color: var(--vc); -webkit-text-fill-color: var(--vc); }
-
-        /* 05 · 네트워크 · 카드끼리 선으로 연결 */
-        .mx-panel[data-v="4"] .mx-cards { gap: 28px; }
-        .mx-panel[data-v="4"] .mx-card { text-align: center; align-items: center; border-radius: 18px; }
-        .mx-panel[data-v="4"] .mx-card .row1 { justify-content: center; }
-        .mx-panel[data-v="4"] .mx-card .em { width: 58px; height: 58px; display: grid; place-items: center; font-size: 1.8rem; border-radius: 50%; margin: 4px auto 8px; border: 2px solid var(--vc); box-shadow: 0 0 18px color-mix(in srgb, var(--vc) 45%, transparent); }
-        .mx-panel[data-v="4"] .mx-card:not(:last-child)::after { content: ""; position: absolute; right: -29px; top: 64px; width: 28px; height: 2px; background: repeating-linear-gradient(90deg, var(--vc) 0 6px, transparent 6px 10px); }
-        @media (max-width: 1180px) { .mx-panel[data-v="4"] .mx-card::after { display: none; } }
-
-        /* 06 · 서버 · 숫자 타일 */
-        .mx-panel[data-v="5"] .mx-card { display: grid; grid-template-columns: auto 1fr; grid-template-areas: "r1 r1" "em mt" "b b" "p p" "go go"; column-gap: 12px; align-items: center; background: linear-gradient(135deg, color-mix(in srgb, var(--vc) 10%, transparent), rgba(10,12,28,.6) 60%); }
-        .mx-panel[data-v="5"] .mx-card .row1 { grid-area: r1; } .mx-panel[data-v="5"] .mx-card b { grid-area: b; } .mx-panel[data-v="5"] .mx-card p { grid-area: p; } .mx-panel[data-v="5"] .mx-card .go { grid-area: go; }
-        .mx-panel[data-v="5"] .mx-card .em { grid-area: em; font-size: 2.4rem; margin: 0; }
-        .mx-panel[data-v="5"] .mx-card .mt { grid-area: mt; font-size: 2rem; margin: 0; }
-
-        .mx-item.on { border-color: var(--vc-on, rgba(185,178,222,.7)); }
-        @media (max-width: 700px) { .mx-panel[data-v="0"] .mx-cards { grid-template-columns: 1fr; } .mx-panel[data-v="0"] .mx-card:first-child { grid-row: auto; } .mx-panel[data-v="1"] .mx-card { grid-template-columns: 48px 1fr; grid-template-areas: "em r1" "em b" "em p" "em mt" "em go"; } .mx-panel[data-v="1"] .mx-card .mt { text-align: left; font-size: 1.3rem; } }
+        .mx-panel[data-v] .mx-card:hover { border-color: color-mix(in srgb, var(--vc) 55%, transparent); }
+        .mx-panel[data-v] .mx-card .go { color: color-mix(in srgb, var(--vc) 70%, #fff); }
 
         /* ===================== v6 · 프로젝트 창 카테고리 테마 ===================== */
-        .t-red    { --tc: #ff8a9a; --tg: linear-gradient(90deg,#ff8a9a,#ff6b5b); --tbg: rgba(255,90,110,.16); }
-        .t-teal   { --tc: #4fe0d8; --tg: linear-gradient(90deg,#4fe0d8,#5aa8ff); --tbg: rgba(60,211,204,.14); }
-        .t-violet { --tc: #c49bff; --tg: linear-gradient(90deg,#e09bf0,#9a7cff); --tbg: rgba(170,120,255,.16); }
-        .t-amber  { --tc: #f7c35e; --tg: linear-gradient(90deg,#ffd36b,#f59e5b); --tbg: rgba(242,180,70,.13); }
-        .t-green  { --tc: #8ff0a0; --tg: linear-gradient(90deg,#8ff0a0,#3cd3cc); --tbg: rgba(110,220,140,.12); }
-        .t-blue   { --tc: #8fb2ff; --tg: linear-gradient(90deg,#b08cff,#5aa8ff,#4fe0d8); --tbg: rgba(100,140,255,.16); }
-        .t-pink   { --tc: #f5a3d0; --tg: linear-gradient(90deg,#f5a3d0,#b08cff); --tbg: rgba(240,150,210,.13); }
+        .t-red    { --tc: #d99aac; --tg: linear-gradient(90deg,#e0a6b8,#b49cf0); --tbg: rgba(220,140,170,.07); }
+        .t-teal   { --tc: #6fcfcc; --tg: linear-gradient(90deg,#7fd6d2,#8aa6f0); --tbg: rgba(90,200,200,.07); }
+        .t-violet { --tc: #b9a0f0; --tg: linear-gradient(90deg,#c6aef5,#9a8cf0); --tbg: rgba(170,140,240,.07); }
+        .t-amber  { --tc: #d9bc86; --tg: linear-gradient(90deg,#e0c696,#b9a0f0); --tbg: rgba(220,190,130,.06); }
+        .t-green  { --tc: #86cfb4; --tg: linear-gradient(90deg,#94d8be,#6fcfcc); --tbg: rgba(120,200,170,.06); }
+        .t-blue   { --tc: #9aaef0; --tg: linear-gradient(90deg,#b09cf0,#8aa6f0,#6fcfcc); --tbg: rgba(130,150,240,.07); }
+        .t-pink   { --tc: #d8a6cc; --tg: linear-gradient(90deg,#dcb0d2,#b09cf0); --tbg: rgba(220,160,200,.06); }
         .full-page-overlay[class*=" t-"] .modal-content { background: radial-gradient(ellipse 80% 340px at 50% 0%, var(--tbg), transparent 70%), var(--bg-color, #070914); }
         .full-page-overlay[class*=" t-"] .modal-body h2 { background: var(--tg); -webkit-background-clip: text; background-clip: text; color: transparent; }
         .full-page-overlay[class*=" t-"] .when { background: var(--tg); }
         .full-page-overlay[class*=" t-"] .viz-sec-label, .full-page-overlay[class*=" t-"] .card-mini-title { color: var(--tc); }
         .full-page-overlay[class*=" t-"] .kpi-num { color: var(--tc); }
-        .full-page-overlay[class*=" t-"] .kpi-card { border-top: 3px solid var(--tc); }
-        .full-page-overlay[class*=" t-"] .role-banner { border-left: 4px solid var(--tc); }
-        .full-page-overlay[class*=" t-"] .flow-step { border-top: 3px solid var(--tc); }
+        .full-page-overlay[class*=" t-"] .kpi-card { border-top: 2px solid color-mix(in srgb, var(--tc) 60%, transparent); }
+        .full-page-overlay[class*=" t-"] .role-banner { border-left: 3px solid color-mix(in srgb, var(--tc) 70%, transparent); }
+        .full-page-overlay[class*=" t-"] .flow-step { border-top: 2px solid color-mix(in srgb, var(--tc) 55%, transparent); }
         .full-page-overlay[class*=" t-"] .htl > div::after { border-color: var(--tc); }
         .full-page-overlay[class*=" t-"] .bar .tr i:not(.old):not(.mid), .full-page-overlay[class*=" t-"] .vb i:not(.red):not(.gray) { background: var(--tg); }
         .full-page-overlay[class*=" t-"] .result-badge { border-color: color-mix(in srgb, var(--tc) 50%, transparent); background: color-mix(in srgb, var(--tc) 10%, transparent); }
@@ -1148,7 +1104,7 @@
         .mcat { position: relative; display: flex; align-items: baseline; gap: 10px; margin: 6px 0 10px; padding-bottom: 8px; }
         .mcat .en { font-size: .72rem; font-weight: 800; letter-spacing: .18em; color: var(--tc); }
         .mcat .ko { font-size: .8rem; color: var(--text-sub); }
-        .mcat::after { content: attr(data-mark); position: absolute; right: 0; top: -6px; font-size: 5.5rem; line-height: 1; opacity: .13; pointer-events: none; filter: saturate(1.2); }
+        .mcat::after { content: attr(data-mark); position: absolute; right: 0; top: -6px; font-size: 4.5rem; line-height: 1; opacity: .08; pointer-events: none; filter: saturate(1.2); }
         @media (max-width: 600px) { .mcat::after { font-size: 3.6rem; } }
 
     </style>
@@ -2500,7 +2456,7 @@
         cards.innerHTML = r.c.map(c =>
             `<button class="mx-card" type="button" data-open="${c.m}">
                 <span class="row1"><span class="co">${c.co}</span>${c.d ? `<span class="dt">${c.d}</span>` : ''}${c.tag ? `<span class="pref">${c.tag}</span>` : ''}</span>
-                <span class="em" aria-hidden="true">${c.e || ''}</span><span class="mt">${c.n || ''}</span><b>${c.b}</b><p>${c.p}</p>
+                <span class="em" aria-hidden="true">${c.e || ''}</span><b>${c.b}</b><p>${c.p}</p>
                 <span class="go">프로젝트 보기 →</span>
             </button>`).join('');
         [...cards.children].forEach((el, k) => timers.push(setTimeout(() => el.classList.add('in'), reduce ? 0 : 120 + k * 90)));
