@@ -1051,6 +1051,10 @@
         @media (max-width: 900px) { .np-co { grid-template-columns: 1fr; } }
         .mx-card .dt { font-size: .7rem; font-weight: 700; color: #dff8f6; background: rgba(60,211,204,.12); border: 1px solid rgba(60,211,204,.4); border-radius: 999px; padding: 1px 8px; }
         .np-tag .d { opacity: .8; font-weight: 600; margin-left: 6px; }
+        .branches > div b { font-size: 1.6rem; line-height: 1.2; margin-bottom: 4px; }
+        .branches > div b.sm { font-size: 1.15rem; letter-spacing: -2px; }
+        .branches > div.big b { font-size: 2.4rem; }
+        .branches > div.big { border-color: rgba(185,178,222,.5); }
 
     </style>
 </head>
@@ -1222,7 +1226,7 @@
             <div class="card expandable press np-case" data-target="ldap-modal" tabindex="0" role="button">
                 <span class="np-tag">👥 통합계정(LDAP) 관리<span class="d">2026.10</span></span>
                 <h3>현 근무자 기준으로 정비, 129명 비활성화</h3>
-                <p class="np-flow"><b>정비</b>퇴사자·미사용 129명 <i>+</i> <b>강제</b>초기 비밀번호 변경 <i>+</i> <b>차단</b>관리자 페이지 내부망 전용</p>
+                <p class="np-flow"><b>정비</b>퇴사자·미사용 129명 <i>+</i> <b>필수</b>초기 비밀번호 변경 <i>+</i> <b>차단</b>관리자 페이지 내부망 전용</p>
                 <span class="np-more">과정 보기 →</span>
             </div>
         </div>
@@ -1693,7 +1697,7 @@
         <p class="modal-meta"><span class="when">2026.10</span>다이퀘스트 · 포털·드라이브·VPN·모니터링이 같은 계정을 쓰는 기반</p>
         <div class="kpi-row">
             <div class="kpi-card"><div class="kpi-num count-num" data-suffix="명" data-target="129">0명</div><div class="kpi-label">퇴사자·미사용 계정<br>비활성화 (삭제 없음)</div></div>
-            <div class="kpi-card"><div class="kpi-num">🔑 강제</div><div class="kpi-label">초기 비밀번호<br>첫 접속 시 변경</div></div>
+            <div class="kpi-card"><div class="kpi-num">🔑 필수</div><div class="kpi-label">초기 비밀번호<br>첫 접속 시 변경</div></div>
             <div class="kpi-card"><div class="kpi-num">🏢 내부망</div><div class="kpi-label">관리자 페이지<br>접속 범위</div></div>
         </div>
         <div class="viz-sec-label">정비 순서</div>
@@ -1701,7 +1705,7 @@
             <div class="flow-step"><div class="flow-icon">👻</div><div class="flow-title">문제</div><div class="flow-desc">퇴사자 정리 안 됨, 고객사 계정과 섞임</div></div>
             <div class="flow-step"><div class="flow-icon">🏢</div><div class="flow-title">기준</div><div class="flow-desc">현 근무자·조직도 기준으로 정리</div></div>
             <div class="flow-step"><div class="flow-icon">🚫</div><div class="flow-title">비활성화</div><div class="flow-desc">129명, 기록은 남기고 로그인만 막음</div></div>
-            <div class="flow-step"><div class="flow-icon">🔑</div><div class="flow-title">초기 비밀번호</div><div class="flow-desc">포털 첫 접속 때 강제 변경</div></div>
+            <div class="flow-step"><div class="flow-icon">🔑</div><div class="flow-title">초기 비밀번호</div><div class="flow-desc">포털 첫 접속 때 변경 필수</div></div>
             <div class="flow-step"><div class="flow-icon">🔒</div><div class="flow-title">관리자 보호</div><div class="flow-desc">PHP 취약점 노출 → 내부망 전용</div></div>
         </div>
         <div class="topo">
@@ -1776,8 +1780,8 @@
         <div class="viz-sec-label">산출물 · 본사와 7개 지점 사무실 레이아웃</div>
         <div class="branches">
             <div class="hq">🏢 본사 레이아웃 · 이전·부서 이동 때마다 갱신</div>
-            <div><b>📍</b>서울</div><div><b>📍</b>김포</div><div><b>📍</b>인천</div><div><b>📍</b>군산</div>
-            <div><b>📍</b>청주</div><div><b>📍</b>김해</div><div><b>📍</b>제주</div><div class="air"><b>🛂</b>공항 보안구역</div>
+            <div><b>🏯</b>서울</div><div><b class="sm">⛰️✈️🌊</b>김포</div><div class="big"><b>🛫</b>인천</div><div><b>⚓</b>군산</div>
+            <div><b>🌾</b>청주</div><div><b class="sm">🐦🌊</b>김해</div><div><b>🗿</b>제주</div><div class="air"><b>🛂</b>공항 보안구역</div>
         </div>
         <div class="result-badge"><div class="dot"></div>지방 지점은 직접 가기 어려워, 공사나 장애 때 이 레이아웃을 업체와 같이 보며 위치와 경로를 맞췄습니다. 공항 보안구역 안 사무실도 출입 절차를 거쳐 직접 다녔습니다. 다이퀘스트 포털의 사무실 배치도도 같은 생각에서 만들었습니다.</div>
         <div class="kpi-row" style="margin-top:14px">
@@ -2305,7 +2309,7 @@
             { co: G, e: '💸', b: '상장 의료기업 IT 운영 체계화', p: '협업툴·원격툴 해지와 그룹웨어 통합, 백업 비용 1/3, AI 라이선스 30%↓', m: 'cost-modal' },
             { co: S, d: '상시', e: '👷', b: '공사 현장 입회 · 7개 지점 레이아웃', p: '포설 경로·공항 전용망 확인, 방치 공유기 점검, 공항 보안구역까지 현장 지원', m: 'site-modal' } ] },
         { t: '계정·권한·백업, SSO/MFA 등 시스템 접근 통제 운영', c: [
-            { co: D, d: '2026.10', e: '👥', b: '통합계정(LDAP) 관리', p: '퇴사자·미사용 129명 비활성화, 초기 비밀번호 강제 변경, 관리자 페이지 내부망 전용', m: 'ldap-modal' },
+            { co: D, d: '2026.10', e: '👥', b: '통합계정(LDAP) 관리', p: '퇴사자·미사용 129명 비활성화, 초기 비밀번호 변경 필수, 관리자 페이지 내부망 전용', m: 'ldap-modal' },
             { co: G, d: '상시', e: '🛂', b: 'NAC · DLP · DRM 운영과 계정 재편', p: '지니언스·에스원·DocuONE, 퇴사자·휴직자 정리, NAC 전 직원 재설정, NetBackup', m: 'sol-modal', tag: '우대 · 보안 솔루션 운영' },
             { co: U, e: '🛡️', b: '(가)급 폐쇄망 DML 마스터 관리자', p: '메일 전송 승인, 공문 관리, 방문 신청까지 승인 체계 운영', m: 'audit-modal' } ] },
         { t: '보안 패치, 취약점 점검 및 개선 활동', c: [
