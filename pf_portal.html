@@ -1157,6 +1157,17 @@
         .tl-hero-a .tl-txt { grid-area: txt; }
         .tl-hero-a .tl-txt b.big { display: block; font-size: 1.35rem; font-weight: 800; color: #fff; margin-bottom: 6px; }
         @media (max-width: 1000px) { .tl-issues { grid-template-columns: repeat(2, 1fr); } .tl-hero-a { grid-template-columns: 1fr; grid-template-areas: "k" "shot" "txt"; } .tl-hero-a .np-shot { margin-bottom: 14px; } .tl-hero-q h3 { font-size: 1.45rem; } }
+        /* v11 · 인재상 라벨 크게, 이슈·설명 글씨 작게, 포털 화면 크게 */
+        .tl-hero-q > .tl-hero-k { font-size: 1.12rem; padding: 8px 18px; margin-bottom: 16px; }
+        .tl-issues li { font-size: .8rem; padding: 10px 11px; gap: 4px; line-height: 1.45; }
+        .tl-issues li span { font-size: 1.25rem; }
+        .tl-hero-a { grid-template-columns: 1.6fr 1fr; column-gap: 24px; }
+        .tl-hero-a .tl-txt b.big { font-size: 1.05rem; }
+        .tl-hero-a .np-lead2 { font-size: .84rem; line-height: 1.65; }
+        .tl-hero-a .proof span { font-size: .72rem; padding: 3px 9px; }
+        .tl-hero-a .np-actions .np-btn { font-size: .84rem; padding: 8px 14px; }
+        @media (max-width: 1000px) { .tl-hero-a { grid-template-columns: 1fr; } }
+        .tl-hero-a .np-shot img { max-height: 520px; object-fit: cover; object-position: top center; }
 
 
         /* ===================== portal page ===================== */
