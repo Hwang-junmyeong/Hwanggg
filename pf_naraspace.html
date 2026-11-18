@@ -1107,6 +1107,23 @@
         .mcat::after { content: attr(data-mark); position: absolute; right: 0; top: -6px; font-size: 4.5rem; line-height: 1; opacity: .08; pointer-events: none; filter: saturate(1.2); }
         @media (max-width: 600px) { .mcat::after { font-size: 3.6rem; } }
 
+        /* ===================== v8 · 카드도 프로젝트 창과 같은 분야 색 ===================== */
+        .mx-card[class*="t-"], .np-sec .card[class*=" t-"] {
+            background: linear-gradient(160deg, color-mix(in srgb, var(--tc) 13%, transparent), transparent 62%), rgba(10,12,28,.62);
+            border-color: color-mix(in srgb, var(--tc) 32%, transparent);
+            border-top: 2px solid color-mix(in srgb, var(--tc) 75%, transparent);
+        }
+        .mx-card[class*="t-"]:hover, .np-sec .card[class*=" t-"]:hover { border-color: color-mix(in srgb, var(--tc) 70%, transparent); }
+        .mx-card[class*="t-"] .co { color: var(--tc); background: color-mix(in srgb, var(--tc) 12%, transparent); border-color: color-mix(in srgb, var(--tc) 40%, transparent); }
+        .mx-card[class*="t-"] .go, .np-sec .card[class*=" t-"] .np-more { color: color-mix(in srgb, var(--tc) 80%, #fff); }
+        .np-sec .card[class*=" t-"] .np-tag:not(.red) { color: color-mix(in srgb, var(--tc) 85%, #fff); background: color-mix(in srgb, var(--tc) 12%, transparent); border-color: color-mix(in srgb, var(--tc) 40%, transparent); }
+        .np-sec .card[class*=" t-"] .np-flow b { color: color-mix(in srgb, var(--tc) 85%, #fff); }
+
+        /* 글씨 밝고 크게 */
+        .np-sh p { color: #ece7ff; font-size: 1rem; }
+        .emo.lg b { color: #fff; }
+        .emo.lg p { color: #f1edff; font-size: 1.02rem; }
+
     </style>
 </head>
 <body>
@@ -1228,26 +1245,26 @@
 
         <div class="np-sub">침해 대응 · 로그 모니터링</div>
         <div class="np-grid g2">
-            <div class="card expandable press np-case" data-target="ransom-modal" tabindex="0" role="button">
-                <span class="np-tag red">🧹 스스로 기획 · 랜섬웨어 2건<span class="d">2026.11 ~ 12</span></span>
+            <div class="card expandable press np-case t-red" data-target="ransom-modal" tabindex="0" role="button">
+                <span class="np-tag red">🧹 스스로 기획 · 랜섬웨어 2건</span>
                 <h3>아무도 시키지 않은 연말 서버 점검에서 찾은 랜섬웨어</h3>
                 <p class="np-flow"><b>기획</b>105대 점검 페이지 직접 구현 <i>→</i> <b>발견</b>랜섬웨어 2건 <i>→</i> <b>조치</b>포트 차단, 계정 변경, 경영진 보고</p>
                 <span class="np-more">과정 보기 →</span>
             </div>
-            <div class="card expandable press np-case" data-target="intrusion-modal" tabindex="0" role="button">
-                <span class="np-tag red">🚨 침해사고 2건<span class="d">2026 하반기</span></span>
-                <h3>악성봇 채굴 서버 · 포트 수천 개 점유 서버</h3>
+            <div class="card expandable press np-case t-red" data-target="intrusion-modal" tabindex="0" role="button">
+                <span class="np-tag red">🚨 침해 흔적 대응</span>
+                <h3>서버 점검 중 침해 흔적 발견 및 대응</h3>
                 <p class="np-flow"><b>악성봇</b>채굴 코드·암호화 DB 제거 <i>/</i> <b>포트 점유</b>외부 경로 차단, 지속 모니터링</p>
                 <span class="np-more">과정 보기 →</span>
             </div>
-            <div class="card expandable press np-case" data-target="mon-modal" tabindex="0" role="button">
+            <div class="card expandable press np-case t-green" data-target="mon-modal" tabindex="0" role="button">
                 <span class="np-tag">📈 실시간 모니터링<span class="d">2026.10.12 ~ 10.28</span></span>
                 <h3>Grafana 직접 구축 · Zabbix 개선</h3>
                 <p class="np-flow"><b>구축</b>Grafana 대시보드 <i>+</i> <b>개선</b>기존 Zabbix <i>→</i> <b>연동</b>포털 IDC 맵 상태 표시</p>
                 <span class="np-more">과정 보기 →</span>
             </div>
-            <div class="card expandable press np-case" data-target="fw-modal" tabindex="0" role="button">
-                <span class="np-tag">🧾 상장 의료기업<span class="d">2026</span></span>
+            <div class="card expandable press np-case t-red" data-target="fw-modal" tabindex="0" role="button">
+                <span class="np-tag">🧾 상장 의료기업<span class="d">2026.04 ~ 08</span></span>
                 <h3>방화벽 관리자 계정 무단 접속을 로그로 찾아 차단</h3>
                 <p class="np-flow"><b>질문</b>왜 수정 날짜가 바뀌지? <i>→</i> <b>해답</b>유휴 PC로 로그 수집 서버 구축, 외부 IP 차단</p>
                 <span class="np-more">과정 보기 →</span>
@@ -1256,25 +1273,25 @@
 
         <div class="np-sub">네트워크 보안 장비 · 접근 통제</div>
         <div class="np-grid g2">
-            <div class="card expandable press np-case" data-target="sophos-modal" tabindex="0" role="button">
+            <div class="card expandable press np-case t-teal" data-target="sophos-modal" tabindex="0" role="button">
                 <span class="np-tag">🛡️ Sophos · 1인 전담<span class="d">2026.08 ~ 상시</span></span>
                 <h3>펌웨어·정책·외부 통신을 혼자 통제하는 방화벽 운영</h3>
                 <p class="np-flow"><b>펌웨어</b>정기 2회 + 긴급 1회 <i>/</i> <b>정책</b>NAT 순서 장애 해결 <i>/</i> <b>통신</b>구로 ↔ IDC IPsec</p>
                 <span class="np-more">과정 보기 →</span>
             </div>
-            <div class="card expandable press np-case" data-target="zyxel-modal" tabindex="0" role="button">
+            <div class="card expandable press np-case t-teal" data-target="zyxel-modal" tabindex="0" role="button">
                 <span class="np-tag">🧰 Zyxel · 업체 없이 1인<span class="d">2026.04 ~ 08 · 상시</span></span>
                 <h3>밀려 있던 방화벽 펌웨어를 몇 주에 걸쳐 올림</h3>
                 <p class="np-flow"><b>본사 ↔ 지사</b>IPsec <i>→</i> <b>단계적</b>버전 업 <i>→</i> <b>정전·주말</b>직접 대응</p>
                 <span class="np-more">과정 보기 →</span>
             </div>
-            <div class="card expandable press np-case" data-target="vpn-modal" tabindex="0" role="button">
+            <div class="card expandable press np-case t-teal" data-target="vpn-modal" tabindex="0" role="button">
                 <span class="np-tag">🔐 SSL VPN<span class="d">2026.10.19 ~ 11.11</span></span>
                 <h3>모두가 돌려 쓰던 VPN 계정을 승인제 개인 계정으로</h3>
                 <p class="np-flow"><b>이전</b>공용 계정, 추적 불가 <i>→</i> <b>이후</b>신청서 → 로그 → 승인 → LDAP 권한</p>
                 <span class="np-more">과정 보기 →</span>
             </div>
-            <div class="card expandable press np-case" data-target="ldap-modal" tabindex="0" role="button">
+            <div class="card expandable press np-case t-violet" data-target="ldap-modal" tabindex="0" role="button">
                 <span class="np-tag">👥 통합계정(LDAP) 관리<span class="d">2026.10</span></span>
                 <h3>현 근무자 기준으로 정비, 129명 비활성화</h3>
                 <p class="np-flow"><b>정비</b>퇴사자·미사용 129명 <i>+</i> <b>필수</b>초기 비밀번호 변경 <i>+</i> <b>차단</b>관리자 페이지 내부망 전용</p>
@@ -1284,25 +1301,25 @@
 
         <div class="np-sub">운영 체계 · 현장</div>
         <div class="np-grid g2">
-            <div class="card expandable press np-case" data-target="cost-modal" tabindex="0" role="button">
+            <div class="card expandable press np-case t-amber" data-target="cost-modal" tabindex="0" role="button">
                 <span class="np-tag">💸 상장 의료기업 · 1인 총괄<span class="d">2026.04 ~ 08</span></span>
                 <h3>안 쓰는 툴을 걷어내고 그룹웨어로 통합</h3>
                 <p class="np-flow"><b>해지</b>협업툴·원격툴·미사용 AI <i>/</i> <b>절감</b>백업 1/3, AI 라이선스 30%↓</p>
                 <span class="np-more">과정 보기 →</span>
             </div>
-            <div class="card expandable press np-case" data-target="sol-modal" tabindex="0" role="button">
+            <div class="card expandable press np-case t-violet" data-target="sol-modal" tabindex="0" role="button">
                 <span class="np-tag">🛂 NAC · DLP · DRM<span class="d">2026.04 ~ 08 · 상시</span></span>
                 <h3>세 보안 솔루션의 계정을 조직도 기준으로 다시 맞춤</h3>
                 <p class="np-flow"><b>발견</b>퇴사자·휴직자 미정리, NAC 설정 누락 <i>→</i> <b>조치</b>재편, 전 직원 재설정</p>
                 <span class="np-more">과정 보기 →</span>
             </div>
-            <div class="card expandable press np-case" data-target="site-modal" tabindex="0" role="button">
+            <div class="card expandable press np-case t-amber" data-target="site-modal" tabindex="0" role="button">
                 <span class="np-tag">👷 항공 조업 · 정비<span class="d">2022.04 ~ 2026.04 · 상시</span></span>
                 <h3>공사 현장 입회와 7개 지점 사무실 레이아웃</h3>
                 <p class="np-flow"><b>현장</b>포설 경로·공항 전용망 확인 <i>→</i> <b>산출물</b>본사·지점 레이아웃 주기 갱신</p>
                 <span class="np-more">과정 보기 →</span>
             </div>
-            <div class="card expandable press np-case" data-target="eml-modal" tabindex="0" role="button">
+            <div class="card expandable press np-case t-amber" data-target="eml-modal" tabindex="0" role="button">
                 <span class="np-tag">🎣 피싱 대응 · 자체 도구<span class="d">2026.04 ~ 08</span></span>
                 <h3>탈취 사례 공지, 라이선스 문제 없는 사내 EML 뷰어 배포</h3>
                 <p class="np-flow"><b>문제</b>Outlook 차단, 라이선스 이슈 뷰어 <i>→</i> <b>해결</b>바이브 코딩으로 전용 뷰어 빌드</p>
@@ -1312,33 +1329,33 @@
 
         <div class="np-sub">서버 · 인프라 · 네트워크 운영</div>
         <div class="np-grid g3">
-            <div class="card expandable press np-proj" data-target="linux-modal" tabindex="0" role="button">
+            <div class="card expandable press np-proj t-green" data-target="linux-modal" tabindex="0" role="button">
                 <div class="np-thumb ico">🐧</div>
                 <div class="np-pb"><h4>서버·가상화 운영 체계화 <span class="when sm">2026.08 ~ 상시</span></h4><p class="hi">OS 표준화 · 자원 제한 · ISMS 기준 반출 절차</p><p>Linux 약 100대, 서버 2대 신규, VM 8대 신규·약 20대 정리</p></div>
             </div>
-            <div class="card expandable press np-proj" data-target="drive-modal" tabindex="0" role="button">
+            <div class="card expandable press np-proj t-green" data-target="drive-modal" tabindex="0" role="button">
                 <div class="np-thumb"><img src="img/drive.webp" alt="" loading="lazy"></div>
                 <div class="np-pb"><h4>Nextcloud 사내 드라이브 <span class="when sm">2026.09.04 ~ 09.28</span></h4><p class="hi">연 약 1,000만 원 클라우드 추가 결제 취소</p><p>유휴 PC로 구축, Teams 이관, 1인 운영</p></div>
             </div>
-            <div class="card expandable press np-proj" data-target="nexus-modal" tabindex="0" role="button">
+            <div class="card expandable press np-proj t-green" data-target="nexus-modal" tabindex="0" role="button">
                 <div class="np-thumb"><img src="img/nexus.webp" alt="" loading="lazy"></div>
                 <div class="np-pb"><h4>Nexus Docker·Maven <span class="when sm">2026.09.30 ~ 10.19</span></h4><p class="hi">무거운 구버전 → 유휴 PC 신규 서버</p><p>데이터 정리·이전, Docker 저장소 추가, 1인 운영</p></div>
             </div>
         </div>
         <div class="np-grid g3" style="margin-top:14px">
-            <div class="card expandable press np-case" data-target="net-modal" tabindex="0" role="button">
+            <div class="card expandable press np-case t-teal" data-target="net-modal" tabindex="0" role="button">
                 <span class="np-tag">🌐 3개 회사 현장<span class="d">상시</span></span>
                 <h3>랜선 제작부터 장비 설정까지, 네트워크 관리</h3>
                 <p class="np-flow"><b>원인</b>노후 배선·루프·커플러 <i>→</i> <b>해결</b>직접 포설·장비 정리</p>
                 <span class="np-more">과정 보기 →</span>
             </div>
-            <div class="card expandable press np-case" data-target="edr-modal" tabindex="0" role="button">
+            <div class="card expandable press np-case t-amber" data-target="edr-modal" tabindex="0" role="button">
                 <span class="np-tag">🧷 EDR(알약)<span class="d">2022.04 ~ 2026.04 · 상시</span></span>
                 <h3>약 200명 PC 식별 정비와 패치 관리</h3>
                 <p class="np-flow"><b>식별</b>자산번호·실사용자 <i>→</i> <b>패치</b>원격 최신화, 공항 보안망 수동 패치</p>
                 <span class="np-more">과정 보기 →</span>
             </div>
-            <div class="card expandable press np-case" data-target="ucs-modal" tabindex="0" role="button">
+            <div class="card expandable press np-case t-green" data-target="ucs-modal" tabindex="0" role="button">
                 <span class="np-tag">🛫 국가 중요시설<span class="d">2021.03 ~ 2022.04</span></span>
                 <h3>폐쇄망 서버 27대 운영, 첫 인프라 경력</h3>
                 <p class="np-flow"><b>주기</b>하루 3회 트래픽, 월간 보고서 <i>+</i> <b>소통</b>월 1회 담당자 점검</p>
@@ -1376,7 +1393,7 @@
     <div class="modal-content"><div class="modal-body">
         <div class="mcat" data-mark="🚨"><span class="en">INCIDENT RESPONSE</span><span class="ko">침해 대응 · 로그 모니터링</span></div>
         <h2>방화벽 관리자 계정 무단 접속 대응</h2>
-        <p class="modal-meta"><span class="when">2026</span>이전 직장 · 코스닥 상장 의료기업 · 인재상 “새로운 질문을 던지고 스스로 해답을 만들어갈 동료”</p>
+        <p class="modal-meta"><span class="when">2026.04 ~ 08</span>젠큐릭스 · 코스닥 상장 의료기업 · 인재상 “새로운 질문을 던지고 스스로 해답을 만들어갈 동료”</p>
         <div class="role-banner"><div class="role-icon">❓</div><div><div class="role-title">질문</div><div class="role-desc">방화벽 점검 중, <strong>아무도 설정을 바꾸지 않았는데 수정 날짜가 갱신</strong>되는 것을 발견했습니다. 유지보수 업체도 없었고 정책 변경도 없었습니다. 방화벽 내부 로그는 <strong>2시간만 저장</strong>돼 원인을 확인할 수 없었습니다.</div></div></div>
         <div class="viz-sec-label">스스로 만든 해답</div>
         <div class="flow-row">
@@ -1525,7 +1542,7 @@
     <div class="modal-content"><div class="modal-body">
         <div class="mcat" data-mark="🚨"><span class="en">INCIDENT RESPONSE</span><span class="ko">침해 대응 · 로그 모니터링</span></div>
         <h2>🧹 연말 서버 점검 · 그 안에서 찾은 랜섬웨어 2건</h2>
-        <p class="modal-meta"><span class="when">2026.11 ~ 12</span>현 직장 · 누가 시킨 일이 아니라 필요하다고 판단해 직접 기획한 점검</p>
+        <p class="modal-meta">누가 시킨 일이 아니라 필요하다고 판단해 직접 기획한 점검</p>
         <p class="anon-note">대외비 사안이라 서버명, IP, 계정, 침입 경위는 빼고 진행 방식만 정리했습니다.</p>
         <div class="role-banner"><div class="role-icon">❓</div><div><div class="role-title">스스로 던진 질문</div><div class="role-desc">서버는 계속 늘어나는데 <strong>누가 쓰는지, 아직 필요한지, 안전한지</strong> 아무도 몰랐습니다. 접속 기록이 3년 넘게 없는 서버도 있었습니다. 연말을 기준으로 모든 서버를 한 번씩 확인하는 점검을 직접 만들었습니다.</div></div></div>
         <div class="viz-sec-label">진행 순서</div>
@@ -1567,8 +1584,8 @@
 <div class="full-page-overlay t-red" id="intrusion-modal" role="dialog" aria-modal="true" aria-label="침해사고 대응">
     <div class="modal-content"><div class="modal-body">
         <div class="mcat" data-mark="🚨"><span class="en">INCIDENT RESPONSE</span><span class="ko">침해 대응 · 로그 모니터링</span></div>
-        <h2>🚨 침해사고 2건 · 악성봇과 포트 점유</h2>
-        <p class="modal-meta"><span class="when">2026 하반기</span>현 직장 · 침해 이력 4건 중 랜섬웨어를 뺀 2건</p>
+        <h2>🚨 서버 점검 중 침해 흔적 발견 및 대응</h2>
+        <p class="modal-meta">점검에서 찾은 침해 이력 4건 중 랜섬웨어를 뺀 2건 · 악성봇과 포트 점유</p>
         <p class="anon-note">대외비 사안이라 서버명, IP, 계정, 공격 경로는 적지 않았습니다.</p>
         <div class="viz-two-col">
             <div class="viz-section-card"><div class="card-mini-title">🕳️ ① 포트 수천 개를 잡고 있던 서버 </div><div class="viz-checklist">
@@ -2389,6 +2406,7 @@
    ========================================================= */
 (function () {
     const D = '다이퀘스트', G = '젠큐릭스 · 코스닥 의료기업', S = '샤프에비에이션케이', U = '유씨에스시스템 · 국가 중요시설';
+    const TH = {"ransom-modal": "t-red", "intrusion-modal": "t-red", "fw-modal": "t-red", "sophos-modal": "t-teal", "zyxel-modal": "t-teal", "net-modal": "t-teal", "vpn-modal": "t-teal", "ldap-modal": "t-violet", "sol-modal": "t-violet", "audit-modal": "t-violet", "cost-modal": "t-amber", "site-modal": "t-amber", "edr-modal": "t-amber", "eml-modal": "t-amber", "linux-modal": "t-green", "drive-modal": "t-green", "nexus-modal": "t-green", "ucs-modal": "t-green", "mon-modal": "t-green", "portal-modal": "t-blue"};
     const REQ = [
         { t: '회사의 인프라 보안 체계 구축 및 개선', c: [
             { co: D, d: '2026.10.14 ~ 진행 중', e: '🧭', b: 'IT 인프라 포털 증적 체계', p: '로그인한 계정으로 신청·승인·IP 배정·반출입이 자동 기록되는 하나의 창구', n: '5종 신청서', m: 'portal-modal' },
@@ -2403,10 +2421,10 @@
             { co: G, d: '2026.04 ~ 08', e: '🎣', b: '피싱 공지 · 사내 EML 뷰어', p: '탈취 사례 전사 공지, 라이선스 문제 뷰어를 직접 만든 뷰어로 교체', n: '자체 뷰어', m: 'eml-modal' },
             { co: S, d: '2022.04 ~ 2026.04 · 상시', e: '🧷', b: 'EDR(알약) 운영 · 패치 관리', p: '약 200명 PC 식별 정비, 지점 원격 최신화, 공항 보안망 V3 수동 패치', n: '약 200명', m: 'edr-modal' } ] },
         { t: '시스템 및 보안 로그 모니터링, 이상 징후 대응', c: [
-            { co: '현 직장', d: '2026.11 ~ 12', e: '🧹', b: '연말 서버 점검 직접 기획 · 랜섬웨어 2건', p: '105대 점검 페이지를 직접 만들어 진행, 그 안에서 랜섬웨어 발견·보고·차단', n: '105대', m: 'ransom-modal' },
-            { co: '현 직장', d: '2026 하반기', e: '🚨', b: '침해사고 2건 · 지속 모니터링', p: '포트 수천 개 점유 서버 경로 차단, 악성봇 채굴 코드 제거', n: '2건', m: 'intrusion-modal' },
+            { co: '', d: '', e: '🧹', b: '연말 서버 점검 직접 기획 · 랜섬웨어 2건', p: '105대 점검 페이지를 직접 만들어 진행, 그 안에서 랜섬웨어 발견·보고·차단', n: '105대', m: 'ransom-modal' },
+            { co: '', d: '', e: '🚨', b: '서버 점검 중 침해 흔적 발견 및 대응', p: '포트 수천 개 점유 서버 경로 차단, 악성봇 채굴 코드 제거, 지속 모니터링', n: '2건', m: 'intrusion-modal' },
             { co: D, d: '2026.10.12 ~ 10.28', e: '📈', b: 'Grafana 구축 · Zabbix 개선', p: '실시간 대시보드, 데모 솔루션 8종 감시, 장애 메일 알림', n: '8종 감시', m: 'mon-modal' },
-            { co: '이전 직장 · 의료기업', d: '2026', e: '🧾', b: '방화벽 관리자 무단 접속 로그 대응', p: '유휴 PC로 로그 수집 서버 구축, 주기적 접속 확인·차단', n: '로그 서버', m: 'fw-modal', tag: '우대 · 로그 모니터링' } ] },
+            { co: G, d: '2026.04 ~ 08', e: '🧾', b: '방화벽 관리자 무단 접속 로그 대응', p: '유휴 PC로 로그 수집 서버 구축, 주기적 접속 확인·차단', n: '로그 서버', m: 'fw-modal', tag: '우대 · 로그 모니터링' } ] },
         { t: '방화벽·UTM·VPN 등 네트워크 보안 장비 운영', c: [
             { co: D, d: '2026.08 ~ 상시', e: '🛡️', b: 'Sophos 방화벽 · 1인 전담', p: '펌웨어 3회 패치, 방화벽·NAT 정책, 외부 통신 통제, 구로 ↔ IDC IPsec', n: '패치 3회', m: 'sophos-modal' },
             { co: G, d: '2026.04 ~ 08 · 상시', e: '🧰', b: 'Zyxel 방화벽 · 업체 없이 1인', p: '밀린 펌웨어 단계적 버전 업, 본사 ↔ 지사 IPsec, 정전·주말 대응', n: '본사↔지사', m: 'zyxel-modal' },
@@ -2454,18 +2472,18 @@
         cards.classList.toggle('n4', r.c.length === 4);
         panel.dataset.v = i;
         cards.innerHTML = r.c.map(c =>
-            `<button class="mx-card" type="button" data-open="${c.m}">
-                <span class="row1"><span class="co">${c.co}</span>${c.d ? `<span class="dt">${c.d}</span>` : ''}${c.tag ? `<span class="pref">${c.tag}</span>` : ''}</span>
+            `<button class="mx-card ${TH[c.m] || ''}" type="button" data-open="${c.m}">
+                <span class="row1">${c.co ? `<span class="co">${c.co}</span>` : ''}${c.d ? `<span class="dt">${c.d}</span>` : ''}${c.tag ? `<span class="pref">${c.tag}</span>` : ''}</span>
                 <span class="em" aria-hidden="true">${c.e || ''}</span><b>${c.b}</b><p>${c.p}</p>
                 <span class="go">프로젝트 보기 →</span>
             </button>`).join('');
         [...cards.children].forEach((el, k) => timers.push(setTimeout(() => el.classList.add('in'), reduce ? 0 : 120 + k * 90)));
     }
 
-    list.addEventListener('click', e => { const b = e.target.closest('.mx-item'); if (b) { show(+b.dataset.i); auto = false; } });
+    list.addEventListener('click', e => { const b = e.target.closest('.mx-item'); if (b) { show(+b.dataset.i); } });
     list.addEventListener('keydown', e => {
-        if (e.key === 'ArrowDown' || e.key === 'ArrowRight') { e.preventDefault(); const n = (cur + 1) % REQ.length; show(n); list.children[n].focus(); auto = false; }
-        if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') { e.preventDefault(); const n = (cur - 1 + REQ.length) % REQ.length; show(n); list.children[n].focus(); auto = false; }
+        if (e.key === 'ArrowDown' || e.key === 'ArrowRight') { e.preventDefault(); const n = (cur + 1) % REQ.length; show(n); list.children[n].focus(); }
+        if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') { e.preventDefault(); const n = (cur - 1 + REQ.length) % REQ.length; show(n); list.children[n].focus(); }
     });
     cards.addEventListener('click', e => {
         const b = e.target.closest('[data-open]'); if (!b) return;
@@ -2474,17 +2492,6 @@
     });
 
     show(0);
-    /* 사용자가 누르기 전까지는 천천히 자동으로 넘김 */
-    let auto = !reduce;
-    let hover = false;
-    panel.addEventListener('mouseenter', () => hover = true);
-    panel.addEventListener('mouseleave', () => hover = false);
-    setInterval(() => {
-        if (!auto || hover || document.hidden || document.body.classList.contains('modal-open')) return;
-        const rect = panel.getBoundingClientRect();
-        if (rect.bottom < 0 || rect.top > innerHeight) return;
-        show((cur + 1) % REQ.length);
-    }, 4200);
 
     /* 섹션 등장 애니메이션 */
     const secs = document.querySelectorAll('.np-sec');
