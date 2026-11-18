@@ -1055,6 +1055,13 @@
         .branches > div b.sm { font-size: 1.15rem; letter-spacing: -2px; }
         .branches > div.big b { font-size: 2.4rem; }
         .branches > div.big { border-color: rgba(185,178,222,.5); }
+        .branches > div { display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 6px; padding: 12px 8px 10px; }
+        .branches > div.hq { display: block; }
+        .branches .bi { width: 52px; height: 52px; display: block; filter: drop-shadow(0 4px 10px rgba(138,91,214,.35)); transition: transform .3s var(--ease); }
+        .branches > div.big .bi { width: 74px; height: 74px; }
+        .branches > div.small .bi { width: 42px; height: 42px; }
+        .branches > div:hover .bi { transform: translateY(-3px) scale(1.06); }
+        .branches > div span { font-size: .9rem; font-weight: 700; color: #fff; }
 
 
         /* ===================== portal page ===================== */
