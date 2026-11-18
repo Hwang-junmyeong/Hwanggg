@@ -1124,6 +1124,25 @@
         .emo.lg b { color: #fff; }
         .emo.lg p { color: #f1edff; font-size: 1.02rem; }
 
+        /* ===================== v9 · 인재상 대표 사례 (질문 → 해답) ===================== */
+        .tl-hero { display: grid; grid-template-columns: 1fr 1.15fr; gap: 0; margin-bottom: 18px; border: 1px solid rgba(185,178,222,.45); border-radius: 20px; overflow: hidden;
+            background: linear-gradient(120deg, rgba(138,91,214,.22), rgba(44,195,189,.08) 70%), var(--card-glass); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+        .tl-hero-q { padding: 28px 26px; border-right: 1px dashed rgba(185,178,222,.35); }
+        .tl-hero-a { padding: 28px 26px; background: rgba(8,10,24,.35); }
+        .tl-hero-k { display: inline-block; font-size: .78rem; font-weight: 800; letter-spacing: .02em; color: #fff; background: var(--np-grad); border-radius: 999px; padding: 4px 12px; margin-bottom: 14px; }
+        .tl-hero-q h3 { font-size: 1.55rem; font-weight: 800; line-height: 1.4; margin-bottom: 18px; }
+        .tl-hero-q h3 em { font-style: normal; background: var(--np-grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .tl-issues { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+        .tl-issues li { display: flex; gap: 10px; align-items: flex-start; font-size: .95rem; color: #ece7ff; line-height: 1.55; background: rgba(10,12,28,.45); border: 1px solid var(--line-soft); border-radius: 10px; padding: 9px 12px; }
+        .tl-issues li span { font-size: 1.1rem; line-height: 1.3; }
+        .tl-hero-a .np-shot { display: block; margin-bottom: 14px; }
+        .tl-hero-a .np-lead2 { font-size: .94rem; color: #ece7ff; line-height: 1.7; margin-bottom: 12px; }
+        .tl-hero-a .np-lead2 b { color: #fff; }
+        @media (max-width: 900px) { .tl-hero { grid-template-columns: 1fr; } .tl-hero-q { border-right: 0; border-bottom: 1px dashed rgba(185,178,222,.35); } .tl-hero-q h3 { font-size: 1.3rem; } }
+        .tl-card .tl-case { font-size: .92rem; color: #ece7ff; }
+        .tl-card .kw { color: #d8ceff; }
+        .tl-hero-q { display: flex; flex-direction: column; justify-content: center; }
+
     </style>
 </head>
 <body>
@@ -1148,7 +1167,6 @@
             <a href="#s0">01 경력 여정</a>
             <a href="#s1">02 모집공고 기반 직무 수행 역량</a>
             <a href="#s2">03 인재상과 사례</a>
-            <a href="#s3">04 주요 프로젝트</a>
         </nav>
     </header>
 
@@ -1190,184 +1208,52 @@
     <section class="np-sec" id="s2">
         <div class="np-sh"><span class="no">03</span><div><h2>인재상과 사례</h2><p>나라스페이스의 인재상마다 실제로 겪은 사례를 하나씩 연결했습니다.</p></div></div>
 
-        <div class="card expandable press tl-slogan" data-target="fw-modal" tabindex="0" role="button">
-            <div class="q">“새로운 질문을 던지고 스스로 해답을 만들어갈 동료”</div>
-            <div class="tl-ex">
-                <div><span class="lbl">질문</span>아무도 설정을 바꾸지 않았는데, 방화벽 수정 날짜가 왜 갱신되지?</div>
-                <div><span class="lbl">해답</span>업체 재계약이 보류되자 유휴 PC로 로그 수집 서버를 직접 구축 → 관리자 계정의 주기적 무단 접속 확인 → 차단과 증적 관리 프로세스 수립</div>
+        <div class="tl-hero">
+            <div class="tl-hero-q">
+                <span class="tl-hero-k">✨ 새로운 질문을 던지고 스스로 해답을 만들어갈 동료</span>
+                <h3>“매년 반복되는 인프라 이슈들,<br><em>하나로 통일할 순 없을까?</em>”</h3>
+                <ul class="tl-issues">
+                    <li><span>🧱</span>VM에 구버전 OS가 깔려 생기는 호환성 이슈</li>
+                    <li><span>🔐</span>몇 년째 같은 SSL VPN 단일 계정·비밀번호, 잦은 무인가 내부 접속</li>
+                    <li><span>🌐</span>아무도 관리하지 않는 사설 IP 대역</li>
+                    <li><span>💤</span>담당자 없이 방치된 서버</li>
+                    <li><span>📑</span>최신화되지 않은 채 흩어진 인프라 엑셀 문서들</li>
+                </ul>
             </div>
-            <span class="np-more">사례 보기 →</span>
-        </div>
-
-        <div class="np-grid g3">
-            <div class="card expandable press tl-card" data-target="monitor-modal" tabindex="0" role="button">
-                <span class="tl-no">01</span>
-                <h3>조직과 함께 성장하는 사람</h3>
-                <p class="kw">문제를 스스로 정의하고 해결책을 제시합니다</p>
-                <div class="tl-case"><span>사례</span>노후 모니터 문제를 자산조사 데이터로 증명해 구매 계획을 PC 50대에서 <b>PC 45대 + 모니터 30대</b>로 바꿈</div>
-                <span class="np-more">사례 보기 →</span>
-            </div>
-            <div class="card expandable press tl-card" data-target="army-modal" tabindex="0" role="button">
-                <span class="tl-no">02</span>
-                <h3>성숙하고 긍정적인 태도를 가진 사람</h3>
-                <p class="kw">감정을 다스리고, 상호 존중으로 신뢰를 쌓습니다</p>
-                <div class="tl-case"><span>사례</span>군 관심병사 캠프에서 약 2년간 <b>위기 병사 약 300명</b>을 24시간 곁에서 관리</div>
-                <span class="np-more">사례 보기 →</span>
-            </div>
-            <div class="card expandable press tl-card" data-target="collab-modal" tabindex="0" role="button">
-                <span class="tl-no">03</span>
-                <h3>건강한 소통과 협업을 중시하는 사람</h3>
-                <p class="kw">정보를 공유해 동료의 실행을 돕고, 논리로 설득합니다</p>
-                <div class="tl-case"><span>사례</span>흩어진 IT 요청을 <b>인프라 포털 하나로 모으고</b> 처리 상태와 가이드를 모두에게 공개</div>
-                <span class="np-more">사례 보기 →</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== 04 주요 프로젝트 ===== -->
-    <section class="np-sec" id="s3">
-        <div class="np-sh"><span class="no">04</span><div><h2>주요 프로젝트</h2><p>문제를 어떻게 찾고 해결했는지, 직접 만든 산출물과 함께 정리했습니다. 카드를 누르면 과정이 열립니다.</p></div></div>
-
-        <div class="np-sub">대표 프로젝트</div>
-        <div class="np-feature">
-            <div>
-                <span class="np-tag">🧭 다이퀘스트 · 기획부터 구현까지 직접<span class="d">2026.10.14 ~ 진행 중</span></span>
-                <h3>IT 인프라 포털 · 증적이 남는 하나의 창구</h3>
-                <p class="np-lead2">계정 신청, 방화벽 오픈, VM, VPN, 사무실 IP, 장비 반출입까지 모든 요청을 <b>통합계정으로 로그인한 뒤</b> 처리하게 만들었습니다. 누가 언제 무엇을 신청하고 누가 승인했는지가 자동으로 기록되어, 증적을 따로 모을 필요가 없습니다.</p>
+            <div class="tl-hero-a">
+                <span class="tl-hero-k">💡 스스로 만든 해답 · IT 인프라 포털</span>
+                <a class="np-shot" href="pf_portal.html"><img src="img/pt/home.webp" alt="IT 인프라 포털 메인 화면 (회사 정보 블러)" loading="lazy"><span>실제 메인 화면 · 회사명·주소 블러</span></a>
+                <p class="np-lead2">모든 요청을 <b>통합계정 로그인 뒤</b>로 모았습니다. VM은 표준 OS로 신청받고, VPN은 개인 계정·승인제로, IP는 장부 기준 자동 부여, 서버는 담당자가 직접 확인하게 만들었습니다. 일을 처리하는 것만으로 증적이 남습니다.</p>
                 <div class="proof"><span>🔑 통합계정 로그인</span><span>🌐 사설 IP 자동 부여</span><span>📜 로그 자동 수집</span><span>📦 반출입 확인서</span><span>🔐 VPN 승인제</span></div>
                 <div class="np-actions">
                     <a class="np-btn" href="pf_portal.html">포털 프로젝트 페이지 →</a>
                     <button class="np-btn ghost" type="button" data-target="portal-modal">요약 보기</button>
                 </div>
             </div>
-            <a class="np-shot" href="pf_portal.html"><img src="img/pt/home.webp" alt="IT 인프라 포털 메인 화면 (회사 정보 블러)" loading="lazy"><span>실제 메인 화면 · 회사명·주소 블러</span></a>
         </div>
 
-        <div class="np-sub">침해 대응 · 로그 모니터링</div>
-        <div class="np-grid g2">
-            <div class="card expandable press np-case t-red" data-target="ransom-modal" tabindex="0" role="button">
-                <span class="np-tag red">🧹 스스로 기획 · 랜섬웨어 2건</span>
-                <h3>아무도 시키지 않은 연말 서버 점검에서 찾은 랜섬웨어</h3>
-                <p class="np-flow"><b>기획</b>105대 점검 페이지 직접 구현 <i>→</i> <b>발견</b>랜섬웨어 2건 <i>→</i> <b>조치</b>포트 차단, 계정 변경, 경영진 보고</p>
-                <span class="np-more">과정 보기 →</span>
-            </div>
-            <div class="card expandable press np-case t-red" data-target="intrusion-modal" tabindex="0" role="button">
-                <span class="np-tag red">🚨 침해 흔적 대응</span>
-                <h3>서버 점검 중 침해 흔적 발견 및 대응</h3>
-                <p class="np-flow"><b>악성봇</b>채굴 코드·암호화 DB 제거 <i>/</i> <b>포트 점유</b>외부 경로 차단, 지속 모니터링</p>
-                <span class="np-more">과정 보기 →</span>
-            </div>
-            <div class="card expandable press np-case t-green" data-target="mon-modal" tabindex="0" role="button">
-                <span class="np-tag">📈 실시간 모니터링<span class="d">2026.10.12 ~ 10.28</span></span>
-                <h3>Grafana 직접 구축 · Zabbix 개선</h3>
-                <p class="np-flow"><b>구축</b>Grafana 대시보드 <i>+</i> <b>개선</b>기존 Zabbix <i>→</i> <b>연동</b>포털 IDC 맵 상태 표시</p>
-                <span class="np-more">과정 보기 →</span>
-            </div>
-            <div class="card expandable press np-case t-red" data-target="fw-modal" tabindex="0" role="button">
-                <span class="np-tag">🧾 상장 의료기업<span class="d">2026.04 ~ 08</span></span>
-                <h3>방화벽 관리자 계정 무단 접속을 로그로 찾아 차단</h3>
-                <p class="np-flow"><b>질문</b>왜 수정 날짜가 바뀌지? <i>→</i> <b>해답</b>유휴 PC로 로그 수집 서버 구축, 외부 IP 차단</p>
-                <span class="np-more">과정 보기 →</span>
-            </div>
-        </div>
-
-        <div class="np-sub">네트워크 보안 장비 · 접근 통제</div>
-        <div class="np-grid g2">
-            <div class="card expandable press np-case t-teal" data-target="sophos-modal" tabindex="0" role="button">
-                <span class="np-tag">🛡️ Sophos · 1인 전담<span class="d">2026.08 ~ 상시</span></span>
-                <h3>펌웨어·정책·외부 통신을 혼자 통제하는 방화벽 운영</h3>
-                <p class="np-flow"><b>펌웨어</b>정기 2회 + 긴급 1회 <i>/</i> <b>정책</b>NAT 순서 장애 해결 <i>/</i> <b>통신</b>구로 ↔ IDC IPsec</p>
-                <span class="np-more">과정 보기 →</span>
-            </div>
-            <div class="card expandable press np-case t-teal" data-target="zyxel-modal" tabindex="0" role="button">
-                <span class="np-tag">🧰 Zyxel · 업체 없이 1인<span class="d">2026.04 ~ 08 · 상시</span></span>
-                <h3>밀려 있던 방화벽 펌웨어를 몇 주에 걸쳐 올림</h3>
-                <p class="np-flow"><b>본사 ↔ 지사</b>IPsec <i>→</i> <b>단계적</b>버전 업 <i>→</i> <b>정전·주말</b>직접 대응</p>
-                <span class="np-more">과정 보기 →</span>
-            </div>
-            <div class="card expandable press np-case t-teal" data-target="vpn-modal" tabindex="0" role="button">
-                <span class="np-tag">🔐 SSL VPN<span class="d">2026.10.19 ~ 11.11</span></span>
-                <h3>모두가 돌려 쓰던 VPN 계정을 승인제 개인 계정으로</h3>
-                <p class="np-flow"><b>이전</b>공용 계정, 추적 불가 <i>→</i> <b>이후</b>신청서 → 로그 → 승인 → LDAP 권한</p>
-                <span class="np-more">과정 보기 →</span>
-            </div>
-            <div class="card expandable press np-case t-violet" data-target="ldap-modal" tabindex="0" role="button">
-                <span class="np-tag">👥 통합계정(LDAP) 관리<span class="d">2026.10</span></span>
-                <h3>현 근무자 기준으로 정비, 129명 비활성화</h3>
-                <p class="np-flow"><b>정비</b>퇴사자·미사용 129명 <i>+</i> <b>필수</b>초기 비밀번호 변경 <i>+</i> <b>차단</b>관리자 페이지 내부망 전용</p>
-                <span class="np-more">과정 보기 →</span>
-            </div>
-        </div>
-
-        <div class="np-sub">운영 체계 · 현장</div>
-        <div class="np-grid g2">
-            <div class="card expandable press np-case t-amber" data-target="cost-modal" tabindex="0" role="button">
-                <span class="np-tag">💸 상장 의료기업 · 1인 총괄<span class="d">2026.04 ~ 08</span></span>
-                <h3>안 쓰는 툴을 걷어내고 그룹웨어로 통합</h3>
-                <p class="np-flow"><b>해지</b>협업툴·원격툴·미사용 AI <i>/</i> <b>절감</b>백업 1/3, AI 라이선스 30%↓</p>
-                <span class="np-more">과정 보기 →</span>
-            </div>
-            <div class="card expandable press np-case t-violet" data-target="sol-modal" tabindex="0" role="button">
-                <span class="np-tag">🛂 NAC · DLP · DRM<span class="d">2026.04 ~ 08 · 상시</span></span>
-                <h3>세 보안 솔루션의 계정을 조직도 기준으로 다시 맞춤</h3>
-                <p class="np-flow"><b>발견</b>퇴사자·휴직자 미정리, NAC 설정 누락 <i>→</i> <b>조치</b>재편, 전 직원 재설정</p>
-                <span class="np-more">과정 보기 →</span>
-            </div>
-            <div class="card expandable press np-case t-amber" data-target="site-modal" tabindex="0" role="button">
-                <span class="np-tag">👷 항공 조업 · 정비<span class="d">2022.04 ~ 2026.04 · 상시</span></span>
-                <h3>공사 현장 입회와 7개 지점 사무실 레이아웃</h3>
-                <p class="np-flow"><b>현장</b>포설 경로·공항 전용망 확인 <i>→</i> <b>산출물</b>본사·지점 레이아웃 주기 갱신</p>
-                <span class="np-more">과정 보기 →</span>
-            </div>
-            <div class="card expandable press np-case t-amber" data-target="eml-modal" tabindex="0" role="button">
-                <span class="np-tag">🎣 피싱 대응 · 자체 도구<span class="d">2026.04 ~ 08</span></span>
-                <h3>탈취 사례 공지, 라이선스 문제 없는 사내 EML 뷰어 배포</h3>
-                <p class="np-flow"><b>문제</b>Outlook 차단, 라이선스 이슈 뷰어 <i>→</i> <b>해결</b>바이브 코딩으로 전용 뷰어 빌드</p>
-                <span class="np-more">과정 보기 →</span>
-            </div>
-        </div>
-
-        <div class="np-sub">서버 · 인프라 · 네트워크 운영</div>
         <div class="np-grid g3">
-            <div class="card expandable press np-proj t-green" data-target="linux-modal" tabindex="0" role="button">
-                <div class="np-thumb ico">🐧</div>
-                <div class="np-pb"><h4>서버·가상화 운영 체계화 <span class="when sm">2026.08 ~ 상시</span></h4><p class="hi">OS 표준화 · 자원 제한 · ISMS 기준 반출 절차</p><p>Linux 약 100대, 서버 2대 신규, VM 8대 신규·약 20대 정리</p></div>
+            <div class="card expandable press tl-card" data-target="monitor-modal" tabindex="0" role="button">
+                <span class="tl-no">01</span>
+                <h3>조직과 함께 성장하는 사람</h3>
+                <p class="kw">예산이 없다고 멈추지 않고, 있는 자원으로 길을 찾습니다</p>
+                <div class="tl-case"><span>사례 · 젠큐릭스</span>유지보수도 예산도 없던 방화벽에 의심 정황 → <b>안 쓰는 PC로 로그 수집 서버</b>를 만들어 1차 문제를 막고, 방화벽 로그를 직접 익힘</div>
+                <span class="np-more">사례 보기 →</span>
             </div>
-            <div class="card expandable press np-proj t-green" data-target="drive-modal" tabindex="0" role="button">
-                <div class="np-thumb"><img src="img/drive.webp" alt="" loading="lazy"></div>
-                <div class="np-pb"><h4>Nextcloud 사내 드라이브 <span class="when sm">2026.09.04 ~ 09.28</span></h4><p class="hi">연 약 1,000만 원 클라우드 추가 결제 취소</p><p>유휴 PC로 구축, Teams 이관, 1인 운영</p></div>
+            <div class="card expandable press tl-card" data-target="army-modal" tabindex="0" role="button">
+                <span class="tl-no">02</span>
+                <h3>성숙하고 긍정적인 태도를 가진 사람</h3>
+                <p class="kw">맡은 범위 밖의 일도 배움으로 바꿉니다</p>
+                <div class="tl-case"><span>사례 · 샤프에비에이션케이</span>1,500명에 IT 3명, 업무 밖 요청까지 맡으며 <b>천장·벽·바닥까지 직접 작업</b> → 네트워크·전기·동선을 한 구조로 보는 눈이 생김</div>
+                <span class="np-more">사례 보기 →</span>
             </div>
-            <div class="card expandable press np-proj t-green" data-target="nexus-modal" tabindex="0" role="button">
-                <div class="np-thumb"><img src="img/nexus.webp" alt="" loading="lazy"></div>
-                <div class="np-pb"><h4>Nexus Docker·Maven <span class="when sm">2026.09.30 ~ 10.19</span></h4><p class="hi">무거운 구버전 → 유휴 PC 신규 서버</p><p>데이터 정리·이전, Docker 저장소 추가, 1인 운영</p></div>
+            <div class="card expandable press tl-card" data-target="collab-modal" tabindex="0" role="button">
+                <span class="tl-no">03</span>
+                <h3>건강한 소통과 협업을 중시하는 사람</h3>
+                <p class="kw">힘든 현장일수록 분위기를 먼저 만듭니다</p>
+                <div class="tl-case"><span>사례 · 샤프에비에이션케이</span>사무직 지상조업 투입 4개월, 불만 많던 현장에서 <b>같은 조를 하고 싶은 사람</b>이 되고 젊은 직원들을 독려</div>
+                <span class="np-more">사례 보기 →</span>
             </div>
-        </div>
-        <div class="np-grid g3" style="margin-top:14px">
-            <div class="card expandable press np-case t-teal" data-target="net-modal" tabindex="0" role="button">
-                <span class="np-tag">🌐 3개 회사 현장<span class="d">상시</span></span>
-                <h3>랜선 제작부터 장비 설정까지, 네트워크 관리</h3>
-                <p class="np-flow"><b>원인</b>노후 배선·루프·커플러 <i>→</i> <b>해결</b>직접 포설·장비 정리</p>
-                <span class="np-more">과정 보기 →</span>
-            </div>
-            <div class="card expandable press np-case t-amber" data-target="edr-modal" tabindex="0" role="button">
-                <span class="np-tag">🧷 EDR(알약)<span class="d">2022.04 ~ 2026.04 · 상시</span></span>
-                <h3>약 200명 PC 식별 정비와 패치 관리</h3>
-                <p class="np-flow"><b>식별</b>자산번호·실사용자 <i>→</i> <b>패치</b>원격 최신화, 공항 보안망 수동 패치</p>
-                <span class="np-more">과정 보기 →</span>
-            </div>
-            <div class="card expandable press np-case t-green" data-target="ucs-modal" tabindex="0" role="button">
-                <span class="np-tag">🛫 국가 중요시설<span class="d">2021.03 ~ 2022.04</span></span>
-                <h3>폐쇄망 서버 27대 운영, 첫 인프라 경력</h3>
-                <p class="np-flow"><b>주기</b>하루 3회 트래픽, 월간 보고서 <i>+</i> <b>소통</b>월 1회 담당자 점검</p>
-                <span class="np-more">과정 보기 →</span>
-            </div>
-        </div>
-
-        <div class="np-sub">자기 개발</div>
-        <div class="np-grid g3">
-            <div class="np-self"><span class="ic">✨</span><b>AI 활용 개발</b><p>인프라 포털, EML 메일 뷰어 등 업무에 필요한 도구를 AI 바이브 코딩으로 직접 기획·구현해 배포했습니다.</p></div>
-            <div class="np-self"><span class="ic">📜</span><b>네트워크관리사 2급</b><p>현장에서 익힌 네트워크를 이론으로 정리하기 위해 취득했습니다 (2024.12).</p></div>
-            <div class="np-self"><span class="ic">📻</span><b>70년대 빈티지 앰프 수리</b><p>회로도를 읽고 측정값을 따라 고장 원인을 좁혀 갑니다. 장애를 추적하는 방식과 같습니다.</p></div>
         </div>
     </section>
 
@@ -1388,12 +1274,13 @@
     </div>
 </div>
 
+<div hidden aria-hidden="true"><button type="button" data-target="fw-modal" tabindex="-1"></button><button type="button" data-target="ransom-modal" tabindex="-1"></button><button type="button" data-target="intrusion-modal" tabindex="-1"></button><button type="button" data-target="mon-modal" tabindex="-1"></button><button type="button" data-target="sophos-modal" tabindex="-1"></button><button type="button" data-target="zyxel-modal" tabindex="-1"></button><button type="button" data-target="net-modal" tabindex="-1"></button><button type="button" data-target="vpn-modal" tabindex="-1"></button><button type="button" data-target="ldap-modal" tabindex="-1"></button><button type="button" data-target="cost-modal" tabindex="-1"></button><button type="button" data-target="sol-modal" tabindex="-1"></button><button type="button" data-target="site-modal" tabindex="-1"></button><button type="button" data-target="eml-modal" tabindex="-1"></button><button type="button" data-target="edr-modal" tabindex="-1"></button><button type="button" data-target="linux-modal" tabindex="-1"></button><button type="button" data-target="ucs-modal" tabindex="-1"></button></div>
 <!-- ===================== MODALS ===================== -->
 <div class="full-page-overlay t-red" id="fw-modal" role="dialog" aria-modal="true" aria-label="방화벽 관리자 계정 무단 접속 대응">
     <div class="modal-content"><div class="modal-body">
         <div class="mcat" data-mark="🚨"><span class="en">INCIDENT RESPONSE</span><span class="ko">침해 대응 · 로그 모니터링</span></div>
         <h2>방화벽 관리자 계정 무단 접속 대응</h2>
-        <p class="modal-meta"><span class="when">2026.04 ~ 08</span>젠큐릭스 · 코스닥 상장 의료기업 · 인재상 “새로운 질문을 던지고 스스로 해답을 만들어갈 동료”</p>
+        <p class="modal-meta"><span class="when">2026.04 ~ 08</span>젠큐릭스 · 코스닥 상장 의료기업</p>
         <div class="role-banner"><div class="role-icon">❓</div><div><div class="role-title">질문</div><div class="role-desc">방화벽 점검 중, <strong>아무도 설정을 바꾸지 않았는데 수정 날짜가 갱신</strong>되는 것을 발견했습니다. 유지보수 업체도 없었고 정책 변경도 없었습니다. 방화벽 내부 로그는 <strong>2시간만 저장</strong>돼 원인을 확인할 수 없었습니다.</div></div></div>
         <div class="viz-sec-label">스스로 만든 해답</div>
         <div class="flow-row">
@@ -1412,65 +1299,6 @@
             </div></div>
             <div class="viz-section-card"><div class="card-mini-title">배운 것</div><div class="result-badge" style="margin-bottom:0"><div class="dot"></div>작은 이상도 “왜?”라고 물어야 사고가 보입니다. 그리고 로그가 없으면 답을 찾을 수 없어서, 이후 무엇을 만들든 접속과 관리자 작업 기록을 가장 먼저 설계합니다.</div></div>
         </div>
-    </div></div>
-</div>
-
-<div class="full-page-overlay t-pink" id="monitor-modal" role="dialog" aria-modal="true" aria-label="조직과 함께 성장하는 사람">
-    <div class="modal-content"><div class="modal-body">
-        <div class="mcat" data-mark="✨"><span class="en">TALENT</span><span class="ko">나라스페이스 인재상</span></div>
-        <h2>노후 모니터 문제를 데이터로 바꾼 구매 계획</h2>
-        <p class="modal-meta">샤프에비에이션케이 · 인재상 “조직과 함께 성장하는 사람”</p>
-        <div class="role-banner"><div class="role-icon">🏢</div><div><div class="role-title">배경</div><div class="role-desc">수직적인 조직이라 담당자가 자율적으로 개선을 제안하기 어려운 환경이었습니다. 듀얼 모니터로 15~17인치가 지급됐는데, 2005~2007년 생산 모델이라 대부분 어둡고, 17인치는 해상도가 맞지 않아 <strong>엑셀을 주로 쓰는 관리직의 화면이 깨지는 문제</strong>가 자주 생겼습니다.</div></div></div>
-        <div class="viz-sec-label">문제 정의 → 해결책 제시</div>
-        <div class="flow-row">
-            <div class="flow-step"><div class="flow-icon">📋</div><div class="flow-title">자산조사</div><div class="flow-desc">인치·LED 상태까지 기록</div></div>
-            <div class="flow-step"><div class="flow-icon">🔦</div><div class="flow-title">기준 강화</div><div class="flow-desc">화면이 나와도 밝기·색 이상이면 고장 분류</div></div>
-            <div class="flow-step"><div class="flow-icon">🔧</div><div class="flow-title">부품 조합</div><div class="flow-desc">같은 모델 고장품 부품을 합쳐 약 7대 복구</div></div>
-            <div class="flow-step"><div class="flow-icon">💡</div><div class="flow-title">제안</div><div class="flow-desc">PC 1대 값으로 모니터 6대 구매 가능</div></div>
-            <div class="flow-step"><div class="flow-icon">✅</div><div class="flow-title">계획 변경</div><div class="flow-desc">PC 50대 → PC 45대 + 모니터 30대</div></div>
-        </div>
-        <div class="result-badge"><div class="dot"></div>개인이 불편을 참고 넘기던 문제를 자산조사 데이터로 증명해, 같은 예산으로 더 많은 직원의 업무 환경을 바꿨습니다.</div>
-    </div></div>
-</div>
-
-<div class="full-page-overlay t-pink" id="army-modal" role="dialog" aria-modal="true" aria-label="성숙하고 긍정적인 태도">
-    <div class="modal-content"><div class="modal-body">
-        <div class="mcat" data-mark="✨"><span class="en">TALENT</span><span class="ko">나라스페이스 인재상</span></div>
-        <h2>위기 병사 곁에서 배운 태도</h2>
-        <p class="modal-meta">육군 · 관심병사 관리 캠프 약 2년 · 전문하사(부사관) 전역 · 인재상 “성숙하고 긍정적인 태도를 가진 사람”</p>
-        <div class="role-banner"><div class="role-icon">🎖️</div><div><div class="role-title">어떤 임무였나</div><div class="role-desc">부조리가 심한 부대에서 힘들어하는 후임들을 먼저 챙긴 것을 인정받아, 관심병사를 관리하는 캠프로 옮겨 근무했습니다. 정신적 어려움을 겪는 병사 곁을 <strong>24시간 지키는 임무</strong>라, 말 한마디와 행동 하나가 큰 영향을 줄 수 있었습니다.</div></div></div>
-        <div class="kpi-row">
-            <div class="kpi-card"><div class="kpi-num">약 2년</div><div class="kpi-label">캠프 근무<br>(부사관 포함)</div></div>
-            <div class="kpi-card"><div class="kpi-num count-num" data-suffix="명" data-target="300">0명</div><div class="kpi-label">만나고 관리한<br>병사 (약)</div></div>
-            <div class="kpi-card"><div class="kpi-num">2주</div><div class="kpi-label">정신건강 전문가<br>교육 이수</div></div>
-            <div class="kpi-card"><div class="kpi-num">+6개월</div><div class="kpi-label">능력을 인정받아<br>전문하사 연장 복무</div></div>
-        </div>
-        <div class="viz-checklist" style="margin-top:14px">
-            <div class="viz-check-item"><div class="viz-check-icon">✓</div>정신과 의사·상담가에게 2주간 교육을 받고, 위기 상황에서 감정을 다스리며 대응하는 법을 익혔습니다</div>
-            <div class="viz-check-item"><div class="viz-check-icon">✓</div>임의 차출에서 전문 인력 배치로 바뀌던 시기에 투입돼, 추가 훈련 없이 바로 부사관으로 6개월 더 복무했습니다</div>
-            <div class="viz-check-item"><div class="viz-check-icon">✓</div>상대를 존중하는 태도가 신뢰를 만든다는 것을 배웠고, 지금도 사용자와 동료를 대하는 기준입니다</div>
-        </div>
-    </div></div>
-</div>
-
-<div class="full-page-overlay t-pink" id="collab-modal" role="dialog" aria-modal="true" aria-label="건강한 소통과 협업">
-    <div class="modal-content"><div class="modal-body">
-        <div class="mcat" data-mark="✨"><span class="en">TALENT</span><span class="ko">나라스페이스 인재상</span></div>
-        <h2>흩어진 요청을 모아 모두에게 공개</h2>
-        <p class="modal-meta">다이퀘스트 · 인재상 “건강한 소통과 협업을 중시하는 사람”</p>
-        <div class="role-banner"><div class="role-icon">🤝</div><div><div class="role-title">배경</div><div class="role-desc">약 20년간 인프라 전담 인력 없이 운영된 개발 회사라, 요청과 점검, IDC·내부 서버실 관리가 한 사람에게 몰렸습니다. 요청은 메신저와 구두로 들어와 <strong>누가 무엇을 기다리는지 서로 알 수 없었습니다.</strong></div></div></div>
-        <div class="viz-two-col">
-            <div class="viz-section-card"><div class="card-mini-title">정보 공유로 동료의 실행을 돕기</div><div class="viz-checklist">
-                <div class="viz-check-item"><div class="viz-check-icon">✓</div>IT 요청을 인프라 포털 한 곳으로 모으고, 처리 상태와 담당자 메모를 신청자가 직접 확인</div>
-                <div class="viz-check-item"><div class="viz-check-icon">✓</div>VPN·사무실 IP·서버 모니터링 가이드를 만들어, 담당자를 기다리지 않고 직접 처리</div>
-                <div class="viz-check-item"><div class="viz-check-icon">✓</div>필요한 기능부터 먼저 열어 피드백을 받고 고치는 방식으로 운영</div>
-            </div></div>
-            <div class="viz-section-card"><div class="card-mini-title">권위가 아닌 논리로 설득</div><div class="viz-checklist">
-                <div class="viz-check-item"><div class="viz-check-icon">✓</div>개발자의 sudo·포트 오픈 요청은 막기보다, 최소 권한 기준과 이유를 설명하고 대안을 함께 찾음</div>
-                <div class="viz-check-item"><div class="viz-check-icon">✓</div>보안 정책 변경은 침해사고 보고서처럼 근거를 문서로 남겨 공유</div>
-            </div></div>
-        </div>
-        <div style="text-align:center;margin-top:18px"><a class="np-btn" href="pf_portal.html">인프라 포털 프로젝트 페이지 →</a></div>
     </div></div>
 </div>
 
@@ -2074,6 +1902,95 @@
             </div></div>
         </div>
         <div class="result-badge"><div class="dot"></div>정해진 주기대로 같은 것을 보고 기록하는 습관이 여기서 생겼습니다. 지금 로그와 증적부터 설계하는 방식의 출발점입니다.</div>
+    </div></div>
+</div>
+
+<div class="full-page-overlay t-pink" id="monitor-modal" role="dialog" aria-modal="true" aria-label="조직과 함께 성장하는 사람">
+    <div class="modal-content"><div class="modal-body">
+        <div class="mcat" data-mark="✨"><span class="en">TALENT</span><span class="ko">나라스페이스 인재상</span></div>
+        <h2>🧩 예산 없이 만든 방화벽 로그 수집 서버</h2>
+        <p class="modal-meta"><span class="when">2026.04 ~ 08</span>젠큐릭스 · 인재상 “조직과 함께 성장하는 사람”</p>
+        <div class="role-banner"><div class="role-icon">⚖️</div><div><div class="role-title">두 가지 선택지밖에 없어 보이던 상황</div><div class="role-desc">방화벽은 유지보수 계약이 없었고, 비용 문제로 새로 업체를 들이기도 어려웠습니다. 그런데 관리자 계정에 <strong>의심스러운 정황</strong>이 보였습니다. 돈이 없으니 그냥 두거나, 무리해서라도 업체를 부르거나 둘 중 하나처럼 보였습니다.</div></div></div>
+        <div class="before-after-grid">
+            <div class="ba-col before"><div class="ba-head bad">😟 보통의 선택</div><div class="ba-list">
+                <div class="ba-item"><div class="ba-dot red"></div>비용이 없으니 방치</div>
+                <div class="ba-item"><div class="ba-dot red"></div>또는 무리해서 업체 고용</div>
+            </div></div>
+            <div class="ba-arrow">→</div>
+            <div class="ba-col after"><div class="ba-head good">🛠️ 제가 택한 길</div><div class="ba-list">
+                <div class="ba-item"><div class="ba-dot green"></div>사내에서 안 쓰는 PC를 모아 로그 수집 서버 구성</div>
+                <div class="ba-item"><div class="ba-dot green"></div>2시간만 남던 방화벽 로그를 계속 보관</div>
+                <div class="ba-item"><div class="ba-dot green"></div>쌓인 로그로 원인을 확인해 1차 문제 차단</div>
+            </div></div>
+        </div>
+        <div class="viz-sec-label">조직이 얻은 것 · 제가 성장한 것</div>
+        <div class="viz-two-col">
+            <div class="viz-section-card"><div class="card-mini-title">🏢 조직</div><div class="viz-checklist">
+                <div class="viz-check-item"><div class="viz-check-icon">✓</div>추가 비용 없이 로그 보관 공백 해소</div>
+                <div class="viz-check-item"><div class="viz-check-icon">✓</div>관리자 페이지 외부 차단, 유지보수용 계정 정리</div>
+                <div class="viz-check-item"><div class="viz-check-icon">✓</div>이후 증적 관리 프로세스 수립</div>
+            </div></div>
+            <div class="viz-section-card"><div class="card-mini-title">🌱 나</div><div class="viz-checklist">
+                <div class="viz-check-item"><div class="viz-check-icon">✓</div>방화벽 로그가 어떤 방식으로 밖으로 보내지고 수집되는지 직접 익힘</div>
+                <div class="viz-check-item"><div class="viz-check-icon">✓</div>무엇을 남겨야 사고 때 답을 찾을 수 있는지, 수집할 로그를 고르는 기준이 생김</div>
+                <div class="viz-check-item"><div class="viz-check-icon">✓</div>로그 수집 서버 자체를 구성·운영하는 경험</div>
+            </div></div>
+        </div>
+        <div class="result-badge"><div class="dot"></div>이때 배운 “로그부터 설계한다”는 기준이 다이퀘스트에서 Grafana·Zabbix와 인프라 포털의 로그 자동 수집으로 이어졌습니다.</div>
+    </div></div>
+</div>
+
+<div class="full-page-overlay t-pink" id="army-modal" role="dialog" aria-modal="true" aria-label="성숙하고 긍정적인 태도">
+    <div class="modal-content"><div class="modal-body">
+        <div class="mcat" data-mark="✨"><span class="en">TALENT</span><span class="ko">나라스페이스 인재상</span></div>
+        <h2>🔧 업무 밖의 일까지 배움으로</h2>
+        <p class="modal-meta"><span class="when">2022.04 ~ 2026.04</span>샤프에비에이션케이 · 인재상 “성숙하고 긍정적인 태도를 가진 사람”</p>
+        <div class="kpi-row">
+            <div class="kpi-card"><div class="kpi-num count-num" data-suffix="명" data-target="1500">0명</div><div class="kpi-label">임직원</div></div>
+            <div class="kpi-card"><div class="kpi-num count-num" data-suffix="명" data-target="3">0명</div><div class="kpi-label">IT 인력<br>(그중 2명은 개발자)</div></div>
+            <div class="kpi-card"><div class="kpi-num">20년+</div><div class="kpi-label">함께 일한 선배들의<br>경력</div></div>
+        </div>
+        <div class="role-banner"><div class="role-icon">📥</div><div><div class="role-title">자연스럽게 늘어난 일</div><div class="role-desc">경력이 20년 넘는 선배 개발자 두 분과 일하다 보니, 제 업무 범위 밖의 요청도 많이 들어왔습니다. 거절하기보다 할 수 있는 건 받아서 처리했습니다.</div></div></div>
+        <div class="emo">
+            <div><span class="e">💻</span><b>개인적인 부탁</b><p>자녀 노트북 세팅, 개인 태블릿 견적, 개인 PC 고장 원격 점검</p></div>
+            <div><span class="e">🪚</span><b>공간 작업</b><p>시스템 박스 위치 때문에 선이 동선에 걸려 발에 차이고 끊기는 일이 잦아, 천장을 뚫어 선을 올리고 벽을 뚫고 바닥재를 걷어내 다시 깔았습니다</p></div>
+            <div><span class="e">🖨️</span><b>복합기</b><p>연결 설정을 맡다 보니 고장과 소모품까지 자연스럽게 담당</p></div>
+        </div>
+        <div class="viz-sec-label">그 결과 · 인프라를 한 구조로 보는 눈</div>
+        <div class="flow-row">
+            <div class="flow-step"><div class="flow-icon">🔌</div><div class="flow-title">전기</div><div class="flow-desc">콘센트·시스템 박스 위치</div></div>
+            <div class="flow-step"><div class="flow-icon">🧵</div><div class="flow-title">랜선</div><div class="flow-desc">포설 경로와 동선</div></div>
+            <div class="flow-step"><div class="flow-icon">📡</div><div class="flow-title">네트워크</div><div class="flow-desc">스위치·공유기·AP</div></div>
+            <div class="flow-step"><div class="flow-icon">👀</div><div class="flow-title">사람</div><div class="flow-desc">불편해서 몰래 놓은 공유기까지 빠르게 파악</div></div>
+        </div>
+        <div class="result-badge"><div class="dot"></div>그래서 이후 회사에서는 빠르게 적응했고, 사람들이 믿고 여러 일을 맡겼습니다. 젠큐릭스와 다이퀘스트에서 짧은 기간에 많은 일을 할 수 있었던 바탕입니다.</div>
+    </div></div>
+</div>
+
+<div class="full-page-overlay t-pink" id="collab-modal" role="dialog" aria-modal="true" aria-label="건강한 소통과 협업">
+    <div class="modal-content"><div class="modal-body">
+        <div class="mcat" data-mark="✨"><span class="en">TALENT</span><span class="ko">나라스페이스 인재상</span></div>
+        <h2>✈️ 지상조업 현장에서 같이 땀 흘린 4개월</h2>
+        <p class="modal-meta"><span class="when">2022.08 ~ 약 4개월</span>샤프에비에이션케이 · 인재상 “건강한 소통과 협업을 중시하는 사람”</p>
+        <div class="role-banner"><div class="role-icon">🛬</div><div><div class="role-title">배경</div><div class="role-desc">공항 지상조업 현장에 사람이 부족해 사무직도 현장에 투입됐습니다. 항공기 유도, 수하물 벌크 작업처럼 몸을 쓰는 일이라 <strong>사무직들의 불만이 많았고</strong>, 남자 직원들에게는 반강제로 돌아가는 분위기였습니다.</div></div></div>
+        <div class="htl">
+            <div data-e="🦺"><b>투입</b><span>항공기 유도·벌크 작업</span></div>
+            <div data-e="😄"><b>분위기</b><span>웃고 농담하며 즐겁게</span></div>
+            <div data-e="🤝"><b>조 편성</b><span>같은 조를 하고 싶다는 사람이 많아짐</span></div>
+            <div data-e="🧳"><b>다른 부서</b><span>함께 캐리어 나르고 늦게 끝나면 회식</span></div>
+            <div data-e="📣"><b>독려</b><span>“회사가 벌어야 우리도 월급 받는다” 젊은 직원들 격려</span></div>
+        </div>
+        <div class="viz-two-col">
+            <div class="viz-section-card"><div class="card-mini-title">🤝 소통</div><div class="viz-checklist">
+                <div class="viz-check-item"><div class="viz-check-icon">✓</div>평소 대화가 없던 다른 부서 직원들과 현장에서 가까워짐</div>
+                <div class="viz-check-item"><div class="viz-check-icon">✓</div>힘든 일일수록 분위기를 먼저 만들면 팀이 버틸 수 있다는 것을 배움</div>
+            </div></div>
+            <div class="viz-section-card"><div class="card-mini-title">🏭 이해</div><div class="viz-checklist">
+                <div class="viz-check-item"><div class="viz-check-icon">✓</div>회사가 어떤 방식으로 수익을 내는지 현장에서 직접 봄</div>
+                <div class="viz-check-item"><div class="viz-check-icon">✓</div>현장 사람들이 어떻게, 얼마나 힘들게 일하는지 알게 됨 → 이후 IT 지원의 우선순위를 현장 기준으로 판단</div>
+            </div></div>
+        </div>
+        <div class="result-badge"><div class="dot"></div>몸은 힘들었지만 즐거웠던 시간입니다. 현장을 이해한 경험이 지금도 사용자 입장에서 먼저 생각하는 기준이 됐습니다.</div>
     </div></div>
 </div>
 
