@@ -1451,75 +1451,72 @@
     </div></div>
 </div>
 
-<div class="full-page-overlay t-red" id="ransom-modal" role="dialog" aria-modal="true" aria-label="연말 서버 점검과 랜섬웨어 대응">
+<div class="full-page-overlay t-red" id="ransom-modal" role="dialog" aria-modal="true" aria-label="연말 서버 점검 직접 기획">
     <div class="modal-content"><div class="modal-body">
         <div class="mcat" data-mark="🚨"><span class="en">INCIDENT RESPONSE</span><span class="ko">침해 대응 · 로그 모니터링</span></div>
-        <h2>🧹 연말 서버 점검 · 그 안에서 찾은 랜섬웨어 2건</h2>
+        <h2>🧹 연말 서버 점검 직접 기획 · 침해 흔적 4건 대응</h2>
         <p class="modal-meta">누가 시킨 일이 아니라 필요하다고 판단해 직접 기획한 점검</p>
-        <p class="anon-note">대외비 사안이라 서버명, IP, 계정, 침입 경위는 빼고 진행 방식만 정리했습니다.</p>
-        <div class="role-banner"><div class="role-icon">❓</div><div><div class="role-title">스스로 던진 질문</div><div class="role-desc">서버는 계속 늘어나는데 <strong>누가 쓰는지, 아직 필요한지, 안전한지</strong> 아무도 몰랐습니다. 접속 기록이 3년 넘게 없는 서버도 있었습니다. 연말을 기준으로 모든 서버를 한 번씩 확인하는 점검을 직접 만들었습니다.</div></div></div>
+        <p class="anon-note">대외비 사안이라 사고 유형, 서버명, IP, 계정, 침입 경위는 적지 않고 진행 방식만 정리했습니다.</p>
+        <div class="role-banner"><div class="role-icon">❓</div><div><div class="role-title">스스로 던진 질문</div><div class="role-desc">서버는 계속 늘어나는데 <strong>누가 쓰는지, 아직 필요한지, 안전한지</strong> 아무도 몰랐습니다. 연말을 기준으로 모든 서버를 한 번씩 확인하는 점검을 직접 만들었습니다.</div></div></div>
         <div class="viz-sec-label">진행 순서</div>
         <div class="htl">
-            <div data-e="🧾"><b>점검 체계</b><span>침해 흔적 점검 스크립트 작성 (외부 로그인·채굴·백도어·랜섬 흔적)</span></div>
-            <div data-e="🔎"><b>전수 점검</b><span>IDC 서버 33 + VM 72 = 105대</span></div>
-            <div data-e="🚨" class="hot"><b>침해 이력 4건</b><span>랜섬웨어 2 · 악성봇 1 · 포트 점유 1</span></div>
-            <div data-e="📣"><b>경영진 보고</b><span>랜섬웨어 확인 즉시 대표이사까지 보고</span></div>
+            <div data-e="🧾"><b>점검 체계</b><span>침해 흔적 점검 스크립트 작성</span></div>
+            <div data-e="🔎"><b>전수 점검</b><span>서버·VM 105대</span></div>
+            <div data-e="🚨" class="hot"><b>침해 흔적 4건</b><span>격리·차단 후 조치</span></div>
+            <div data-e="📣"><b>경영진 보고</b><span>확인 즉시 보고</span></div>
             <div data-e="🧹"><b>담당자 확인</b><span>포털 점검 페이지로 계속 사용·반납 회신</span></div>
         </div>
         <div class="vbars">
             <div class="vb"><b class="count-num" data-target="105" data-suffix="대">0대</b><i style="--h:100%"></i><span>점검 대상<br>서버·VM</span></div>
             <div class="vb"><b class="count-num" data-target="33" data-suffix="대">0대</b><i class="gray" style="--h:31%"></i><span>지원 종료 OS<br>VM (정리 대상)</span></div>
-            <div class="vb"><b class="count-num" data-target="4" data-suffix="건">0건</b><i class="red" style="--h:8%"></i><span>침해 이력</span></div>
-            <div class="vb"><b class="count-num" data-target="2" data-suffix="건">0건</b><i class="red" style="--h:5%"></i><span>랜섬웨어</span></div>
+            <div class="vb"><b class="count-num" data-target="4" data-suffix="건">0건</b><i class="red" style="--h:8%"></i><span>침해 흔적<br>대응</span></div>
         </div>
         <div class="viz-two-col">
-            <div class="viz-section-card"><div class="card-mini-title">🔒 랜섬웨어 즉시 대응</div><div class="viz-checklist">
-                <div class="viz-check-item"><div class="viz-check-icon">1</div>외부에 열려 있던 포트를 모두 닫음</div>
-                <div class="viz-check-item"><div class="viz-check-icon">2</div>서버 계정 정보 전부 변경</div>
-                <div class="viz-check-item"><div class="viz-check-icon">3</div>암호화된 파일은 지우지 않고 별도 보존 복사 후 검증</div>
-                <div class="viz-check-item"><div class="viz-check-icon">4</div>암호화 파일 분류, 개인정보보호법 기준으로 개인정보 포함 여부 재분류</div>
+            <div class="viz-section-card"><div class="card-mini-title">🔒 대응 원칙</div><div class="viz-checklist">
+                <div class="viz-check-item"><div class="viz-check-icon">1</div>지우기 전에 증거부터 보존</div>
+                <div class="viz-check-item"><div class="viz-check-icon">2</div>외부 접근 경로와 계정부터 차단</div>
+                <div class="viz-check-item"><div class="viz-check-icon">3</div>서비스 영향은 담당자와 함께 판단</div>
+                <div class="viz-check-item"><div class="viz-check-icon">4</div>확인된 것과 확인되지 않은 것을 나눠 기록하고 보고</div>
             </div></div>
             <div class="viz-section-card"><div class="card-mini-title">🧭 점검 프로세스 페이지 (직접 구현)</div><div class="viz-checklist">
                 <div class="viz-check-item"><div class="viz-check-icon">✓</div>담당자가 서버마다 계속 사용 / 반납 / 지울 파일 선택 후 제출</div>
                 <div class="viz-check-item"><div class="viz-check-icon">✓</div>“제 서버가 아니에요”를 고르면 본부장에게 자동 이관</div>
                 <div class="viz-check-item"><div class="viz-check-icon">✓</div>그룹웨어 조직도 연동, 담당자 여러 명 지정, 미제출자 안내 메일</div>
-                <div class="viz-check-item"><div class="viz-check-icon">✓</div>확인 기한 2027.01.31, 기한 뒤에도 자동 삭제 없이 관리자가 회수</div>
+                <div class="viz-check-item"><div class="viz-check-icon">✓</div>기한 뒤에도 자동 삭제 없이 관리자가 회수</div>
             </div></div>
         </div>
         <div class="shots">
             <figure class="shot2"><img src="https://hwang-junmyeong.github.io/Hwanggg/img/pt/cleanup.webp" alt="연말 서버 정리 페이지" loading="lazy"><span class="bl">서버명·IP·이름 블러</span><figcaption>연말 서버 정리 페이지 · 미확인·확인 완료 상태를 한눈에</figcaption></figure>
             <figure class="shot2"><img src="https://hwang-junmyeong.github.io/Hwanggg/img/pt/cleanup-guide.webp" alt="연말 서버 정리 안내" loading="lazy"><figcaption>처음 들어오면 뜨는 4단계 안내</figcaption></figure>
         </div>
-        <div class="result-badge"><div class="dot"></div>랜섬웨어 두 건 모두 아무도 관리하지 않던 노후 서버에서 나왔습니다. 점검을 일회성으로 끝내지 않고 포털 페이지로 만들어, 담당자가 없는 서버가 다시 생기지 않게 했습니다.</div>
+        <div class="result-badge"><div class="dot"></div>침해 흔적은 관리 담당자가 없던 서버에서 나왔습니다. 그래서 점검을 일회성으로 끝내지 않고 포털 페이지로 만들어, 담당자가 없는 서버가 다시 생기지 않게 했습니다.</div>
     </div></div>
 </div>
 
-<div class="full-page-overlay t-red" id="intrusion-modal" role="dialog" aria-modal="true" aria-label="침해사고 대응">
+<div class="full-page-overlay t-red" id="intrusion-modal" role="dialog" aria-modal="true" aria-label="침해 대응 원칙">
     <div class="modal-content"><div class="modal-body">
         <div class="mcat" data-mark="🚨"><span class="en">INCIDENT RESPONSE</span><span class="ko">침해 대응 · 로그 모니터링</span></div>
-        <h2>🚨 서버 점검 중 침해 흔적 발견 및 대응</h2>
-        <p class="modal-meta">점검에서 찾은 침해 이력 4건 중 랜섬웨어를 뺀 2건 · 악성봇과 포트 점유</p>
-        <p class="anon-note">대외비 사안이라 서버명, IP, 계정, 공격 경로는 적지 않았습니다.</p>
-        <div class="viz-two-col">
-            <div class="viz-section-card"><div class="card-mini-title">🕳️ ① 포트 수천 개를 잡고 있던 서버 </div><div class="viz-checklist">
-                <div class="viz-check-item"><div class="viz-check-icon">🔍</div>포트 수천 개가 점유된 것을 보고 발견</div>
-                <div class="viz-check-item"><div class="viz-check-icon">🧾</div>뚜렷한 통신이나 이력은 보이지 않았고, 로그 일부가 삭제된 상태</div>
-                <div class="viz-check-item"><div class="viz-check-icon">⛔</div>원인이 된 방화벽 허용 규칙 즉시 비활성화, 악성 프로세스·파일 제거</div>
-                <div class="viz-check-item"><div class="viz-check-icon">⚖️</div>현업이 쓰는 VM이 여러 개 돌고 있어 포맷 대신 계정 변경 후 지속 모니터링</div>
-            </div><div class="proof"><span>차단 완료</span><span>모니터링 중</span></div></div>
-            <div class="viz-section-card"><div class="card-mini-title">🤖 ② 개발 서버 악성봇 </div><div class="viz-checklist">
-                <div class="viz-check-item"><div class="viz-check-icon">🔍</div>외부에 공개된 DB 포트로 들어온 채굴 악성코드 확인</div>
-                <div class="viz-check-item"><div class="viz-check-icon">🧹</div>증거 보관 후 악성 파일·프로세스·예약 작업 제거</div>
-                <div class="viz-check-item"><div class="viz-check-icon">⛔</div>침입자 계정 잠금, DB 접속을 사내·VPN만 허용</div>
-                <div class="viz-check-item"><div class="viz-check-icon">📋</div>삭제된 DB는 업무·개인정보 없음 확인 → 유출 신고 대상 아님 판단, 포맷 예정</div>
-            </div><div class="proof"><span>조치 완료</span><span>포맷 예정</span></div></div>
-        </div>
+        <h2>🚨 침해 흔적을 발견했을 때의 판단 기준</h2>
+        <p class="modal-meta">연말 서버 점검에서 발견한 침해 흔적 4건 대응</p>
+        <p class="anon-note">대외비 사안이라 사고 유형, 서버명, IP, 계정, 공격 경로는 적지 않았습니다.</p>
         <div class="viz-sec-label">판단 기준</div>
         <div class="flow-row">
             <div class="flow-step"><div class="flow-icon">📸</div><div class="flow-title">기록 먼저</div><div class="flow-desc">프로세스·파일·연결 상태를 남긴 뒤 조치</div></div>
             <div class="flow-step"><div class="flow-icon">⛔</div><div class="flow-title">경로 차단</div><div class="flow-desc">외부 접근과 계정부터 막음</div></div>
             <div class="flow-step"><div class="flow-icon">🤝</div><div class="flow-title">현업 확인</div><div class="flow-desc">서비스 영향은 담당자와 함께 결정</div></div>
             <div class="flow-step"><div class="flow-icon">👀</div><div class="flow-title">계속 관찰</div><div class="flow-desc">완전히 지울 수 없으면 모니터링</div></div>
+        </div>
+        <div class="viz-two-col">
+            <div class="viz-section-card"><div class="card-mini-title">⛔ 차단과 재발 방지</div><div class="viz-checklist">
+                <div class="viz-check-item"><div class="viz-check-icon">✓</div>불필요하게 열려 있던 외부 접근 규칙 정리</div>
+                <div class="viz-check-item"><div class="viz-check-icon">✓</div>관련 계정 정보 변경</div>
+                <div class="viz-check-item"><div class="viz-check-icon">✓</div>내부 서비스는 사내망·VPN에서만 접근</div>
+            </div></div>
+            <div class="viz-section-card"><div class="card-mini-title">📋 보고와 기록</div><div class="viz-checklist">
+                <div class="viz-check-item"><div class="viz-check-icon">✓</div>확인 즉시 경영진 보고</div>
+                <div class="viz-check-item"><div class="viz-check-icon">✓</div>영향 범위와 조치 내용을 문서로 정리</div>
+                <div class="viz-check-item"><div class="viz-check-icon">✓</div>로그가 없는 부분은 단정하지 않고 지속 모니터링</div>
+            </div></div>
         </div>
         <div class="result-badge"><div class="dot"></div>확인된 것과 확인되지 않은 것을 나눠 기록했습니다. 로그가 지워진 부분은 단정하지 않고, 막을 수 있는 경로를 먼저 막은 뒤 지켜보고 있습니다.</div>
     </div></div>
@@ -2637,8 +2634,8 @@
                     "co": "다이퀘스트",
                     "d": "2026.11",
                     "e": "🧹",
-                    "b": "연말 서버 점검 · 랜섬웨어 2건",
-                    "p": "105대 침해 흔적 점검, 랜섬웨어 발견·보고·차단",
+                    "b": "연말 서버 점검 · 침해 흔적 4건 대응",
+                    "p": "105대 침해 흔적 점검, 발견 건 격리·차단·경영진 보고",
                     "m": "ransom-modal"
                 },
                 {
@@ -2646,7 +2643,7 @@
                     "d": "2026",
                     "e": "🚨",
                     "b": "서버 침해 흔적 발견 및 대응",
-                    "p": "포트 수천 개 점유 서버 경로 차단, 채굴 악성코드 제거",
+                    "p": "증거 보존 후 외부 경로·계정 차단, 경영진 보고와 지속 모니터링",
                     "m": "intrusion-modal"
                 },
                 {
